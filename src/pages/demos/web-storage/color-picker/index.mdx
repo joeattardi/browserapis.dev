@@ -1,13 +1,33 @@
-export { default } from '../../../../components/Layout';
 import CodeBlock from '../../../../components/CodeBlock';
+import DemoCode from '../../../../components/DemoCode';
+import DemoFrame from '../../../../components/DemoFrame';
+import DemoLayout from '../../../../components/DemoLayout';
+
+import Demo from './demo.mdx';
+
 import js from '!raw-loader!./index.js';
 import css from '!raw-loader!./demo.css';
 import html from '!raw-loader!./index.html';
 
 # Color Picker Demo
 
+<DemoLayout 
+  js={js}
+  css={css}
+  html={html}
+/>
+
 ## Code
 
 <CodeBlock code={js} language="javascript" />
 <CodeBlock code={html} language="html" />
 <CodeBlock code={css} language="css" />
+
+{/* <CodeBlock code={js} language="javascript" /> */}
+
+
+{/* <DemoCode {...props} files={[
+  { name: 'index.js', language: 'javascript', code: js },
+  { name: 'index.html', language: 'html', code: html },
+  { name: 'index.css', language: 'css', code: css },
+]} /> */}
