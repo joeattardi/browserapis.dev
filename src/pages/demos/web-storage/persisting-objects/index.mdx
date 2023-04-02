@@ -1,26 +1,25 @@
 ---
 nav:
-  key: 'colorPicker'
+  key: 'todos'
   parent: 'webStorage'
-  label: 'Remembering an Input Value'
+  label: 'Persisting Simple Objects'
   group: 'sidebar'
-  order: 1
+  order: 2
 ---
-
 export { default } from '../../../../components/DemoLayout';
 import CodeBlock from '../../../../components/CodeBlock';
 import InlineDemo from '../../../../components/InlineDemo';
 
 import js from '!raw-loader!./index.js';
-import css from '!raw-loader!./demo.css';
+import css from '!raw-loader!./index.css';
 import html from '!raw-loader!./index.html';
 
-# Remembering an Input Value
+# Persisting Simple Objects
 
-Remember a simple input value in local storage.
+A simplified to-do list that persists its data in local storage.
 
- - The picker tries to read a color from local storage when the page first loads. If one is found, it's set as the default color.
- - When the color value changes, it is immediately written to local storage.
+ - Enter some text and press Enter to add a to-do.
+ - The list only contains incomplete to-dos. When a to-do is marked completed, it is immediately removed.
 
 ## [Demo](./demo)
 

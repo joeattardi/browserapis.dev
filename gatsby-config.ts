@@ -10,21 +10,22 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    'gatsby-plugin-vanilla-extract',
     'gatsby-plugin-google-gtag',
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: 'gatsby-omni-font-loader',
       options: {
-        remarkPlugins: [
+        enableListener: true,
+        preconnect: ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'],
+        web: [
           {
-            resolve: `gatsby-remark-embed-snippet`,
-            options: {},
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {},
+            file: 'https://fonts.googleapis.com/css2?family=Domine&family=Rubik:wght@400;700&family=Open+Sans:wght@400;700&display=swap',
           }
-        ]
-      }
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx'
     },
     {
       resolve: 'gatsby-source-filesystem',
