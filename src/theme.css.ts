@@ -17,7 +17,9 @@ export const vars = createGlobalTheme(':root', {
     },
     header: {
       background: '#505053',
-      text: '#FFFFFF'
+      text: '#FFFFFF',
+      link: '#ffffff',
+      hover: '#68686C'
     },
     sidebar: {
       background: '#EFF8FB',

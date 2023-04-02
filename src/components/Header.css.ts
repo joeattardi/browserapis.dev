@@ -9,7 +9,8 @@ export const header = style({
   color: vars.color.header.text,
   fontSize: vars.font.size.lg,
   padding: vars.spacing.lg,
-  display: 'flex',
+  display: 'grid',
+  gridTemplateColumns: '1fr auto',
   alignItems: 'center'
 });
 
@@ -23,7 +24,8 @@ export const homeLink = style({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  flexGrow: 1
+  justifySelf: 'start'
+  // flexGrow: 1,
 });
 
 export const navList = style({
@@ -41,4 +43,11 @@ export const navLink = style({
   color: vars.color.header.text,
   textDecoration: 'none',
   fontSize: vars.font.size.sm,
+  padding: vars.spacing.md,
+  borderRadius: '5px',
+  selectors: {
+    '&:hover': {
+      background: vars.color.header.hover
+    }
+  }
 });
