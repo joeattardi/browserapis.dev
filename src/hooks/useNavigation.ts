@@ -35,6 +35,6 @@ export default function useNavigation(group: string) {
   navItems.forEach((item) => {
     item.children = groupItems.filter((child) => child.parent === item.key);
   });
-console.log(navItems);
+  
   return navItems;
 }

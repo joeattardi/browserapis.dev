@@ -1,0 +1,36 @@
+.todo-form input {
+  font-size: 1.2rem;
+  padding: 0.5em 0.75em;
+  width: 100%;
+}
+
+#todos {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 1em;
+}
+
+.todo {
+  color: #07131C;
+  display: flex;
+  align-items: baseline;
+  padding-left: 0.7em;
+  background: #EFF6FB;
+  border: 1px solid #63A7D8;
+  width: 100%;
+  font-size: 1.25em;
+  line-height: 1.25em;
+  margin: 0.5em 0;
+}
+
+.todo input {
+  transform: scale(1.3);
+  transform-origin: center;
+}
+
+.todo label {
+  flex-grow: 1;
+  cursor: pointer;
+  padding: 0.7em;
+}
