@@ -18,7 +18,8 @@ export const navGroupItem = style({});
 
 globalStyle(`${navGroupItem} > a`, {
   fontWeight: 'bold',
-  paddingLeft: vars.spacing.md
+  paddingLeft: vars.spacing.md,
+  fontSize: vars.font.size.md
 });
 
 export const navGroup = style({
@@ -35,6 +36,7 @@ export const navItem = style({
 
 export const navLink = style({
   borderRadius: '5px',
+  fontSize: vars.font.size.sm,
   textDecoration: 'none',
   padding: vars.spacing.md,
   paddingLeft: vars.spacing.xl,

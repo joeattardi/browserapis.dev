@@ -25,6 +25,8 @@ export const vars = createGlobalTheme(':root', {
   },
   font: {
     size: {
+      sm: '16px',
+      md: '18px',
       lg: '24px',
       xl: '32px',
       '2xl': '48px'
