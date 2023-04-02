@@ -6,6 +6,8 @@ nav:
   group: 'sidebar'
   order: 1
 ---
+import { MdFullscreen } from 'react-icons/md';
+import { Link } from 'gatsby';
 
 export { default } from '../../../../components/DemoLayout';
 import CodeBlock from '../../../../components/CodeBlock';
@@ -22,7 +24,7 @@ Remember a simple input value in local storage.
  - The picker tries to read a color from local storage when the page first loads. If one is found, it's set as the default color.
  - When the color value changes, it is immediately written to local storage.
 
-## [Demo](./demo)
+## Demo
 
 <div className="demo">
   <InlineDemo js={js} css={css} html={html} />
