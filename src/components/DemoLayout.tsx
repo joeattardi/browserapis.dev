@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { MdOpenInNew } from 'react-icons/md';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import InlineDemo, { DemoProps } from './InlineDemo';
+import { fullscreenLink, demoHeader } from './DemoLayout.css';
 import useCodeImport from '../hooks/useCodeImport';
 import CodeBlock from './CodeBlock';
 import SidebarLayout from './SidebarLayout';
@@ -23,7 +25,9 @@ const DemoLayout = (props) => {
       </div>
 
       <section>
-        <h2>Demo</h2>
+        <h2 className={demoHeader}>
+          <a href="./demo" target="_blank" className={fullscreenLink}><span>Demo</span> <MdOpenInNew size={18} /></a>
+        </h2>
         <div className="demo">
           {isCodeLoaded && <InlineDemo {...code} />}
         </div>

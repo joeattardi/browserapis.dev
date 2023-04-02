@@ -21,6 +21,10 @@ globalStyle('h1, h2, h3, h4', {
   fontFamily: 'Domine'
 });
 
+globalStyle('a', {
+  color: vars.color.link.base
+});
+
 globalStyle('.formField', {
   display: 'flex',
   flexDirection: 'column',
@@ -36,7 +40,7 @@ globalStyle('.formField label', {
 
 globalStyle('button', {
   padding: '0.5em 1em',
-  background: '#b7d6ed',
+  background: vars.color.button.default,
   border: 'none',
   fontSize: '1rem',
   borderRadius: '0.25em',

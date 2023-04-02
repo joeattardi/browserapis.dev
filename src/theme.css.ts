@@ -5,6 +5,12 @@ export const vars = createGlobalTheme(':root', {
     accent: '#2563eb',
     white: '#fafafa',
     success: '#16a34a',
+    link: {
+      base: '#4f46e5'
+    },
+    button: {
+      default: '#cbd5e1'
+    },
     body: {
       background: '#fafafa',
       text: '#52525b'

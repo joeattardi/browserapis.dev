@@ -1,13 +1,10 @@
-import Demo from '../../../../components/Demo';
+---
+title: 'Persisting Simple Objects'
+---
+export { default } from '../../../../components/FullScreenDemoLayout';
 
-import js from '!raw-loader!./index.js';
-import css from '!raw-loader!./index.css';
-import html from '!raw-loader!./index.html';
+A simplified to-do list that persists its data in local storage.
 
-<Demo
-  title="Persisting Simple Objects"
-  js={js}
-  css={css}
-  html={html}
-/>
-
+ - Enter some text and press Enter to add a to-do.
+ - The list only contains incomplete to-dos. When a to-do is marked completed, it is immediately removed.
+ 

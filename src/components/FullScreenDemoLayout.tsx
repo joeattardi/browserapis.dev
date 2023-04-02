@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import InlineDemo, { DemoProps } from './InlineDemo';
-import CodeBlock from './CodeBlock';
-import SidebarLayout from './SidebarLayout';
+import React from 'react';
+import InlineDemo from './InlineDemo';
 import useCodeImport from '../hooks/useCodeImport';
 import { demo } from './FullScreenDemoLayout.css';
 
@@ -18,6 +15,9 @@ const FullScreenDemoLayout = (props) => {
   return (
     <main className={demo}>
       <h1>{pageContext.frontmatter.title}</h1>
+      <div>
+        {props.children}
+      </div>
       {isCodeLoaded && <InlineDemo {...code} />}
     </main>
   )

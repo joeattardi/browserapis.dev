@@ -23,9 +23,12 @@ export default function useNavigation(group: string) {
     .map(
       ({ node }: { node }) => ({
         ...node.pageContext.frontmatter.nav,
+        title: node.pageContext.frontmatter.title,
         path: node.path
       })
     );
+
+    console.log(groupItems);
 
   // Start with top level items
   const navItems = groupItems.filter(
@@ -36,5 +39,6 @@ export default function useNavigation(group: string) {
     item.children = groupItems.filter((child) => child.parent === item.key);
   });
   
+  console.log(navItems);
   return navItems.sort((a, b) => a.order - b.order);
 }
