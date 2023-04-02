@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from './Layout';
 import Sidebar from './Sidebar';
 
-import { content } from './SidebarLayout.css';
+import { content } from './Layout.css';
 
 type LayoutProps = {
   children: React.ReactNode;

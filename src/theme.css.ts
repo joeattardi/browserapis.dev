@@ -2,6 +2,10 @@ import { createGlobalTheme } from '@vanilla-extract/css';
 
 export const vars = createGlobalTheme(':root', {
   color: {
+    accent: '#2563eb',
+    body: {
+      background: '#fafafa'
+    },
     header: {
       background: '#505053',
       text: '#FFFFFF'
@@ -29,7 +33,8 @@ export const vars = createGlobalTheme(':root', {
       md: '18px',
       lg: '24px',
       xl: '32px',
-      '2xl': '48px'
+      '2xl': '48px',
+      '3xl': '64px'
     }
   },
   spacing: {
