@@ -14,9 +14,7 @@ export default function Layout({ className = '', children }: LayoutProps) {
   return (
     <div className={clsx(layout, className)}>
       <Header />
-      <main className={main}>
       {children}
-      </main>
     </div>
   ); 
 }

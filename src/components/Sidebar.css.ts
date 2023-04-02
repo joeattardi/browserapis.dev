@@ -2,7 +2,7 @@ import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '../theme.css';
 
 export const sidebar = style({
-  width: vars.sidebarWidth,
+  gridArea: 'sidebar',
   background: vars.color.sidebar.background,
   borderRight: `2px solid ${vars.color.sidebar.border}`,
   padding: vars.spacing.md

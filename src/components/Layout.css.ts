@@ -8,6 +8,7 @@ export const layout = style({
 });
 
 export const main = style({
+  gridArea: 'main',
   flexGrow: 1,
   display: 'flex',
   flexDirection: 'row',
@@ -15,7 +16,7 @@ export const main = style({
 });
 
 export const content = style({
-  flexGrow: 1,
+  gridArea: 'main',
   padding: `${vars.spacing.lg} ${vars.spacing.xl}`
 });
 
