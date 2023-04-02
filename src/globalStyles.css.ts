@@ -4,7 +4,8 @@ import { vars } from './theme.css';
 globalStyle('html, body', {
   margin: 0,
   fontFamily: 'Rubik',
-  height: '100%'
+  height: '100%',
+  color: vars.color.body.text
 });
 
 globalStyle('*', {

@@ -3,8 +3,11 @@ import { createGlobalTheme } from '@vanilla-extract/css';
 export const vars = createGlobalTheme(':root', {
   color: {
     accent: '#2563eb',
+    white: '#fafafa',
+    success: '#16a34a',
     body: {
-      background: '#fafafa'
+      background: '#fafafa',
+      text: '#52525b'
     },
     header: {
       background: '#505053',
@@ -28,6 +31,7 @@ export const vars = createGlobalTheme(':root', {
     }
   },
   font: {
+    code: `Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace`,
     size: {
       sm: '16px',
       md: '18px',
