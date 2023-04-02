@@ -36,5 +36,5 @@ export default function useNavigation(group: string) {
     item.children = groupItems.filter((child) => child.parent === item.key);
   });
   
-  return navItems;
+  return navItems.sort((a, b) => a.order - b.order);
 }

@@ -1,4 +1,5 @@
 ---
+title: 'Persisting Simple Objects'
 nav:
   key: 'todos'
   parent: 'webStorage'
@@ -7,28 +8,9 @@ nav:
   order: 2
 ---
 export { default } from '../../../../components/DemoLayout';
-import CodeBlock from '../../../../components/CodeBlock';
-import InlineDemo from '../../../../components/InlineDemo';
-
-import js from '!raw-loader!./index.js';
-import css from '!raw-loader!./index.css';
-import html from '!raw-loader!./index.html';
-
-# Persisting Simple Objects
 
 A simplified to-do list that persists its data in local storage.
 
  - Enter some text and press Enter to add a to-do.
  - The list only contains incomplete to-dos. When a to-do is marked completed, it is immediately removed.
 
-## Demo
-
-<div className="demo">
-  <InlineDemo js={js} css={css} html={html} />
-</div>
-
-## Code
-
-<CodeBlock code={js} language="javascript" />
-<CodeBlock code={html} language="html" />
-<CodeBlock code={css} language="css" />

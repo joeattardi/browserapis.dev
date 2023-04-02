@@ -1,4 +1,5 @@
 ---
+title: 'Listening for Storage Changes'
 nav:
   key: 'storageEvents'
   parent: 'webStorage'
@@ -8,14 +9,6 @@ nav:
 ---
 import { Link } from 'gatsby';
 export { default } from '../../../../components/DemoLayout';
-import CodeBlock from '../../../../components/CodeBlock';
-import InlineDemo from '../../../../components/InlineDemo';
-
-import js from '!raw-loader!./index.js';
-import css from '!raw-loader!./index.css';
-import html from '!raw-loader!./index.html';
-
-# Listening for Storage Changes
 
 A simplified to-do list that persists its data in local storage.
 
@@ -28,15 +21,3 @@ When to-do items are added or removed from a given tab, any other open tabs will
 for the `storage` event.
 
 You can also open the JavaScript console to see notifications when storage events are triggered.
-
-## Demo
-
-<div className="demo">
-  <InlineDemo js={js} css={css} html={html} />
-</div>
-
-## Code
-
-<CodeBlock code={js} language="javascript" />
-<CodeBlock code={html} language="html" />
-<CodeBlock code={css} language="css" />
