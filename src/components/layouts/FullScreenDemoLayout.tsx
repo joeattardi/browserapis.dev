@@ -1,6 +1,6 @@
 import React from 'react';
 import InlineDemo from './InlineDemo';
-import useCodeImport from '../hooks/useCodeImport';
+import useCodeImport from '../../hooks/useCodeImport';
 import { demo } from './FullScreenDemoLayout.css';
 
 type LayoutProps = {

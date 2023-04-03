@@ -55,5 +55,10 @@ export const vars = createGlobalTheme(':root', {
     lg: '1rem',
     xl: '2rem'
   },
-  sidebarWidth: '18rem'
+  sidebarWidth: '18rem',
+  headerHeight: '5.5rem'
 });
+
+export const mediaQueries = {
+  small: 'screen and (max-width: 768px)'
+}

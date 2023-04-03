@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import '../globalStyles.css';
-import Header from './Header';
+import '../../globalStyles.css';
+import Header from '../Header';
 import { layout, main } from './Layout.css';
 
 type LayoutProps = {

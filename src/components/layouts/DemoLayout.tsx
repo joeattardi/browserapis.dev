@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MdOpenInNew } from 'react-icons/md';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import InlineDemo, { DemoProps } from './InlineDemo';
+import InlineDemo from './InlineDemo';
 import { fullscreenLink, demoHeader } from './DemoLayout.css';
-import useCodeImport from '../hooks/useCodeImport';
-import CodeBlock from './CodeBlock';
+import useCodeImport from '../../hooks/useCodeImport';
+import CodeBlock from '../CodeBlock';
 import SidebarLayout from './SidebarLayout';
 
 type LayoutProps = {

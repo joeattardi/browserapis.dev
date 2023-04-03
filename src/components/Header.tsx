@@ -4,6 +4,7 @@ import { MdOutlineRestaurant } from 'react-icons/md';
 import useNavigation from '../hooks/useNavigation';
 import { header, logoIcon, homeLink, navList, navLink, navItem } from './Header.css';
 import { Link } from 'gatsby';
+import NavMenu from './NavMenu';
 
 const Header = () => {
   const data = useNavigation('topnav');
@@ -12,7 +13,7 @@ const Header = () => {
     <header className={header}>
       <Link className={homeLink} to="/">
         <MdOutlineRestaurant size={32} className={logoIcon} />
-        Web Browser API Cookbook
+        <span>Web Browser API Cookbook</span>
       </Link>
 
       <nav>
@@ -23,6 +24,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
+        <NavMenu />
       </nav>
     </header>
   )

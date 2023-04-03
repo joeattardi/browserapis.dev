@@ -28,8 +28,6 @@ export default function useNavigation(group: string) {
       })
     );
 
-    console.log(groupItems);
-
   // Start with top level items
   const navItems = groupItems.filter(
     (item) => typeof item.parent === 'undefined'

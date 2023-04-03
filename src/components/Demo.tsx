@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InlineDemo, { DemoProps as InlineDemoProps } from './InlineDemo';
+import InlineDemo, { DemoProps as InlineDemoProps } from './layouts/InlineDemo';
 import { container, demo } from './Demo.css';
 
 type DemoProps = InlineDemoProps & {

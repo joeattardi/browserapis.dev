@@ -1,19 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { vars, mediaQueries } from '../theme.css';
 
-export const sidebar = style({
-  gridArea: 'sidebar',
-  background: vars.color.sidebar.background,
-  borderRight: `2px solid ${vars.color.sidebar.border}`,
-  padding: vars.spacing.md,
-
-  '@media': {
-    [mediaQueries.small]: {
-      display: 'none'
-    }
-  }
-});
-
 export const navList = style({
   margin: 0,
   padding: 0,

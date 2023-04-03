@@ -1,17 +1,18 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '../theme.css';
+import { mediaQueries, vars } from '../theme.css';
 
 export const header = style({
   gridArea: 'header',
   fontFamily: 'Rubik',
   fontWeight: 500,
+  height: vars.headerHeight,
   background: vars.color.header.background,
   color: vars.color.header.text,
   fontSize: vars.font.size.lg,
   padding: vars.spacing.lg,
   display: 'grid',
   gridTemplateColumns: '1fr auto',
-  alignItems: 'center'
+  alignItems: 'center',
 });
 
 export const logoIcon = style({
@@ -25,13 +26,18 @@ export const homeLink = style({
   flexDirection: 'row',
   alignItems: 'center',
   justifySelf: 'start'
-  // flexGrow: 1,
 });
 
 export const navList = style({
   listStyleType: 'none',
   margin: 0,
-  padding: 0
+  padding: 0,
+
+  '@media': {
+    [mediaQueries.small]: {
+      display: 'none'
+    }
+  }
 });
 
 export const navItem = style({

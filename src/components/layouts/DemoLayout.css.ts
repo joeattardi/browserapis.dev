@@ -1,5 +1,5 @@
 import { style, globalStyle } from '@vanilla-extract/css';
-import { vars } from '../theme.css';
+import { vars } from '../../theme.css';
 
 export const demoHeader = style({
   display: 'flex',

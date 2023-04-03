@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '../theme.css';
+import { mediaQueries, vars } from '../../theme.css';
 
 export const layout = style({
   display: 'flex',
@@ -17,17 +17,30 @@ export const main = style({
 
 export const content = style({
   gridArea: 'main',
-  padding: `${vars.spacing.lg} ${vars.spacing.xl}`
+  padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
+  overflow: 'auto'
 });
 
 export const contentOnly = style({
   width: '80%',
   maxWidth: '1200px',
-  margin: '0 auto'
+  margin: '0 auto',
+
+  '@media': {
+    [mediaQueries.small]: {
+      width: '100%',
+      maxWidth: '100%'
+    }
+  }
 });
 
 globalStyle(`${content} h1`, {
-  fontSize: vars.font.size['2xl']
+  fontSize: vars.font.size['2xl'],
+  '@media': {
+    [mediaQueries.small]: {
+      fontSize: vars.font.size.xl
+    }
+  }
 });
 
 globalStyle(`${content} h2`, {
