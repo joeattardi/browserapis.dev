@@ -1,5 +1,5 @@
 import { style, globalStyle } from '@vanilla-extract/css';
-import { vars } from '../../theme.css';
+import { theme } from '../../theme';
 
 export const demoHeader = style({
   display: 'flex',
@@ -8,8 +8,8 @@ export const demoHeader = style({
 })
 
 export const fullscreenLink = style({
-  padding: vars.spacing.sm,
-  color: vars.color.body.text,
+  padding: theme.spacing.sm,
+  color: theme.color.body.text,
   margin: 0,
   display: 'flex',
   alignItems: 'center',
@@ -17,5 +17,5 @@ export const fullscreenLink = style({
 });
 
 globalStyle(`${fullscreenLink} svg`, {
-  marginLeft: vars.spacing.sm
+  marginLeft: theme.spacing.sm
 })

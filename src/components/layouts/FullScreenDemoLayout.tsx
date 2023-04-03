@@ -1,8 +1,9 @@
 import React from 'react';
+import clsx from 'clsx';
 import InlineDemo from './InlineDemo';
 import useCodeImport from '../../hooks/useCodeImport';
 import { demo } from './FullScreenDemoLayout.css';
-
+import { lightTheme, darkTheme } from '../../theme';
 type LayoutProps = {
   children: React.ReactNode;
 }
@@ -13,7 +14,7 @@ const FullScreenDemoLayout = (props) => {
   const { code, isCodeLoaded } = useCodeImport(basePath);
 
   return (
-    <main className={demo}>
+    <main className={clsx(demo, lightTheme)}>
       <h1>{pageContext.frontmatter.title}</h1>
       <div>
         {props.children}

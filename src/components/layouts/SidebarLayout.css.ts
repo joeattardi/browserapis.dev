@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars, mediaQueries } from '../../theme.css';
+import { theme, mediaQueries } from '../../theme';
 
 export const layout = style({
   display: 'grid',
@@ -8,7 +8,7 @@ export const layout = style({
     "sidebar main"
   `,
   gridTemplateRows: 'auto 1fr',
-  gridTemplateColumns: `${vars.sidebarWidth} minmax(0, 1fr)`,
+  gridTemplateColumns: `${theme.sidebarWidth} minmax(0, 1fr)`,
 
   '@media': {
     [mediaQueries.small]: {

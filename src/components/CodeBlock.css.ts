@@ -1,12 +1,12 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../theme.css';
+import { theme } from '../theme';
 
 export const codeBlock = style({
   background: 'rgb(40, 42, 54)',
   borderRadius: '5px',
   display: 'flex',
   flexDirection: 'column',
-  margin: `${vars.spacing.lg} 0`
+  margin: `${theme.spacing.lg} 0`
 });
 
 export const toolbar = style({
@@ -16,12 +16,12 @@ export const toolbar = style({
 });
 
 export const tag = style({
-  fontSize: vars.font.size.sm,
-  fontFamily: vars.font.code,
+  fontSize: theme.font.size.sm,
+  fontFamily: theme.font.code,
   display: 'inline-block',
   alignSelf: 'flex-start',
   marginLeft: '0.5em',
-  padding: `${vars.spacing.sm} ${vars.spacing.lg}`,
+  padding: `${theme.spacing.sm} ${theme.spacing.lg}`,
   background: 'red',
   color: 'white',
 });
@@ -29,7 +29,7 @@ export const tag = style({
 export const lang = {
   javascript: style({
     background: '#f7df1e',
-    color: vars.color.body.text
+    color: theme.color.body.text
   }),
 
   css: style({
@@ -46,21 +46,21 @@ export const copyButton = style({
   background: 'transparent',
   display: 'grid',
   gridTemplateColumns: 'auto auto',
-  gap: vars.spacing.sm,
+  gap: theme.spacing.sm,
   alignItems: 'center',
-  color: vars.color.white,
+  color: theme.color.white,
   selectors: {
     '&:hover': {
-      background: vars.color.accent
+      background: theme.color.accent
     }
   }
 });
 
 export const copySuccess = style({
-  background: vars.color.success,
+  background: theme.color.success,
   selectors: {
     '&:hover': {
-      background: vars.color.success
+      background: theme.color.success
     }
   }
 });

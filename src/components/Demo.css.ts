@@ -1,14 +1,14 @@
 import { style, globalStyle } from '@vanilla-extract/css';
-import { vars } from '../theme.css';
+import { theme } from '../theme';
 
 export const container = style({
-  padding: vars.spacing.lg
+  padding: theme.spacing.lg
 });
 
 globalStyle(`${container} h1`, {
-  fontSize: vars.font.size['2xl']
+  fontSize: theme.font.size['2xl']
 });
 
 export const demo = style({
-  marginTop: vars.spacing.lg
+  marginTop: theme.spacing.lg
 });

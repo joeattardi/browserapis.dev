@@ -1,9 +1,9 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars, mediaQueries } from '../theme.css';
+import { theme, mediaQueries } from '../theme';
 
 export const button = style({
   background: 'transparent',
-  color: vars.color.white,
+  color: theme.color.white,
   display: 'none',
 
   '@media': {
@@ -15,17 +15,17 @@ export const button = style({
 });
 
 export const menu = style({
-  background: vars.color.sidebar.background,
-  transform: 'translateX(100%)',
+  background: theme.color.sidebar.background,
+  transform: 'translateX(-100%)',
   transformOrigin: 'top',
   opacity: 0,
   transition: 'all 200ms',
   position: 'absolute',
-  height: `calc(100% - ${vars.headerHeight})`,
-  top: vars.headerHeight,
+  height: `calc(100% - ${theme.headerHeight})`,
+  top: theme.headerHeight,
   width: '100%',
-  color: vars.color.body.text,
-  padding: vars.spacing.md,
+  color: theme.color.body.text,
+  padding: theme.spacing.md,
   right: 0,
 
   selectors: {
@@ -42,6 +42,6 @@ globalStyle(`${menu} > ul > li > a`, {
 
 globalStyle(`${menu} > ul > li ul > li > a`, {
   fontSize: '1.15rem',
-  paddingTop: vars.spacing.lg,
-  paddingBottom: vars.spacing.lg  
+  paddingTop: theme.spacing.lg,
+  paddingBottom: theme.spacing.lg  
 });

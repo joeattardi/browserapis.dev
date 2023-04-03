@@ -1,12 +1,12 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '../../theme.css';
+import { theme } from '../../theme';
 
 export const demos = style({
 
 });
 
 globalStyle(`${demos} h1`, {
-  marginBottom: vars.spacing.xl
+  marginBottom: theme.spacing.xl
 });
 
 globalStyle(`${demos} img`, {

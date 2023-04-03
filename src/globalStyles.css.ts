@@ -1,11 +1,11 @@
 import { globalStyle } from '@vanilla-extract/css';
-import { vars } from './theme.css';
+import { theme } from './theme';
 
 globalStyle('html, body', {
   margin: 0,
   fontFamily: 'Rubik',
   height: '100%',
-  color: vars.color.body.text
+  color: theme.color.body.text
 });
 
 globalStyle('*', {
@@ -22,25 +22,25 @@ globalStyle('h1, h2, h3, h4', {
 });
 
 globalStyle('a', {
-  color: vars.color.link.base
+  color: theme.color.link.base
 });
 
 globalStyle('.formField', {
   display: 'flex',
   flexDirection: 'column',
-  margin: `${vars.spacing.md} 0`
+  margin: `${theme.spacing.md} 0`
 });
 
 globalStyle('.formField label', {
   fontSize: '0.95em',
   fontWeight: 'bold',
   marginBottom: '0.5em',
-  color: '#082f49'
+  color: theme.color.body.text
 });
 
 globalStyle('button', {
   padding: '0.5em 1em',
-  background: vars.color.button.default,
+  background: theme.color.button.default,
   border: 'none',
   fontSize: '1rem',
   borderRadius: '0.25em',

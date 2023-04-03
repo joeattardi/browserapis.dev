@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '../theme.css';
+import { theme } from '../theme';
 
 export const hero = style({
   textAlign: 'center'
@@ -10,10 +10,10 @@ globalStyle(`${hero} img`, {
 });
 
 globalStyle(`${hero} h1`, {
-  fontSize: vars.font.size['3xl'],
-  marginBottom: vars.spacing.xl
+  fontSize: theme.font.size['3xl'],
+  marginBottom: theme.spacing.xl
 });
 
 export const body = style({
-  fontSize: vars.font.size.md
+  fontSize: theme.font.size.md
 });

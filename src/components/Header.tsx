@@ -2,11 +2,12 @@ import React from 'react';
 import { MdOutlineRestaurant } from 'react-icons/md';
 
 import useNavigation from '../hooks/useNavigation';
-import { header, logoIcon, homeLink, navList, navLink, navItem } from './Header.css';
+import { header, logoIcon, homeLink, nav, navList, navLink, navItem } from './Header.css';
 import { Link } from 'gatsby';
 import NavMenu from './NavMenu';
+import DarkModeToggle from './DarkModeToggle';
 
-const Header = () => {
+const Header = ({ theme, setTheme }) => {
   const data = useNavigation('topnav');
 
   return (
@@ -16,7 +17,7 @@ const Header = () => {
         <span>Web Browser API Cookbook</span>
       </Link>
 
-      <nav>
+      <nav className={nav}>
         <ul className={navList}>
           {data.map(item => (
             <li className={navItem} key={item.key}>
@@ -24,6 +25,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
+        <DarkModeToggle theme={theme} setTheme={setTheme} />
         <NavMenu />
       </nav>
     </header>

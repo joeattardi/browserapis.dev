@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars, mediaQueries } from '../theme.css';
+import { theme } from '../theme';
 
 export const navList = style({
   margin: 0,
@@ -11,8 +11,8 @@ export const navGroupItem = style({});
 
 globalStyle(`${navGroupItem} > a`, {
   fontWeight: 'bold',
-  paddingLeft: vars.spacing.md,
-  fontSize: vars.font.size.md
+  paddingLeft: theme.spacing.md,
+  fontSize: theme.font.size.md
 });
 
 export const navGroup = style({
@@ -24,29 +24,29 @@ export const navGroup = style({
 export const navItem = style({
   display: 'flex',
   flexDirection: 'column',
-  margin: `${vars.spacing.sm} 0`
+  margin: `${theme.spacing.sm} 0`
 });
 
 export const navLink = style({
   borderRadius: '5px',
-  fontSize: vars.font.size.sm,
+  fontSize: theme.font.size.sm,
   textDecoration: 'none',
-  padding: vars.spacing.md,
-  paddingLeft: vars.spacing.xl,
-  color: vars.color.sidebar.link.text,
+  padding: theme.spacing.md,
+  paddingLeft: theme.spacing.xl,
+  color: theme.color.sidebar.link.text,
   selectors: {
     '&:hover': {
-      background: vars.color.sidebar.link.hover
+      background: theme.color.sidebar.link.hover
     }
   }
 });
 
 export const navLinkActive = style({
-  background: vars.color.sidebar.active.background,
-  color: vars.color.sidebar.active.text,
+  background: theme.color.sidebar.active.background,
+  color: theme.color.sidebar.active.text,
   selectors: {
     '&:hover': {
-      background: vars.color.sidebar.active.background
+      background: theme.color.sidebar.active.background
     }
   }
 });

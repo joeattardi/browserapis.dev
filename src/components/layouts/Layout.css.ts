@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { mediaQueries, vars } from '../../theme.css';
+import { mediaQueries, theme } from '../../theme';
 
 export const layout = style({
   display: 'flex',
@@ -12,13 +12,15 @@ export const main = style({
   flexGrow: 1,
   display: 'flex',
   flexDirection: 'row',
-  background: vars.color.body.background
+  
 });
 
 export const content = style({
   gridArea: 'main',
-  padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
-  overflow: 'auto'
+  padding: `${theme.spacing.lg} ${theme.spacing.xl}`,
+  overflow: 'auto',
+  background: theme.color.body.background,
+  color: theme.color.body.text
 });
 
 export const contentOnly = style({
@@ -35,22 +37,22 @@ export const contentOnly = style({
 });
 
 globalStyle(`${content} h1`, {
-  fontSize: vars.font.size['2xl'],
+  fontSize: theme.font.size['2xl'],
   '@media': {
     [mediaQueries.small]: {
-      fontSize: vars.font.size.xl
+      fontSize: theme.font.size.xl
     }
   }
 });
 
 globalStyle(`${content} h2`, {
-  margin: `${vars.spacing.lg} 0`
+  margin: `${theme.spacing.lg} 0`
 });
 
 globalStyle(`${content} .demo`, {
-  background: vars.color.demo.background,
-  padding: vars.spacing.lg,
+  background: theme.color.demo.background,
+  padding: theme.spacing.lg,
   borderRadius: '5px',
-  border: `2px solid ${vars.color.demo.border}`
+  border: `2px solid ${theme.color.demo.border}`
 });
 

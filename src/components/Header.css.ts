@@ -1,31 +1,37 @@
-import { globalStyle, style } from '@vanilla-extract/css';
-import { mediaQueries, vars } from '../theme.css';
+import { style } from '@vanilla-extract/css';
+import { theme, mediaQueries } from '../theme';
 
 export const header = style({
   gridArea: 'header',
   fontFamily: 'Rubik',
   fontWeight: 500,
-  height: vars.headerHeight,
-  background: vars.color.header.background,
-  color: vars.color.header.text,
-  fontSize: vars.font.size.lg,
-  padding: vars.spacing.lg,
+  height: theme.headerHeight,
+  background: theme.color.header.background,
+  color: theme.color.header.text,
+  fontSize: theme.font.size.lg,
+  padding: theme.spacing.lg,
   display: 'grid',
   gridTemplateColumns: '1fr auto',
   alignItems: 'center',
 });
 
 export const logoIcon = style({
-  marginRight: vars.spacing.md
+  marginRight: theme.spacing.md
 });
 
 export const homeLink = style({
   textDecoration: 'none',
-  color: vars.color.header.text,
+  color: theme.color.header.text,
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifySelf: 'start'
+});
+
+export const nav = style({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center'
 });
 
 export const navList = style({
@@ -46,14 +52,14 @@ export const navItem = style({
 });
 
 export const navLink = style({
-  color: vars.color.header.text,
+  color: theme.color.header.text,
   textDecoration: 'none',
-  fontSize: vars.font.size.sm,
-  padding: vars.spacing.md,
+  fontSize: theme.font.size.sm,
+  padding: theme.spacing.md,
   borderRadius: '5px',
   selectors: {
     '&:hover': {
-      background: vars.color.header.hover
+      background: theme.color.header.hover
     }
   }
 });

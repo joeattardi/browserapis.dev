@@ -1,11 +1,11 @@
-import { vars } from '../../theme.css';
+import { theme } from '../../theme';
 import { globalStyle, style } from '@vanilla-extract/css';
 
 export const demo = style({
-  margin: vars.spacing.lg
+  margin: theme.spacing.lg
 });
 
 globalStyle(`${demo} h1`, {
-  fontSize: vars.font.size['2xl'],
-  marginBottom: vars.spacing.lg
+  fontSize: theme.font.size['2xl'],
+  marginBottom: theme.spacing.lg
 });
