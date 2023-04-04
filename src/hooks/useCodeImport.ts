@@ -15,9 +15,9 @@ export default function useCodeImport(basePath: string) {
 
   useEffect(() => {
     Promise.all([
-      import(`!raw-loader!../pages${basePath}/index.js`),  
-      import(`!raw-loader!../pages${basePath}/index.css`),
-      import(`!raw-loader!../pages${basePath}/index.html`)
+      import(`!raw-loader!/static/code${basePath}/index.js`),  
+      import(`!raw-loader!/static/code${basePath}/index.css`),
+      import(`!raw-loader!/static/code${basePath}/index.html`)
     ]).then(([js, css, html]) => {
       setCode({
         js: js.default,

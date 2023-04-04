@@ -1,0 +1,9 @@
+#colorPicker {
+  width: 3em;
+  height: 3em;
+  padding: 0.5em;
+}
+
+.formField label {
+  align-self: flex-start;
+}

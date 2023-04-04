@@ -36,6 +36,13 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'demos',
+        path: './src/demos'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'pages',
         path: './src/pages/'
       },

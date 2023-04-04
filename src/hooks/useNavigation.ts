@@ -3,39 +3,51 @@ import { useStaticQuery, graphql } from 'gatsby';
 export default function useNavigation(group: string) {
   const data = useStaticQuery<Queries.NavItemsQuery>(graphql`
     query NavItems {
-      allSitePage {
-        edges {
-          node {
-            path
-            pageContext
+      allMdx {
+        nodes {
+          frontmatter {
+            title
+            type
+            slug
+            nav {
+              key
+              group
+              order
+              parent
+            }
           }
         }
       }
     }
   `);
 
+  // console.log(data);
   // Flat list of items
-  const groupItems = data.allSitePage.edges
+  const groupItems = data.allMdx.nodes
     .filter(
-      ({ node }: { node }) =>
-        node.pageContext?.frontmatter?.nav?.group === group
+      node =>
+        node.frontmatter?.nav?.group === group
     )
     .map(
-      ({ node }: { node }) => ({
-        ...node.pageContext.frontmatter.nav,
-        title: node.pageContext.frontmatter.title,
-        path: node.path
+      node => ({
+        ...node.frontmatter.nav,
+        title: node.frontmatter.title,
+        path: node.frontmatter.slug
       })
     );
 
+    // console.log(groupItems);
+
   // Start with top level items
   const navItems = groupItems.filter(
-    (item) => typeof item.parent === 'undefined'
+    (item) => item.parent == null
   );
 
   navItems.forEach((item) => {
     item.children = groupItems.filter((child) => child.parent === item.key);
   });
   
-  return navItems.sort((a, b) => a.order - b.order);
+  const result =  navItems.sort((a, b) => a.order - b.order);
+  console.log(result);
+  return result;
 }
