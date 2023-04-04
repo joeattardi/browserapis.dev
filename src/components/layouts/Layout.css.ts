@@ -4,7 +4,8 @@ import { mediaQueries, theme } from '../../theme';
 export const layout = style({
   display: 'flex',
   flexDirection: 'column',
-  height: '100%'
+  height: '100%',
+  background: theme.color.body.background
 });
 
 export const main = style({

@@ -9,7 +9,7 @@ export const darkTheme = createTheme(theme, {
     white: '#fafafa',
     success: '#16a34a',
     link: {
-      base: '#4f46e5'
+      base: '#a5b4fc'
     },
     button: {
       default: '#cbd5e1'
