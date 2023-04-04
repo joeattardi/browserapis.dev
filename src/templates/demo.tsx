@@ -1,27 +1,24 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { MdOpenInNew } from 'react-icons/md';
 
 import SidebarLayout from '../components/layouts/SidebarLayout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
+import { demoHeader, fullscreenLink } from '../styles/globalStyles.css';
 
-export default function Demo(props) {
-  const { data, children } = props;
-  // console.log(props);
-  // console.log(data);
-
-  const { code, isCodeLoaded } = useCodeImport(props.uri);
+export default function Demo({ children, uri, pageContext }) {
+  const { code, isCodeLoaded } = useCodeImport(uri);
 
   return (
     <SidebarLayout>
-      <h1>{props.pageContext.frontmatter.title}</h1>
+      <h1>{pageContext.frontmatter.title}</h1>
       <div>{children}</div>
-      
-      
 
       <section>
-        <h2>Demo</h2>
+        <h2 className={demoHeader}>
+          <a href="./full" target="_blank" className={fullscreenLink}><span>Demo</span> <MdOpenInNew size={18} /></a>
+        </h2>
         <div className="demo">
           {isCodeLoaded && <InlineDemo {...code} />}
         </div>
@@ -36,15 +33,5 @@ export default function Demo(props) {
     </SidebarLayout>
   )
 }
-
-// export const query = graphql`
-//   query ($id: String) {
-//     mdx(id: {eq: $id}) {
-//       frontmatter {
-//         title
-//       }
-//     }
-//   }
-// `;
 
 export { default as Head } from '../components/Head';

@@ -21,7 +21,6 @@ export default function useNavigation(group: string) {
     }
   `);
 
-  // console.log(data);
   // Flat list of items
   const groupItems = data.allMdx.nodes
     .filter(
@@ -36,8 +35,6 @@ export default function useNavigation(group: string) {
       })
     );
 
-    // console.log(groupItems);
-
   // Start with top level items
   const navItems = groupItems.filter(
     (item) => item.parent == null
@@ -47,7 +44,5 @@ export default function useNavigation(group: string) {
     item.children = groupItems.filter((child) => child.parent === item.key);
   });
   
-  const result =  navItems.sort((a, b) => a.order - b.order);
-  console.log(result);
-  return result;
+  return navItems.sort((a, b) => a.order - b.order);
 }

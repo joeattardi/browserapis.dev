@@ -17,3 +17,12 @@ globalStyle(`${hero} h1`, {
 export const body = style({
   fontSize: theme.font.size.md
 });
+
+export const demo = style({
+  margin: theme.spacing.lg
+});
+
+globalStyle(`${demo} h1`, {
+  fontSize: theme.font.size['2xl'],
+  marginBottom: theme.spacing.lg
+});

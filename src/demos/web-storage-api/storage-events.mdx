@@ -1,8 +1,13 @@
 ---
 title: 'Listening for Storage Changes'
+type: 'demo'
+slug: '/demos/web-storage-api/storage-events'
+nav:
+  key: 'storageEvents'
+  parent: 'webStorage'
+  group: 'sidebar'
+  order: 3
 ---
-export { default } from '../../../../components/layouts/FullScreenDemoLayout';
-export { default as Head } from '../../../../components/Head';
 
 A simplified to-do list that persists its data in local storage.
 
@@ -10,8 +15,9 @@ A simplified to-do list that persists its data in local storage.
  - The list only contains incomplete to-dos. When a to-do is marked completed, it is immediately removed.
  - The list data will be kept in sync with other browser tabs.
 
-Open <a href="/demos/web-storage/storage-events/demo" target="_blank">this page in a second tab</a>.
+Open <a href="/demos/web-storage-api/storage-events" target="_blank">this page in a second tab</a>.
 When to-do items are added or removed from a given tab, any other open tabs will be kept in sync. This is done by listening
 for the `storage` event.
 
 You can also open the JavaScript console to see notifications when storage events are triggered.
+

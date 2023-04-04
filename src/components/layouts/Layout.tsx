@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
-import '../../globalStyles.css';
+import '../../styles/globalStyles.css';
 import Header from '../Header';
 import { layout } from './Layout.css';
 
@@ -12,15 +12,19 @@ type LayoutProps = {
   children: React.ReactNode;
 }
 
+export default function Layout({ className = '', children }: LayoutProps) {
 function getInitialTheme() {
-  if (sessionStorage.getItem('theme')) {
+  if (typeof window === 'undefined') {
+    return lightTheme;
+  }
+
+  if (window.sessionStorage?.getItem('theme')) {
     return sessionStorage.getItem('theme');
   }
 
-  return window.matchMedia(mediaQueries.darkMode).matches ? darkTheme : lightTheme;
+  return window.matchMedia?.(mediaQueries.darkMode).matches ? darkTheme : lightTheme;
 }
 
-export default function Layout({ className = '', children }: LayoutProps) {
   useEffect(() => {
     const query = window.matchMedia(mediaQueries.darkMode);
     query.addEventListener('change', () => {

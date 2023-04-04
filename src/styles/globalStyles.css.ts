@@ -1,5 +1,5 @@
-import { globalStyle } from '@vanilla-extract/css';
-import { theme } from './theme';
+import { style, globalStyle } from '@vanilla-extract/css';
+import { theme } from '../theme';
 
 globalStyle('html, body', {
   margin: 0,
@@ -45,4 +45,23 @@ globalStyle('button', {
   fontSize: '1rem',
   borderRadius: '0.25em',
   cursor: 'pointer'
+});
+
+export const demoHeader = style({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center'
+})
+
+export const fullscreenLink = style({
+  padding: theme.spacing.sm,
+  color: theme.color.body.text,
+  margin: 0,
+  display: 'flex',
+  alignItems: 'center',
+  textDecoration: 'none'
+});
+
+globalStyle(`${fullscreenLink} svg`, {
+  marginLeft: theme.spacing.sm
 });

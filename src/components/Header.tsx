@@ -21,7 +21,7 @@ const Header = ({ theme, setTheme }) => {
         <ul className={navList}>
           {data.map(item => (
             <li className={navItem} key={item.key}>
-              <Link className={navLink} to={item.path}>{item.label}</Link>
+              <Link className={navLink} to={item.path}>{item.title}</Link>
             </li>
           ))}
         </ul>

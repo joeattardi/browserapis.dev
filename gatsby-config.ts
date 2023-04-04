@@ -17,7 +17,7 @@ const config: GatsbyConfig = {
       }
     },
     'gatsby-plugin-vanilla-extract',
-    'gatsby-plugin-google-gtag',
+    // 'gatsby-plugin-google-gtag',
     {
       resolve: 'gatsby-omni-font-loader',
       options: {
