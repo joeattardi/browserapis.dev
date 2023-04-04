@@ -19,7 +19,7 @@ export const body = style({
 });
 
 export const demo = style({
-  margin: theme.spacing.lg
+  margin: theme.spacing.lg,
 });
 
 globalStyle(`${demo} h1`, {

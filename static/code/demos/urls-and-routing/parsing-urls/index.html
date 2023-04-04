@@ -1,0 +1,32 @@
+<template id="url-card">
+  <div class="url-card">
+    <h4 class="url"></h4>
+    <div>
+      <ul></ul>
+    </div>
+  </div>
+</template>
+
+
+<div class="wrapper">
+  <form>
+    <div class="formField">
+      <label for="url">Enter URL</label>
+      <input 
+        id="url"
+        type="url"
+        required
+        autofocus 
+        name="url" 
+        placeholder="Enter a URL..."
+      >
+    </div>
+    <div class="form-actions">
+      <button>Parse URL</button>
+    </div>
+  </form>
+
+  <h4>Results</h4>
+  <p id="resultsPlaceholder">Parsed URL details will appear here.</p>
+  <div id="results"></div>
+</div>

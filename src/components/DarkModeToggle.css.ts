@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { theme } from '../theme';
 
-export const button = style({
+export const toggleButton = style({
   background: 'transparent',
   border: 'none',
   padding: theme.spacing.md,

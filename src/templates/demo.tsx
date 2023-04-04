@@ -8,7 +8,8 @@ import useCodeImport from '../hooks/useCodeImport';
 import { demoHeader, fullscreenLink } from '../styles/globalStyles.css';
 
 export default function Demo({ children, uri, pageContext }) {
-  const { code, isCodeLoaded } = useCodeImport(uri);
+  console.log(pageContext.frontmatter.slug);
+  const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
 
   return (
     <SidebarLayout>
@@ -17,7 +18,7 @@ export default function Demo({ children, uri, pageContext }) {
 
       <section>
         <h2 className={demoHeader}>
-          <a href="./full" target="_blank" className={fullscreenLink}><span>Demo</span> <MdOpenInNew size={18} /></a>
+          <a title="Open demo in full screen" href="./full" target="_blank" className={fullscreenLink}><span>Demo</span> <MdOpenInNew size={18} /></a>
         </h2>
         <div className="demo">
           {isCodeLoaded && <InlineDemo {...code} />}

@@ -54,6 +54,8 @@ globalStyle(`${content} .demo`, {
   background: theme.color.demo.background,
   padding: theme.spacing.lg,
   borderRadius: '5px',
-  border: `2px solid ${theme.color.demo.border}`
+  border: `2px solid ${theme.color.demo.border}`,
+  maxHeight: '30rem',
+  overflow: 'auto'
 });
 

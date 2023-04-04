@@ -21,11 +21,24 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
+  function createDemo(demo, path) {
+    createPage({
+      path,
+      component: `${demoTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
+    });
+
+    createPage({
+      path: `${path}/full`,
+      component: `${fullTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
+    });
+  }
+
   const result = await graphql(`
     query {
       allMdx {
         nodes {
           frontmatter {
+            alias
             slug
             title
             type
@@ -40,15 +53,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const demos = result.data.allMdx.nodes.filter(node => node.frontmatter.type === 'demo');
   demos.forEach(demo => {
-    createPage({
-      path: demo.frontmatter.slug,
-      component: `${demoTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
-    });
+    createDemo(demo, demo.frontmatter.slug);
 
-    createPage({
-      path: `${demo.frontmatter.slug}/full`,
-      component: `${fullTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
-    })
+    if (demo.frontmatter.alias) {
+      createDemo(demo, demo.frontmatter.alias);
+    }
   });
 
   const categories = result.data.allMdx.nodes.filter(node => node.frontmatter.type === 'category');

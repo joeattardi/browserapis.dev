@@ -47,6 +47,13 @@ globalStyle('button', {
   cursor: 'pointer'
 });
 
+globalStyle('input', {
+  padding: '0.5em 0.75em',
+  border: '1px solid #b3b3b3',
+  borderRadius: '3px',
+  fontSize: '1rem'
+});
+
 export const demoHeader = style({
   display: 'flex',
   flexDirection: 'row',

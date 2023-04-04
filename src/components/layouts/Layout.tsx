@@ -12,30 +12,37 @@ type LayoutProps = {
   children: React.ReactNode;
 }
 
+const ThemeClasses = {
+  dark: darkTheme,
+  light: lightTheme
+};
+
 export default function Layout({ className = '', children }: LayoutProps) {
-function getInitialTheme() {
-  if (typeof window === 'undefined') {
-    return lightTheme;
-  }
+  const [theme, setTheme] = useState(getInitialTheme());
 
-  if (window.sessionStorage?.getItem('theme')) {
-    return sessionStorage.getItem('theme');
-  }
+  function getInitialTheme() {
+    if (typeof window === 'undefined') {
+      return 'light';
+    }
 
-  return window.matchMedia?.(mediaQueries.darkMode).matches ? darkTheme : lightTheme;
-}
+    if (window.sessionStorage?.getItem('theme')) {
+      return sessionStorage.getItem('theme');
+    }
+
+    return window.matchMedia?.(mediaQueries.darkMode).matches ? 'dark' : 'light';
+  }
 
   useEffect(() => {
     const query = window.matchMedia(mediaQueries.darkMode);
     query.addEventListener('change', () => {
       if (!sessionStorage.theme) {
-        setTheme(query.matches ? darkTheme : lightTheme);
+        setTheme(query.matches ? 'dark' : 'light');
       }
     });
   }, []);
-  const [theme, setTheme] = useState(getInitialTheme());
+
   return (
-    <div className={clsx(layout, theme, className)}>
+    <div className={clsx(layout, ThemeClasses[theme], className)}>
       <Header theme={theme} setTheme={setTheme} />
       {children}
     </div>

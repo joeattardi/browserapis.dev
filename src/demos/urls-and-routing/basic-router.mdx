@@ -1,0 +1,17 @@
+---
+title: 'Basic Router'
+type: 'demo'
+slug: '/demos/urls-and-routing/basic-router'
+alias: '/demos/urls-and-routing/basic-router/about'
+nav:
+  key: 'basicRouter'
+  parent: 'urlsAndRouting'
+  group: 'sidebar'
+  order: 2
+---
+
+This is an example of basic client-side routing using the history API.
+
+Clicking a link will change the URL by calling `history.pushState` and replace the app contents with the new route.
+If the user clicks the browser's Back or Forward button, we handle the `popstate` event to show the proper content.
+This is all done on the client side only. Other than the initial page load, no requests are sent to the server.
