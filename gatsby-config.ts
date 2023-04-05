@@ -11,20 +11,23 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [
+          "G-Z5LMK9PJKM"
+        ],
+        pluginConfig: {
+          head: true
+        }
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/favicon.png'
       }
     },
     'gatsby-plugin-vanilla-extract',
-    {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: {
-        trackingIds: [
-          "G-Z5LMK9PJKM"
-        ],
-      }
-    },
     {
       resolve: 'gatsby-omni-font-loader',
       options: {
