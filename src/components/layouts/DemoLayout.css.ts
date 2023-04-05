@@ -8,7 +8,7 @@ export const demoHeader = style({
 })
 
 export const fullscreenLink = style({
-  padding: theme.spacing.sm,
+  padding: `0 ${theme.spacing.sm}`,
   color: theme.color.body.text,
   margin: 0,
   display: 'flex',

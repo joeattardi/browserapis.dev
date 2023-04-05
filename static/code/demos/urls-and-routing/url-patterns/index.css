@@ -1,0 +1,11 @@
+#pathname {
+  width: 30em;
+}
+
+#hostname {
+  width: 20em;
+}
+
+#results {
+  margin: 1em 0;
+}

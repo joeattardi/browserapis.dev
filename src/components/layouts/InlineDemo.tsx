@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import { demoContent } from '../../styles/index.css';
 export type DemoProps = {
   js: string;
   css: string;
@@ -16,7 +16,7 @@ const Demo = ({ js, css, html }: DemoProps) => {
         ${js}
       })();
     `
-    // script.textContent = js;
+
     document.body.appendChild(script);
 
     return () => {
@@ -25,7 +25,7 @@ const Demo = ({ js, css, html }: DemoProps) => {
   }, []);
 
   return (
-    <div>
+    <div className={demoContent}>
       <style>{css}</style>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>

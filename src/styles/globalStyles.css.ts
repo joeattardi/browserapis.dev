@@ -61,7 +61,7 @@ export const demoHeader = style({
 })
 
 export const fullscreenLink = style({
-  padding: theme.spacing.sm,
+  padding: `${theme.spacing.sm} 0`,
   color: theme.color.body.text,
   margin: 0,
   display: 'flex',
@@ -71,4 +71,8 @@ export const fullscreenLink = style({
 
 globalStyle(`${fullscreenLink} svg`, {
   marginLeft: theme.spacing.sm
+});
+
+globalStyle('code', {
+  fontFamily: `Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace`
 });

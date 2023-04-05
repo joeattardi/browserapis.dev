@@ -55,7 +55,10 @@ globalStyle(`${content} .demo`, {
   padding: theme.spacing.lg,
   borderRadius: '5px',
   border: `2px solid ${theme.color.demo.border}`,
-  maxHeight: '30rem',
+  maxHeight: '50rem',
   overflow: 'auto'
 });
 
+globalStyle(`${content} .demo *`, {
+  fontFamily: 'Rubik'
+});

@@ -1,0 +1,40 @@
+<template id="result-template-noMatch">
+  <div>
+    <h4 class="url"></h4>
+    <div class="details">❌ URL does not match pattern</div>
+  </div>
+</template>
+
+<template id="result-template-match">
+  <div>
+    <h4 class="url"></h4>
+    <div class="details">✅ URL matches pattern</div>
+    <ul class="details">
+    </ul>
+  </div>
+</template>
+
+
+<div class="wrapper">
+  <form>
+    <fieldset>
+      <legend>URL patterns</legend>
+      <div class="formField">
+        <label for="url">Host name</label>
+        <input id="hostname" type="text" autofocus name="hostname">
+      </div>
+      <div class="formField">
+        <label for="url">Path name</label>
+        <input id="pathname" type="text" autofocus name="pathname">
+      </div>
+    </fieldset>
+    <div class="formField">
+      <label for="url">URL to match</label>
+      <input id="url" type="url" required autofocus name="url">
+    </div>
+    <div class="form-actions">
+      <button>Check URL</button>
+    </div>
+  </form>
+  <div id="results"></div>
+</div>

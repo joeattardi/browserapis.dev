@@ -66,10 +66,3 @@ links.forEach(link => {
     router.navigate(event.target.getAttribute('href'));
   });
 });
-
-function checkFullScreenMode() {
-  if (window.location.href.endsWith('/full/')) {
-    app.querySelectorAll('a').forEach(link => link.href = `${link.getAttribute('href')}full/`);
-    router.routes.forEach(route => route.path += 'full/');
-  }  
-}

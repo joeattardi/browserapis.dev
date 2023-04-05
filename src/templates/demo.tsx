@@ -5,10 +5,10 @@ import SidebarLayout from '../components/layouts/SidebarLayout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
+
 import { demoHeader, fullscreenLink } from '../styles/globalStyles.css';
 
 export default function Demo({ children, uri, pageContext }) {
-  console.log(pageContext.frontmatter.slug);
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
 
   return (
