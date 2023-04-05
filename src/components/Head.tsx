@@ -7,6 +7,7 @@ export default function Head(props) {
   const pageTitle = props.pageContext?.frontmatter?.title;
   return (
     <>
+      <html lang="en" />
       <title>{pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle}</title>
     </>
   )

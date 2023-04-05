@@ -5,10 +5,15 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import { lightTheme, darkTheme } from '../theme';
 import { toggleButton } from './DarkModeToggle.css';
 
-const Icons = {
+const icons = {
   light: MdOutlineDarkMode,
   dark: MdOutlineLightMode
-}
+};
+
+const labels = {
+  light: 'Switch to dark theme',
+  dark: 'Switch to light theme'
+};
 
 export default function DarkModeToggle({ theme, setTheme }) {
   function toggleTheme() {
@@ -17,10 +22,10 @@ export default function DarkModeToggle({ theme, setTheme }) {
     sessionStorage.setItem('theme', newTheme);
   }
 
-  const Icon = Icons[theme];
+  const Icon = icons[theme];
 
   return (
-    <button className={toggleButton} onClick={toggleTheme}>
+    <button title={labels[theme]} className={toggleButton} onClick={toggleTheme}>
       <Icon size={24} />
     </button>
   );

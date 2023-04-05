@@ -17,7 +17,14 @@ const config: GatsbyConfig = {
       }
     },
     'gatsby-plugin-vanilla-extract',
-    // 'gatsby-plugin-google-gtag',
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: [
+          "G-Z5LMK9PJKM"
+        ],
+      }
+    },
     {
       resolve: 'gatsby-omni-font-loader',
       options: {
