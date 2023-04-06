@@ -5,7 +5,6 @@ export const layout = style({
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-  background: theme.color.body.background
 });
 
 export const main = style({
@@ -20,7 +19,6 @@ export const content = style({
   gridArea: 'main',
   padding: `${theme.spacing.lg} ${theme.spacing.xl}`,
   overflow: 'auto',
-  background: theme.color.body.background,
   color: theme.color.body.text
 });
 
@@ -37,14 +35,14 @@ export const contentOnly = style({
   }
 });
 
-globalStyle(`${content} h1`, {
-  fontSize: theme.font.size['2xl'],
-  '@media': {
-    [mediaQueries.small]: {
-      fontSize: theme.font.size.xl
-    }
-  }
-});
+// globalStyle(`${content} h1`, {
+//   fontSize: theme.font.size['2xl'],
+//   '@media': {
+//     [mediaQueries.small]: {
+//       fontSize: theme.font.size.xl
+//     }
+//   }
+// });
 
 globalStyle(`${content} h2`, {
   margin: `${theme.spacing.lg} 0`
