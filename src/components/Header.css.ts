@@ -19,15 +19,6 @@ export const logoIcon = style({
   marginRight: theme.spacing.md
 });
 
-export const homeLink = style({
-  textDecoration: 'none',
-  color: theme.color.header.text,
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifySelf: 'start'
-});
-
 export const nav = style({
   display: 'flex',
   flexDirection: 'row',

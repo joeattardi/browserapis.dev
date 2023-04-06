@@ -12,10 +12,10 @@ export default function HomePage() {
     <ContentOnlyLayout>
       <section className="hero is-primary">
         <div className="hero-body has-text-centered">
-          <h1 className="title is-1 is-family-secondary">
+          <h1 className="title is-1">
             {title}
           </h1>
-          <h2 className="subtitle is-3 is-family-secondary">
+          <h2 className="subtitle is-3">
             {subtitle}
           </h2>
           <div className="container">
@@ -24,7 +24,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="container">
+      <div className="container is-max-desktop">
         <p className="is-size-5 my-2">
           Welcome to the companion website for the upcoming book{' '}
           <em>{title}</em> by Joe Attardi.

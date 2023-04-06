@@ -4,7 +4,7 @@ import clsx from 'clsx';
 // import '../../styles/globalStyles.css';
 import Header from '../Header';
 import { layout } from './Layout.css';
-import '../../pages/index.scss';
+import '../../styles/index.scss';
 
 import { lightTheme, darkTheme, mediaQueries } from '../../theme';
 
