@@ -1,0 +1,7 @@
+@import "../styles/theme.scss";
+
+.description {
+  & > p {
+    margin: $size-6 0;
+  }
+}
