@@ -1,0 +1,6 @@
+@import "../styles/theme.scss";
+
+.sidebar {
+  background: $sidebar-background;
+  border-right: 2px solid $sidebar-border-color;
+}

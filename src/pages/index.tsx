@@ -24,10 +24,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="container is-max-desktop">
+      <div className="container p-4">
         <p className="is-size-5 my-2">
           Welcome to the companion website for the upcoming book{' '}
-          <em>{title}</em> by Joe Attardi.
+          <em>{title}</em> by Joe Attardi (O'Reilly, 2025).
         </p>
         <p className="is-size-5 my-2">
           Whether you're an experienced developer or just starting out, this
