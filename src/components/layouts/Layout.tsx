@@ -4,7 +4,10 @@ import clsx from 'clsx';
 // import '../../styles/globalStyles.css';
 import Header from '../Header';
 import { layout } from './Layout.css';
+import { menu, open, menuWrapper } from './Layout.module.scss';
 import '../../styles/index.scss';
+
+import DemosMenu from '../DemosMenu';
 
 import { lightTheme, darkTheme, mediaQueries } from '../../theme';
 
@@ -20,6 +23,7 @@ const ThemeClasses = {
 
 export default function Layout({ className = '', children }: LayoutProps) {
   const [theme, setTheme] = useState(getInitialTheme());
+  const [isNavOpen, setNavOpen] = useState(false);
 
   function getInitialTheme() {
     if (typeof window === 'undefined') {
@@ -44,8 +48,13 @@ export default function Layout({ className = '', children }: LayoutProps) {
 
   return (
     <div className={clsx(layout, ThemeClasses[theme], className)}>
-      <Header theme={theme} setTheme={setTheme} />
-      {children}
+      <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
+      <div className={menuWrapper}>
+        <div className={clsx(menu, 'p-2', { [open]: isNavOpen })}>
+          <DemosMenu size="lg" />
+        </div>
+        {children}
+      </div>
     </div>
   ); 
 }

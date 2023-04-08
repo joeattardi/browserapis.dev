@@ -1,10 +1,10 @@
 @import "../styles/theme.scss";
 
 .header {
-  grid-area: header;
-  background: $header-background;
-  display: grid;
-  grid-template-columns: 1fr auto;
+  height: $header-height;
+  background-color: $header-background;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 

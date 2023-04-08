@@ -1,4 +1,29 @@
+@import "../../styles/theme.scss";
+
 .content {
   grid-area: main;
   overflow: auto;
+}
+
+.menuWrapper {
+  position: relative;
+  height: 100%;
+}
+
+.menu {
+  opacity: 0;
+  background: $sidebar-background;
+  transform: translateX(-100%);
+  transition: all 200ms;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  &.open {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

@@ -1,9 +1,10 @@
 @import '~bulma/sass/utilities/initial-variables.sass';
 @import '~bulma/sass/utilities/derived-variables.sass';
 
-$header-background: #64748b;
+$header-background: $dark;
 $header-link-color: #f1f5f9;
 $header-link-hover-color: #f8fafc;
+$header-height: 3.5rem;
 
-$sidebar-background: #F4F7F7;
+$sidebar-background: #f1f5f9;
 $sidebar-border-color: #D2DFDE;

@@ -1,7 +1,23 @@
 @import "../styles/theme.scss";
 
-// .navMenu {
-//   & > li > a:not(:global(.is-active)):hover {
-//     background-color: $sidebar-menu-hover-background;
-//   }
-// }
+.navMenu {
+  background: $sidebar-background;
+
+  & :global(.menu-label) {
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0;
+    font-weight: bold;
+    color: #9259E8;
+  }
+}
+
+.sizeLarge {
+  & :global(.menu-label) {
+    font-size: 1.25rem;
+  }
+
+  & a {
+    font-size: 1.25rem;
+  }
+}

@@ -3,13 +3,13 @@ import { Link } from 'gatsby';
 import clsx from 'clsx';
 import useNavigation from '../hooks/useNavigation';
 import { navList, navGroup, navGroupItem, navItem, navLink, navLinkActive } from './DemosMenu.css';
-import { navMenu } from './DemosMenu.module.scss';
-export default function DemosMenu() {
+import { navMenu, sizeLarge } from './DemosMenu.module.scss';
+
+export default function DemosMenu({ size }) {
   const data = useNavigation('sidebar');
 
   return (
-    <aside className="menu">
-
+    <aside className={clsx('menu', navMenu, size === 'lg' && sizeLarge)}>
       {data.map(item => (
         <React.Fragment key={item.key}>
           <p className="menu-label">{item.title}</p>
@@ -26,7 +26,6 @@ export default function DemosMenu() {
           </ul>
         </React.Fragment>
       ))}
-
     </aside>
   )
 
