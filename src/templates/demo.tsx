@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { MdOpenInNew } from 'react-icons/md';
+import { MdOpenInNew, MdWarningAmber } from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -10,6 +10,7 @@ import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
 import { description, demo } from './demo.module.scss';
 import { demoHeader, fullscreenLink } from '../styles/globalStyles.css';
+import CompatibilityNote from '../components/CompatibilityNote';
 
 export default function Demo({ children, uri, pageContext }) {
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
@@ -17,6 +18,10 @@ export default function Demo({ children, uri, pageContext }) {
   return (
     <SidebarLayout>
       <h1 className="title is-1 is-family-secondary">{pageContext.frontmatter.title}</h1>
+
+      {pageContext.frontmatter.compatibilityWarning && (
+        <CompatibilityNote {...pageContext.frontmatter.compatibilityWarning} />
+      )}
 
       <section className={clsx(description, 'block')}>{children}</section>
 
