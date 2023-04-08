@@ -1,10 +1,9 @@
 import React from 'react';
-
+import clsx from 'clsx';
 import Layout from './Layout';
 import Sidebar from '../Sidebar';
 
-import { layout } from './SidebarLayout.css';
-import { content } from './Layout.css';
+import { content } from './Layout.module.scss';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -12,9 +11,13 @@ type LayoutProps = {
 
 export default function SidebarLayout({ children }: LayoutProps) {
   return (
-    <Layout className={layout}>
+    <Layout>
       <Sidebar />
-      <article className={content}>{children}</article>
+      <article className={content}>
+        <div className="p-4 container is-widescreen">
+        {children}
+        </div>
+      </article>
     </Layout>
   )
 }

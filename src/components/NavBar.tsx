@@ -5,7 +5,6 @@ import { MdOutlineRestaurant } from 'react-icons/md';
 
 import useNavigation from '../hooks/useNavigation';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import NavMenu from './NavMenu';
 
 export default function NavBar({ isNavOpen, setNavOpen}) {
   const { title } = useSiteMetadata();

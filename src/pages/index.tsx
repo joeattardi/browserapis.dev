@@ -12,7 +12,7 @@ export default function HomePage() {
     <ContentOnlyLayout>
       <section className="hero is-primary">
         <div className="hero-body has-text-centered">
-          <h1 className="title is-1">
+          <h1 className="title is-1 is-family-secondary">
             {title}
           </h1>
           <h2 className="subtitle is-3">

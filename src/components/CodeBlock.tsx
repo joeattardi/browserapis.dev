@@ -5,6 +5,8 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { MdContentCopy, MdCheck } from 'react-icons/md';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import { codeBlock, copyButton, toolbar, html, css, javascript } from './CodeBlock.module.scss';
 
@@ -18,7 +20,7 @@ const languageTags = {
   javascript: 'JS'
 };
 
-export default function CodeBlock({ language, code }) {
+export default function CodeBlock({ isLoading, language, code }) {
   const [copied, setCopied] = useState(false);
 
   function onCopy() {
@@ -27,6 +29,10 @@ export default function CodeBlock({ language, code }) {
   }
 
   const Icon = copied ? MdCheck : MdContentCopy;
+
+  if (isLoading) {
+    return <Skeleton width="100%" height="5em" style={{ margin: '1em auto' }} />;
+  }
 
   return (
     <div className={codeBlock}>

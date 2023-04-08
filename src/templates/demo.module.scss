@@ -4,4 +4,10 @@
   & > p {
     margin: $size-6 0;
   }
+
+  & ul {
+    list-style-type: revert;
+    margin: revert;
+    padding: revert;
+  }
 }

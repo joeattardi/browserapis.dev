@@ -1,8 +1,37 @@
 @import "../../styles/theme.scss";
 
+.layout {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar content";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 20rem 1fr;
+  height: 100%;
+}
+
+@include until(1024px) {
+  .layout {
+    grid-template-areas:
+      "header"
+      "content";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
 .content {
-  grid-area: main;
+  grid-area: content;
   overflow: auto;
+  width: 100%;
+}
+
+.contentOnly {
+  grid-template-areas:
+    "header"
+    "content";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
 }
 
 .menuWrapper {

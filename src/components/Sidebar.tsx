@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { Link } from 'gatsby';
 import useNavigation from '../hooks/useNavigation';
 import DemosMenu from './DemosMenu';
-import { navList, navGroup, navGroupItem, navItem, navLink, navLinkActive } from './Sidebar.css';
 import { sidebar } from './Sidebar.module.scss';
 
 export default function Sidebar() {

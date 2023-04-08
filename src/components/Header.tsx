@@ -8,7 +8,6 @@ import { nav, navList, navLink, navItem } from './Header.css';
 import { header, homeLink } from './Header.module.scss';
 import { Link } from 'gatsby';
 import NavBar from './NavBar';
-import NavMenu from './NavMenu';
 import DarkModeToggle from './DarkModeToggle';
 
 const Header = ({ theme, setTheme, isNavOpen, setNavOpen }) => {
@@ -18,24 +17,6 @@ const Header = ({ theme, setTheme, isNavOpen, setNavOpen }) => {
   return (
     <header className={header}>
       <NavBar isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
-      {/* <Link className={homeLink} to="/">
-        <MdOutlineRestaurant size={24} className="mr-2" />
-        <span>{title}</span>
-      </Link> */}
-
-
-
-      {/* <nav className={nav}>
-        <ul className={navList}>
-          {data.map(item => (
-            <li className={navItem} key={item.key}>
-              <Link className={navLink} to={item.path}>{item.title}</Link>
-            </li>
-          ))}
-        </ul>
-        <DarkModeToggle theme={theme} setTheme={setTheme} />
-        <NavMenu />
-      </nav> */}
     </header>
   )
 };

@@ -17,23 +17,29 @@
 
 <div class="wrapper">
   <form>
-    <fieldset>
-      <legend>URL patterns</legend>
-      <div class="formField">
-        <label for="url">Host name</label>
-        <input id="hostname" type="text" autofocus name="hostname">
+    <fieldset class="mb-6">
+      <legend class="is-size-5">URL patterns</legend>
+      <div class="field">
+        <label class="label" for="url">Host name</label>
+        <div class="control">
+          <input class="input" id="hostname" type="text" autofocus name="hostname">
+        </div>
       </div>
-      <div class="formField">
-        <label for="url">Path name</label>
-        <input id="pathname" type="text" autofocus name="pathname">
+      <div class="field">
+        <label class="label" for="url">Path name</label>
+        <div class="control">
+          <input class="input" id="pathname" type="text" autofocus name="pathname">
+        </div>
       </div>
     </fieldset>
-    <div class="formField">
-      <label for="url">URL to match</label>
-      <input id="url" type="url" required autofocus name="url">
+    <div class="field">
+      <label class="label" for="url">URL to match</label>
+      <div class="control">
+        <input class="input" id="url" type="url" required autofocus name="url">
+      </div>
     </div>
     <div class="form-actions">
-      <button>Check URL</button>
+      <button class="button">Check URL</button>
     </div>
   </form>
   <div id="results"></div>

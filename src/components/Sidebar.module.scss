@@ -2,5 +2,11 @@
 
 .sidebar {
   background: $sidebar-background;
-  border-right: 2px solid $sidebar-border-color;
+  grid-area: sidebar;
+}
+
+@include until(1024px) {
+  .sidebar {
+    display: none;
+  }
 }

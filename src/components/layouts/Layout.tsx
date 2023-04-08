@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
-// import '../../styles/globalStyles.css';
 import Header from '../Header';
-import { layout } from './Layout.css';
-import { menu, open, menuWrapper } from './Layout.module.scss';
+// import { layout } from './Layout.css';
+import { layout, menu, open, menuWrapper } from './Layout.module.scss';
 import '../../styles/index.scss';
 
 import DemosMenu from '../DemosMenu';
@@ -47,14 +46,14 @@ export default function Layout({ className = '', children }: LayoutProps) {
   }, []);
 
   return (
-    <div className={clsx(layout, ThemeClasses[theme], className)}>
-      <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
-      <div className={menuWrapper}>
-        <div className={clsx(menu, 'p-2', { [open]: isNavOpen })}>
-          <DemosMenu size="lg" />
-        </div>
+    <>
+      <div className={clsx(layout, ThemeClasses[theme], className)}>
+        <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
         {children}
       </div>
-    </div>
+      <div className={clsx(menu, 'p-2', { [open]: isNavOpen })}>
+        <DemosMenu size="lg" />
+      </div>
+    </>
   ); 
 }

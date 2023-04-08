@@ -1,6 +1,7 @@
 @import "../styles/theme.scss";
 
 .header {
+  grid-area: header;
   height: $header-height;
   background-color: $header-background;
   display: flex;
