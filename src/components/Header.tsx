@@ -15,7 +15,7 @@ const Header = ({ theme, setTheme, isNavOpen, setNavOpen }) => {
 
   return (
     <header className={header}>
-      <NavBar isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
+      <NavBar theme={theme} setTheme={setTheme} isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
     </header>
   )
 };

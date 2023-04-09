@@ -1,9 +1,7 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
-
-import { lightTheme, darkTheme } from '../theme';
-import { toggleButton } from './DarkModeToggle.css';
 
 const icons = {
   light: MdOutlineDarkMode,
@@ -25,8 +23,10 @@ export default function DarkModeToggle({ theme, setTheme }) {
   const Icon = icons[theme];
 
   return (
-    <button title={labels[theme]} className={toggleButton} onClick={toggleTheme}>
-      <Icon size={24} />
-    </button>
+    <div className="navbar-item">
+      <button title={labels[theme]} className={clsx('button is-dark')} onClick={toggleTheme}>
+        <Icon size={24} />
+      </button>
+    </div>
   );
 }

@@ -1,8 +1,15 @@
 @import "../styles/theme.scss";
 
 .sidebar {
-  background: $sidebar-background;
+  background: var(--sidebar-background);
   grid-area: sidebar;
+  padding-top: calc(#{$header-height} + 1rem);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  overflow: auto;
+  position: fixed;
+  width: 20rem;
+  height: 100%;
 }
 
 @include until(1024px) {

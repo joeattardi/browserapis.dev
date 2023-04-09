@@ -1,14 +1,19 @@
 @import "../styles/theme.scss";
 
 .navMenu {
-  background: $sidebar-background;
+  background: var(--sidebar-background);
+
+  li > a {
+    // color: red;
+    color: var(--sidebar-item-color);
+  }
 
   & :global(.menu-label) {
     text-transform: none;
     letter-spacing: 0;
     font-size: 1em;
     font-weight: bold;
-    color: #9259E8;
+    color: var(--sidebar-group-color);
   }
 }
 

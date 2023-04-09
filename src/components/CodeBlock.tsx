@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import clsx from 'clsx';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { dracula, solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { MdContentCopy, MdCheck } from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
+import { ThemeContext } from './layouts/Layout';
 import { codeBlock, copyButton, toolbar, html, css, javascript } from './CodeBlock.module.scss';
 
 const languageClass = {
@@ -22,6 +23,7 @@ const languageTags = {
 
 export default function CodeBlock({ isLoading, language, code }) {
   const [copied, setCopied] = useState(false);
+  const { theme } = useContext(ThemeContext);
 
   function onCopy() {
     setCopied(true);
@@ -35,7 +37,7 @@ export default function CodeBlock({ isLoading, language, code }) {
   }
 
   return (
-    <div className={codeBlock}>
+    <div className={clsx(codeBlock, 'box')}>
       <div className={toolbar}>
         <div className={clsx('tag is-medium', languageClass[language])}>{languageTags[language] || language.toUpperCase()}</div>
         <CopyToClipboard text={code} onCopy={onCopy}>
@@ -48,7 +50,7 @@ export default function CodeBlock({ isLoading, language, code }) {
       <SyntaxHighlighter
         customStyle={{ fontSize: '1rem' }} 
         language={language} 
-        style={dracula}
+        style={theme === 'light' ? solarizedlight : dracula}
       >
         {code}
       </SyntaxHighlighter>

@@ -1,35 +1,39 @@
 <template id="url-card">
   <div class="url-card">
-    <h4 class="url"></h4>
+    <h4 class="url is-size-4 subtitle"></h4>
     <div>
-      <ul></ul>
+      <dl></dl>
     </div>
   </div>
 </template>
 
 
 <div class="wrapper">
-  <form>
-    <div class="field">
-      <label class="label" for="url">URL</label>
-      <div class="control">
-        <input 
-          class="input"
-          id="url"
-          type="url"
-          required
-          autofocus 
-          name="url" 
-          placeholder="Enter a URL..."
-        >
+  <div class="block">
+    <form>
+      <div class="field">
+        <label class="label" for="url">URL</label>
+        <div class="control">
+          <input 
+            class="input"
+            id="url"
+            type="url"
+            required
+            autofocus 
+            name="url" 
+            placeholder="Enter a URL..."
+          >
+        </div>
       </div>
-    </div>
-    <div class="form-actions">
-      <button class="button">Parse URL</button>
-    </div>
-  </form>
+      <div class="form-actions">
+        <button class="button">Parse URL</button>
+      </div>
+    </form>
+  </div>
 
-  <h4 class="subtitle">Results</h4>
-  <p id="resultsPlaceholder">Parsed URL details will appear here.</p>
-  <div id="results"></div>
+  <div class="block">
+    <h3 class="subtitle">Results</h4>
+    <p id="resultsPlaceholder">Parsed URL details will appear here.</p>
+    <div id="results"></div>
+  </div>
 </div>

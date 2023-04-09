@@ -29,7 +29,6 @@ const config: GatsbyConfig = {
         icon: 'src/images/favicon.png'
       }
     },
-    'gatsby-plugin-vanilla-extract',
     {
       resolve: 'gatsby-omni-font-loader',
       options: {

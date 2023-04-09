@@ -1,10 +1,12 @@
 .url-card {
   padding: 1em;
   margin: 0.5em 0;
-  background: #EDF2DB;
-  border: 1px solid #D4E1AB;
-  color: #000000;
+  background: var(--demo-box-background);
   font-family: Rubik;
+}
+
+.url-card strong {
+  color: var(--text-color);
 }
 
 .demo h4 {

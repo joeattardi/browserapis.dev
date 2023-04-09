@@ -5,6 +5,7 @@
 
 $family-primary: Rubik;
 $family-secondary: Domine;
+$family-monospace: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
 $primary: #3b82f6;
 $menu-item-active-background-color: #587FE8;
@@ -21,3 +22,15 @@ html, body {
   height: 100%;
 }
 
+.label {
+  color: var(--label-color);
+}
+
+.input {
+  background: var(--input-background);
+  color: var(--text-color);
+
+  &::placeholder {
+    color: var(--input-placeholder);
+  }
+}

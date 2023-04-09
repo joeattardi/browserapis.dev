@@ -1,7 +1,7 @@
 @import "../styles/theme.scss";
 
 .codeBlock {
-  background: rgb(40, 42, 54);
+  background: var(--code-background);
   display: flex;
   flex-direction: column;
   padding: $size-6;

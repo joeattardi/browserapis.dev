@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
-import { demoContent } from '../../styles/index.css';
+import React, { useEffect, useContext } from 'react';
+
+import { ThemeContext } from './Layout';
+
 export type DemoProps = {
   js: string;
   css: string;
@@ -7,6 +9,8 @@ export type DemoProps = {
 }
 
 const Demo = ({ js, css, html }: DemoProps) => {
+  const { theme } = useContext(ThemeContext);
+
   useEffect(() => {
     const script = document.createElement('script');
 
@@ -25,7 +29,7 @@ const Demo = ({ js, css, html }: DemoProps) => {
   }, []);
 
   return (
-    <div className={demoContent}>
+    <div className={`theme-${theme}`}>
       <style>{css}</style>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>

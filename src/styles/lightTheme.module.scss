@@ -1,0 +1,16 @@
+@import "./theme.scss";
+
+.lightTheme {
+  color-scheme: light;
+  --demo-background: #{$demo-background};
+  --demo-box-background: #{$demo-box-background};
+  --content-background: #{$content-background};
+  --text-color: #{$text-color};
+  --label-color: #{$label-color};
+  --code-background: #{$code-background};
+  --input-background: #{$input-background};
+  --input-placeholder: #{$input-placeholder};
+  --sidebar-background: #{$sidebar-background};
+  --sidebar-item-color: #{$sidebar-item-color};
+  --sidebar-group-color: #{$sidebar-group-color};
+}

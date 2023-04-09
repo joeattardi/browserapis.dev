@@ -1,3 +1,7 @@
 #results {
   margin: 1em 0;
 }
+
+.details ul {
+  margin: 0;
+}

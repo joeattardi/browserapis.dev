@@ -4,12 +4,12 @@ import { MdOpenInNew, MdWarningAmber } from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
+import { ThemeContext } from '../components/layouts/Layout';
 import SidebarLayout from '../components/layouts/SidebarLayout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
 import { description, demo } from './demo.module.scss';
-import { demoHeader, fullscreenLink } from '../styles/globalStyles.css';
 import CompatibilityNote from '../components/CompatibilityNote';
 
 export default function Demo({ children, uri, pageContext }) {
@@ -27,9 +27,9 @@ export default function Demo({ children, uri, pageContext }) {
 
       <section className="block">
         <h2 className="subtitle is-3">
-          <a title="Open demo in full screen" href="./full" target="_blank" className={fullscreenLink}><span>Demo</span> <MdOpenInNew size={18} /></a>
+          <a title="Open demo in full screen" href="./full" target="_blank"><span>Demo</span> <MdOpenInNew size={18} /></a>
         </h2>
-        <div className="box">
+        <div className={clsx('box', demo)}>
           {isCodeLoaded ?
             <InlineDemo {...code } /> :
             <Skeleton width="100%" height="5em" />

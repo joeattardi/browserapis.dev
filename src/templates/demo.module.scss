@@ -9,5 +9,32 @@
     list-style-type: revert;
     margin: revert;
     padding: revert;
+
+    li {
+      color: var(--text-color);
+    }
+  }
+}
+
+.demo {
+  background-color: var(--demo-background);
+  color: var(--text-color);
+
+  ul {
+    list-style-type: revert;
+    margin: revert;
+    padding: revert;
+  
+    li {
+      color: var(--text-color);
+    }
+  }
+  
+  strong {
+    color: var(--text-color);
+  }
+  
+  h1, h2, h3, h4, :global(.subtitle) {
+    color: var(--text-color);
   }
 }

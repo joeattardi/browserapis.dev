@@ -5,8 +5,9 @@ import { MdOutlineRestaurant } from 'react-icons/md';
 
 import useNavigation from '../hooks/useNavigation';
 import useSiteMetadata from '../hooks/useSiteMetadata';
+import DarkModeToggle from './DarkModeToggle';
 
-export default function NavBar({ isNavOpen, setNavOpen}) {
+export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
   const { title } = useSiteMetadata();
   const data = useNavigation('topnav');
 
@@ -29,7 +30,7 @@ export default function NavBar({ isNavOpen, setNavOpen}) {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-      </button>
+        </button>
       </div>
       <div className="navbar-menu">
         <div className="navbar-start">
@@ -38,6 +39,9 @@ export default function NavBar({ isNavOpen, setNavOpen}) {
               {item.title}
             </Link>
           ))}
+        </div>
+        <div className="navbar-end">
+          <DarkModeToggle theme={theme} setTheme={setTheme} />
         </div>
       </div>
     </nav>

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 import Header from '../Header';
 import { layout, menu, open, menuWrapper } from './Layout.module.scss';
 import '../../styles/index.scss';
-
 import DemosMenu from '../DemosMenu';
 
-import { lightTheme, darkTheme, mediaQueries } from '../../theme';
+import { darkTheme } from '../../styles/darkTheme.module.scss';
+import { lightTheme } from '../../styles/lightTheme.module.scss';
 
 type LayoutProps = {
   className?: string;
@@ -15,9 +15,11 @@ type LayoutProps = {
 }
 
 const ThemeClasses = {
-  dark: darkTheme,
-  light: lightTheme
+  light: lightTheme,
+  dark: darkTheme
 };
+
+export const ThemeContext = createContext();
 
 export default function Layout({ className = '', children }: LayoutProps) {
   const [theme, setTheme] = useState(getInitialTheme());
@@ -32,11 +34,11 @@ export default function Layout({ className = '', children }: LayoutProps) {
       return sessionStorage.getItem('theme');
     }
 
-    return window.matchMedia?.(mediaQueries.darkMode).matches ? 'dark' : 'light';
+    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
   useEffect(() => {
-    const query = window.matchMedia(mediaQueries.darkMode);
+    const query = window.matchMedia('(prefers-color-scheme: dark)');
     query.addEventListener('change', () => {
       if (!sessionStorage.theme) {
         setTheme(query.matches ? 'dark' : 'light');
@@ -45,7 +47,7 @@ export default function Layout({ className = '', children }: LayoutProps) {
   }, []);
 
   return (
-    <>
+    <ThemeContext.Provider value={{ theme }}>
       <div className={clsx(layout, ThemeClasses[theme], className)}>
         <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
         {children}
@@ -53,6 +55,6 @@ export default function Layout({ className = '', children }: LayoutProps) {
       <div className={clsx(menu, 'p-2', { [open]: isNavOpen })}>
         <DemosMenu size="lg" />
       </div>
-    </>
+    </ThemeContext.Provider>
   ); 
 }

@@ -9,7 +9,7 @@ export default function Sidebar() {
   const data = useNavigation('sidebar');
 
   return (
-    <div className={clsx(sidebar, 'p-2')}>
+    <div className={clsx(sidebar)}>
       <DemosMenu />
     </div>
   );

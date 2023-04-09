@@ -15,7 +15,7 @@ form.addEventListener('submit', event => {
   event.target.elements.url.value = '';
 
   const card = document.querySelector('#url-card').content.cloneNode(true).firstElementChild;
-  const urlDetails = card.querySelector('ul');
+  const urlDetails = card.querySelector('dl');
   card.querySelector('.url').textContent = url.toString();
 
   let details = '';
@@ -23,7 +23,8 @@ form.addEventListener('submit', event => {
     .filter(property => url[property].length)
     .forEach(property => {
       details += `
-        <li><strong>${property}</strong>: ${url[property]}</li>
+        <dt class="has-text-weight-bold">${property}</dt>
+        <dd class="ml-4 is-family-monospace">${url[property]}</dd>
       `;
     });
     urlDetails.innerHTML = details;

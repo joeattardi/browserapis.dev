@@ -22,8 +22,14 @@
 
 .content {
   grid-area: content;
-  overflow: auto;
   width: 100%;
+  margin-top: $header-height;
+  background: var(--content-background);
+  color: var(--text-color);
+
+  h1, h2, h3 {
+    color: var(--text-color);
+  }
 }
 
 .contentOnly {
