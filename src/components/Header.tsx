@@ -4,8 +4,7 @@ import { MdOutlineRestaurant } from 'react-icons/md';
 
 import useNavigation from '../hooks/useNavigation';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import { nav, navList, navLink, navItem } from './Header.css';
-import { header, homeLink } from './Header.module.scss';
+import { header } from './Header.module.scss';
 import { Link } from 'gatsby';
 import NavBar from './NavBar';
 import DarkModeToggle from './DarkModeToggle';

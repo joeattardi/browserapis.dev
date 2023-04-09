@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 import Header from '../Header';
-// import { layout } from './Layout.css';
 import { layout, menu, open, menuWrapper } from './Layout.module.scss';
 import '../../styles/index.scss';
 
