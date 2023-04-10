@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import clsx from 'clsx';
 
 import { MdSearch } from 'react-icons/md';
@@ -8,18 +8,20 @@ import useSearchIndex from '../hooks/useSearchIndex';
 import { resultsList, resultItem, searchInput, icon } from './Search.module.scss';
 import { Link } from 'gatsby';
 
+type SearchResult = {
+  id: string;
+  slug: string;
+  title: string;
+}
+
 export default function Search() {
   const [query, setQuery] = useState('');
-  const { index, store } = useSearchIndex();
-  const results = useFlexSearch(query, index, store);
+  const searchIndex = useSearchIndex();
+  const results: SearchResult[] = useFlexSearch(query, searchIndex?.index, searchIndex?.store);
 
-  console.log(results);
-
-  function onSearch(event) {
+  function onSearch(event: ChangeEvent<HTMLInputElement>) {
     setQuery(event.target.value);
   }
-
-  console.log({ query });
 
   return (
     <>

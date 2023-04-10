@@ -1,8 +1,9 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
+
 export default function useSearchIndex() {
-  const data = useStaticQuery(graphql`
-    {
+  const data = useStaticQuery<Queries.SearchIndexQuery>(graphql`
+    query SearchIndex {
       localSearchDemos {
         index
         store
