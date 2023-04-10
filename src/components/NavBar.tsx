@@ -43,7 +43,7 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
           ))}
         </div>
         <div className="navbar-end is-align-items-center">
-          <Search />
+          {/* <Search /> */}
           <DarkModeToggle theme={theme} setTheme={setTheme} isDark />
         </div>
       </div>
