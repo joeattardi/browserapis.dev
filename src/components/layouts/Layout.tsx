@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
-
+import { Helmet } from 'react-helmet';
 import Header from '../Header';
 import { layout, menu, open, menuWrapper } from './Layout.module.scss';
 import '../../styles/index.scss';
@@ -8,6 +8,7 @@ import DemosMenu from '../DemosMenu';
 
 import { darkTheme } from '../../styles/darkTheme.module.scss';
 import { lightTheme } from '../../styles/lightTheme.module.scss';
+import DarkModeToggle from '../DarkModeToggle';
 
 type LayoutProps = {
   className?: string;
@@ -48,11 +49,17 @@ export default function Layout({ className = '', children }: LayoutProps) {
 
   return (
     <ThemeContext.Provider value={{ theme }}>
+      <Helmet>
+        <html className={ThemeClasses[theme]} />
+      </Helmet>
       <div className={clsx(layout, ThemeClasses[theme], className)}>
         <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
         {children}
       </div>
       <div className={clsx(menu, 'px-2', { [open]: isNavOpen })}>
+        <div>
+          <DarkModeToggle theme={theme} setTheme={setTheme} />
+        </div>
         <DemosMenu size="lg" />
       </div>
     </ThemeContext.Provider>

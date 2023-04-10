@@ -14,8 +14,10 @@ export default function SidebarLayout({ children }: LayoutProps) {
     <Layout>
       <Sidebar />
       <article className={content}>
-        <div className="p-4 container is-widescreen">
-        {children}
+        <div>
+          <div className="p-4 container is-widescreen">
+          {children}
+          </div>
         </div>
       </article>
     </Layout>
