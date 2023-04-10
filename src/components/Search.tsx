@@ -28,15 +28,15 @@ export default function Search() {
         type="search"
         value={query}
         onChange={onSearch}
-        placeholder="Search"
+        placeholder="Search recipes..."
         className={clsx('input', searchInput)}
       />
       {results?.length > 0 && (
         <div className={clsx(resultsList, 'p-0 box')}>
           <ul>
             {results.map(result => (
-              <li key={result.id} className="p-0 is-flex">
-                <Link className={clsx(resultItem, 'p-2 m-1')} to={result.slug}>{result.title}</Link>
+              <li key={result.id} className="box p-3 m-2">
+                <Link className={clsx(resultItem, 'p-0')} to={result.slug}>{result.title}</Link>
               </li>
             ))}
           </ul>
