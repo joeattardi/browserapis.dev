@@ -52,7 +52,7 @@ export default function Layout({ className = '', children }: LayoutProps) {
         <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
         {children}
       </div>
-      <div className={clsx(menu, 'p-2', { [open]: isNavOpen })}>
+      <div className={clsx(menu, 'px-2', { [open]: isNavOpen })}>
         <DemosMenu size="lg" />
       </div>
     </ThemeContext.Provider>
