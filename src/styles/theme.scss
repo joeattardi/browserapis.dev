@@ -2,7 +2,7 @@
 @import '~bulma/sass/utilities/derived-variables.sass';
 @import '~bulma/sass/utilities/mixins.sass';
 
-$header-background: $dark;
+$header-background: #292524;
 $header-link-color: #f1f5f9;
 $header-link-hover-color: #f8fafc;
 $header-height: 3.5rem;
@@ -20,6 +20,7 @@ $input-background: #ffffff;
 $input-placeholder: #666666;
 $sidebar-group-color: #4f46e5;
 $sidebar-item-color: #475569;
+$search-background: #57534e;
 
 // Dark colors
 $demo-background-dark: #000000;

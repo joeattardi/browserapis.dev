@@ -6,6 +6,8 @@ import { MdOutlineRestaurant } from 'react-icons/md';
 import useNavigation from '../hooks/useNavigation';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import DarkModeToggle from './DarkModeToggle';
+import Search from './Search';
+import { navBar } from './NavBar.module.scss';
 
 export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
   const { title } = useSiteMetadata();
@@ -16,7 +18,7 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
   }
 
   return (
-    <nav className="navbar is-dark is-flex-grow-1" role="navigation" aria-label="main navigation">
+    <nav className={clsx('navbar is-dark is-flex-grow-1', navBar)} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
           <MdOutlineRestaurant size={24} className="mr-2" />
@@ -40,8 +42,9 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
             </Link>
           ))}
         </div>
-        <div className="navbar-end">
-          <DarkModeToggle theme={theme} setTheme={setTheme} />
+        <div className="navbar-end is-align-items-center">
+          <Search />
+          <DarkModeToggle theme={theme} setTheme={setTheme} isDark />
         </div>
       </div>
     </nav>

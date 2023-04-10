@@ -2,6 +2,7 @@
 
 .darkTheme {
   color-scheme: dark;
+  --header-background: #{$header-background};
   --demo-background: #{$demo-background-dark};
   --demo-box-background: #{$demo-box-background-dark};
   --content-background: #{$content-background-dark};

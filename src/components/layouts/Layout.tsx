@@ -58,7 +58,7 @@ export default function Layout({ className = '', children }: LayoutProps) {
       </div>
       <div className={clsx(menu, 'px-2', { [open]: isNavOpen })}>
         <div>
-          <DarkModeToggle theme={theme} setTheme={setTheme} />
+          <DarkModeToggle theme={theme} setTheme={setTheme} isDark={theme === 'dark'} />
         </div>
         <DemosMenu size="lg" />
       </div>
