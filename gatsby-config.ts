@@ -60,6 +60,35 @@ const config: GatsbyConfig = {
       },
       __key: 'pages',
     },
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'demos',
+        engine: 'flexsearch',
+        query: `
+          {
+            allMdx {
+              nodes {
+                id
+                frontmatter {
+                  slug
+                  title
+                }
+              }
+            }
+          }
+        `,
+        ref: 'id',
+        index: ['title', 'slug'],
+        store: ['id', 'title', 'slug'],
+        normalizer: ({ data }) =>
+          data.allMdx.nodes.map((node) => ({
+            id: node.id,
+            slug: node.frontmatter.slug,
+            title: node.frontmatter.title
+        }))
+      }
+    }
   ],
 };
 
