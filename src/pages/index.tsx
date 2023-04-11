@@ -3,33 +3,31 @@ import React from 'react';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 
-import { heroImage } from './index.module.scss';
-
 export default function HomePage() {
   const { title, subtitle } = useSiteMetadata();
 
   return (
     <ContentOnlyLayout>
-      <section className="hero is-primary">
-        <div className="hero-body has-text-centered">
-          <h1 className="title is-1 is-family-secondary">
+      <section className="mb-4 text-center bg-blue-800 text-white p-8">
+        <div>
+          <h1 className="text-5xl">
             {title}
           </h1>
-          <h2 className="subtitle is-3">
+          <h2 className="text-3xl">
             {subtitle}
           </h2>
-          <div className="container">
-            <img className={heroImage} alt="Programmer writing code" src="/coder.svg" />
+          <div>
+            <img className="mx-auto w-1/6 mt-8" alt="Programmer writing code" src="/coder.svg" />
           </div>
         </div>
       </section>
 
-      <div className="container p-4">
-        <p className="is-size-5 my-2">
+      <div className="leading-relaxed text-lg p-4 max-w-4xl mx-auto">
+        <p className="my-2">
           Welcome to the companion website for the upcoming book{' '}
           <em>{title}</em> by Joe Attardi (O'Reilly, 2025).
         </p>
-        <p className="is-size-5 my-2">
+        <p className="my-2">
           Whether you're an experienced developer or just starting out, this
           site is the perfect complement to the book. With live demos of all the
           code in the book, you can see firsthand how to use the latest web
@@ -40,13 +38,13 @@ export default function HomePage() {
           browser APIs!
         </p>
 
-        <p className="is-size-5 my-2">
+        <p className="my-2">
           Please note: The book, and this website, are both works in progress.
           Functioning examples are being added as the book is written, but there
           may be times where something is broken.
         </p>
 
-        <p className="is-size-5 my-2">
+        <p className="my-2">
           If you are having problems with the site or have any questions or
           feedback, please contact me at{' '}
           <a href="mailto:jattardi@gmail.com">jattardi@gmail.com</a>.

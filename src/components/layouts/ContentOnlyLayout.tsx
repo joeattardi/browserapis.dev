@@ -11,7 +11,7 @@ type LayoutProps = {
 export default function ContentOnlyLayout({ children }: LayoutProps) {
   return (
     <Layout className={contentOnly}>
-      <article className={content}>
+      <article className={clsx(content)}>
         <div>{children}</div>
       </article>
     </Layout>

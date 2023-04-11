@@ -4,7 +4,7 @@ import { MdOutlineRestaurant } from 'react-icons/md';
 
 import useNavigation from '../hooks/useNavigation';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import { header } from './Header.module.scss';
+// import { header } from './Header.module.scss';
 import { Link } from 'gatsby';
 import NavBar from './NavBar';
 import DarkModeToggle from './DarkModeToggle';
@@ -14,7 +14,7 @@ const Header = ({ theme, setTheme, isNavOpen, setNavOpen }) => {
   const { title } = useSiteMetadata();
 
   return (
-    <header className={header}>
+    <header className="bg-gray-700">
       <NavBar theme={theme} setTheme={setTheme} isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
     </header>
   )
