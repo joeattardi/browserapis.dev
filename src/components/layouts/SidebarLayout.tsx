@@ -7,19 +7,15 @@ import { content } from './Layout.module.scss';
 
 type LayoutProps = {
   children: React.ReactNode;
-}
+};
 
 export default function SidebarLayout({ children }: LayoutProps) {
   return (
     <Layout>
       <Sidebar />
       <article className={content}>
-        <div>
-          <div className="p-4 container is-widescreen">
-          {children}
-          </div>
-        </div>
+        <div className="p-4 bg-stone-100">{children}</div>
       </article>
     </Layout>
-  )
+  );
 }

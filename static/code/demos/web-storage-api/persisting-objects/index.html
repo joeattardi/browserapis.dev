@@ -1,18 +1,12 @@
 <template id="todoTemplate">
-  <li class="todo">
-    <input class="mr-1" type="checkbox">
-    <label class="name"></div>
+  <li class="todo flex items-center bg-slate-100 p-4 rounded my-2">
+    <input class="mr-2" type="checkbox">
+    <label class="name flex-grow mb-0 font-normal"></div>
   </li>
 </template>
 
-<div class="wrapper">
-  <form class="todo-form">
-    <input 
-      autofocus 
-      name="todo" 
-      placeholder="Add a todo and press Enter..."
-    >
-  </form>
+<form class="todo-form">
+  <input class="text-lg w-full" autofocus name="todo" placeholder="Add a todo and press Enter...">
+</form>
 
-  <ul id="todos"></ul>
-</div>
+<ul id="todos"></ul>

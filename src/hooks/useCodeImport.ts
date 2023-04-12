@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 
 type LoadedCode = {
-  js: string;
-  css: string;
-  html: string;
+  js: string | null;
+  css: string | null;
+  html: string | null;
 };
 
 export default function useCodeImport(basePath: string) {
   const [code, setCode] = useState<LoadedCode>({
-    js: '',
-    css: '',
-    html: ''
+    js: null,
+    css: null,
+    html: null
   });
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function useCodeImport(basePath: string) {
     });
   }, []);
 
-  const isCodeLoaded = Object.values(code).every(file => file.length);
+  const isCodeLoaded = Object.values(code).every(file => file != null);
 
   return {
     code,

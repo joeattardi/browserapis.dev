@@ -9,16 +9,15 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import { ThemeContext } from './layouts/Layout';
-import { codeBlock, copyButton, toolbar, html, css, javascript } from './CodeBlock.module.scss';
 
 const languageClass = {
-  javascript,
-  html,
-  css
+  javascript: 'bg-yellow-400',
+  html: 'bg-orange-400',
+  css: 'bg-blue-400'
 };
 
 const languageTags = {
-  javascript: 'JS'
+  javascript: 'JavaScript'
 };
 
 export default function CodeBlock({ isLoading, language, code }) {
@@ -36,19 +35,26 @@ export default function CodeBlock({ isLoading, language, code }) {
     return <Skeleton width="100%" height="5em" style={{ margin: '1em auto' }} />;
   }
 
+  if (!code) {
+    return null;
+  }
+
   return (
-    <div className={clsx(codeBlock, 'box')}>
-      <div className={toolbar}>
-        <div className={clsx('tag is-medium', languageClass[language])}>{languageTags[language] || language.toUpperCase()}</div>
+    <div className="">
+      <div className="bg-gray-200 flex items-center justify-between p-2">
+        <div 
+          className={clsx('px-2 py-1 text-sm', languageClass[language])}
+        >
+            {languageTags[language] || language.toUpperCase()}
+        </div>
         <CopyToClipboard text={code} onCopy={onCopy}>
-          <button className={clsx('button', copyButton, copied && 'is-success is-light')}>
-            <Icon className="mr-2" />
-            {copied ? 'Copied!' : 'Copy'}
+          <button className="flex items-center">
+            <Icon size={24} />
           </button>
         </CopyToClipboard>
       </div>
       <SyntaxHighlighter
-        customStyle={{ fontSize: '1rem' }} 
+        customStyle={{ fontSize: '1rem', marginTop: 0, borderRadius: 0 }} 
         language={language} 
         style={theme === 'light' ? solarizedlight : dracula}
       >
