@@ -7,7 +7,6 @@ import useNavigation from '../hooks/useNavigation';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import DarkModeToggle from './DarkModeToggle';
 import Search from './Search';
-import { navBar } from './NavBar.module.scss';
 import NavBarLink from './NavBarLink';
 
 export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
@@ -35,6 +34,8 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
             {item.title}
           </NavBarLink>
         ))}
+
+        <Search />
       </div>
     </nav>
   );

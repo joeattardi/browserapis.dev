@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Helmet } from 'react-helmet';
 import Header from '../Header';
-import { layout, menu, open, menuWrapper } from './Layout.module.scss';
+import { layout, menu, open, menuWrapper } from './Layout.module.css';
 import '../../styles/index.scss';
 import DemosMenu from '../DemosMenu';
 

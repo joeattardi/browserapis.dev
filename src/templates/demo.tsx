@@ -9,7 +9,6 @@ import SidebarLayout from '../components/layouts/SidebarLayout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
-import { description, demo } from './demo.module.scss';
 import { recipeDemo } from './demo.module.css';
 import CompatibilityNote from '../components/CompatibilityNote';
 

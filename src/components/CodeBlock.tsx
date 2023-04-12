@@ -40,7 +40,7 @@ export default function CodeBlock({ isLoading, language, code }) {
   }
 
   return (
-    <div className="">
+    <div className="shadow">
       <div className="bg-gray-200 flex items-center justify-between p-2">
         <div 
           className={clsx('px-2 py-1 text-sm', languageClass[language])}
@@ -54,7 +54,7 @@ export default function CodeBlock({ isLoading, language, code }) {
         </CopyToClipboard>
       </div>
       <SyntaxHighlighter
-        customStyle={{ fontSize: '1rem', marginTop: 0, borderRadius: 0 }} 
+        customStyle={{ fontSize: '1rem', marginTop: 0, borderRadius: 0, marginBottom: 0 }} 
         language={language} 
         style={theme === 'light' ? solarizedlight : dracula}
       >

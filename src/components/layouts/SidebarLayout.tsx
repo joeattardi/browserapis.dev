@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Layout from './Layout';
 import Sidebar from '../Sidebar';
 
-import { content } from './Layout.module.scss';
+import { content } from './Layout.module.css';
 
 type LayoutProps = {
   children: React.ReactNode;

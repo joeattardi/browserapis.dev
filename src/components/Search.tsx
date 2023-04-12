@@ -1,17 +1,19 @@
 import React, { ChangeEvent, useState } from 'react';
 import clsx from 'clsx';
 
-import { MdSearch } from 'react-icons/md';
+import { MdSearch, MdBook } from 'react-icons/md';
 import { useFlexSearch } from 'react-use-flexsearch';
 
 import useSearchIndex from '../hooks/useSearchIndex';
 import { resultsList, resultItem, searchInput, icon } from './Search.module.scss';
 import { Link } from 'gatsby';
+import SearchResults from './SearchResults';
 
 type SearchResult = {
   id: string;
   slug: string;
   title: string;
+  excerpt: string;
 }
 
 export default function Search() {
@@ -23,27 +25,20 @@ export default function Search() {
     setQuery(event.target.value);
   }
 
+  console.log(results);
+
+  // TODO: move results into separate component, show empty state
   return (
-    <>
-      <MdSearch size={32} className={icon} />
+    <div className="flex items-center">
+      <MdSearch size={32} className="h-5 relative left-8" />
       <input
         type="search"
         value={query}
         onChange={onSearch}
         placeholder="Search recipes..."
-        className={clsx('input', searchInput)}
+        className="placeholder:text-slate-400 rounded-full px-7 py-1 bg-gray-800"
       />
-      {results?.length > 0 && (
-        <div className={clsx(resultsList, 'p-0 box')}>
-          <ul>
-            {results.map(result => (
-              <li key={result.id} className="box p-3 m-2">
-                <Link className={clsx(resultItem, 'p-0')} to={result.slug}>{result.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </>
+      <SearchResults query={query} results={results} />
+    </div>
   );
 }

@@ -71,6 +71,7 @@ const config: GatsbyConfig = {
             allMdx {
               nodes {
                 id
+                excerpt
                 frontmatter {
                   slug
                   title
@@ -81,12 +82,13 @@ const config: GatsbyConfig = {
         `,
         ref: 'id',
         index: ['title', 'slug'],
-        store: ['id', 'title', 'slug'],
+        store: ['id', 'title', 'slug', 'excerpt'],
         normalizer: ({ data }) =>
           data.allMdx.nodes.map((node) => ({
             id: node.id,
             slug: node.frontmatter.slug,
-            title: node.frontmatter.title
+            title: node.frontmatter.title,
+            excerpt: node.excerpt
         }))
       }
     }
