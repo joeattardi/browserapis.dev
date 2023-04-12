@@ -7,6 +7,20 @@ module.exports = {
     './static/code/**/*.{html,js}'
   ],
   theme: {
+    typography: {
+      default: {
+        css: {
+          code: {
+            '&::before': {
+              content: '""'
+            },
+            '&::after': {
+              content: '""'
+            }
+          }
+        }
+      }
+    },
     extend: {},
   },
   plugins: [

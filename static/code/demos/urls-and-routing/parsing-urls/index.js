@@ -3,7 +3,7 @@ const results = document.querySelector('#results');
 
 // The properties of the URL we want to show.
 const urlProperties = [
-  'host', 'hostname', 'href',
+  'host', 'hostname', 'href', 'hash',
   'origin', 'pathname', 'protocol',
   'search'
 ];
@@ -23,12 +23,12 @@ form.addEventListener('submit', event => {
     .filter(property => url[property].length)
     .forEach(property => {
       details += `
-        <dt class="has-text-weight-bold">${property}</dt>
-        <dd class="ml-4 is-family-monospace">${url[property]}</dd>
+        <dt class="font-bold">${property}</dt>
+        <dd class="ml-4 font-mono">${url[property]}</dd>
       `;
     });
     urlDetails.innerHTML = details;
 
-  document.querySelector('#resultsPlaceholder')?.remove();
+  document.querySelector('#resultsContainer').className = 'mt-4 block';
   results.insertBefore(card, results.firstElementChild);
 });

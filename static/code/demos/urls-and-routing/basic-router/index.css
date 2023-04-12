@@ -1,25 +1,9 @@
-#app nav {
-  background: #708090;
-  padding: 1em;
+.active {
+  background: #3b82f6;
+  color: white;
 }
 
-#app nav a {
-  padding: 0.5em 0.75em;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-#app nav a:hover {
-  background: #8492A0;
-}
-
-#app nav a.active {
-  background: #C8C0B7;
-  color: black;
-}
-
-#router-content {
-  padding: 1em;
+.active:hover {
+  background: #3b82f6;
+  color: white;
 }

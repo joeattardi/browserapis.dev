@@ -1,5 +1,5 @@
 <template id="url-card">
-  <div class="bg-slate-100 p-4 rounded-md">
+  <div class="bg-slate-50 p-4 rounded-md">
     <h4 class="url text-xl mb-4"></h4>
     <div>
       <dl></dl>
@@ -8,31 +8,17 @@
 </template>
 
 
-<div class="wrapper">
-  <div class="block">
-    <form>
-      <div>
-        <label for="url">URL</label>
-        <div>
-          <input 
-            id="url"
-            type="url"
-            required
-            autofocus 
-            name="url" 
-            placeholder="Enter a URL..."
-          >
-        </div>
-      </div>
-      <div>
-        <button>Parse URL</button>
-      </div>
-    </form>
+<form>
+  <div class="field">
+    <label for="url">URL</label>
+    <input class="w-full" id="url" type="url" required autofocus name="url" placeholder="Enter a URL...">
   </div>
+  <div>
+    <button>Parse URL</button>
+  </div>
+</form>
 
-  <div class="block">
-    <h3 class="text-xl">Results</h4>
-    <p id="resultsPlaceholder">Parsed URL details will appear here.</p>
-    <div id="results"></div>
-  </div>
+<div id="resultsContainer" class="hidden">
+  <h3 class="text-xl">Results</h4>
+  <div id="results"></div>
 </div>

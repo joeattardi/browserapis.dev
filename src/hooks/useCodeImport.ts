@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 type LoadedCode = {
   js: string | null;
@@ -13,19 +13,21 @@ export default function useCodeImport(basePath: string) {
     html: null
   });
 
+  const loadCode = useCallback((filename: string) => {
+    return import(`!raw-loader!/static/code${basePath}/${filename}`)
+      .then(result => result.default)
+      .catch(error => '');
+  }, []);
+
   useEffect(() => {
     Promise.all([
-      import(`!raw-loader!/static/code${basePath}/index.js`),  
-      import(`!raw-loader!/static/code${basePath}/index.css`),
-      import(`!raw-loader!/static/code${basePath}/index.html`)
+      loadCode('index.js'),
+      loadCode('index.css'),
+      loadCode('index.html')
     ]).then(([js, css, html]) => {
-      setCode({
-        js: js.default,
-        css: css.default,
-        html: html.default
-      });
+      setCode({ js, css, html });
     });
-  }, []);
+  }, [loadCode]);
 
   const isCodeLoaded = Object.values(code).every(file => file != null);
 
