@@ -7,7 +7,7 @@ export default function Sidebar() {
   const data = useNavigation('sidebar');
 
   return (
-    <div className="bg-gray-200 dark:bg-gray-700 p-4 hidden md:block">
+    <div className="bg-gray-200 dark:bg-gray-700 p-4 hidden md:block border-r border-r-gray-300 dark:border-r-gray-600">
       <DemosMenu />
     </div>
   );

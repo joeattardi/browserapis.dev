@@ -10,6 +10,7 @@ import InlineDemo from '../components/layouts/InlineDemo';
 import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
 import CompatibilityNote from '../components/CompatibilityNote';
+import PageTitle from '../components/PageTitle';
 
 export default function Demo({ children, uri, pageContext }) {
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
@@ -17,7 +18,7 @@ export default function Demo({ children, uri, pageContext }) {
   return (
     <SidebarLayout>
       <div className="text-gray-700 dark:text-gray-200">
-      <h1 className="text-4xl">{pageContext.frontmatter.title}</h1>
+      <PageTitle>{pageContext.frontmatter.title}</PageTitle>
 
       {pageContext.frontmatter.compatibilityWarning && (
         <CompatibilityNote {...pageContext.frontmatter.compatibilityWarning} />

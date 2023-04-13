@@ -60,6 +60,7 @@ const config: GatsbyConfig = {
       },
       __key: 'pages',
     },
+    'gatsby-transformer-javascript-frontmatter',
     {
       resolve: 'gatsby-plugin-local-search',
       options: {
