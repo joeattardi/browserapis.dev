@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@charset "utf-8";
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#___gatsby, #gatsby-focus-wrapper {
+  height: 100%;
+}
+
 .recipeDemo {
   @apply bg-white;
   @apply dark:bg-black;

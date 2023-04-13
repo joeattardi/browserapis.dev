@@ -8,6 +8,11 @@ module.exports = {
     './static/code/**/*.{html,js}'
   ],
   theme: {
+    fontFamily: {
+      sans: ['Rubik', 'sans-serif'],
+      serif: ['Domine', 'serif'],
+      mono: ['Consolas', 'Monaco', '"Andale Mono"', '"Ubuntu Mono"', 'monospace']
+    },
     extend: {
     }
   },

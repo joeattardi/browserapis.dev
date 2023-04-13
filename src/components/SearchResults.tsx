@@ -7,7 +7,7 @@ export default function SearchResults({ query, results }) {
   }
 
   return (
-    <div className="absolute top-14 right-4 rounded-md w-1/3 bg-slate-100 dark:bg-slate-800 text-gray-500 shadow-lg p-1">
+    <div className="max-h-[85vh] overflow-auto absolute top-full mt-2 right-0 rounded-md w-[90vw] md:w-[45vw] bg-slate-100 dark:bg-slate-800 text-gray-500 shadow-lg p-1">
       {results.length > 0 ? (
         <ul>
           {results.map((result) => (

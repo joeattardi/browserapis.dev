@@ -16,6 +16,7 @@ export default function Demo({ children, uri, pageContext }) {
 
   return (
     <SidebarLayout>
+      <div className="text-gray-700 dark:text-gray-200">
       <h1 className="text-4xl">{pageContext.frontmatter.title}</h1>
 
       {pageContext.frontmatter.compatibilityWarning && (
@@ -44,6 +45,7 @@ export default function Demo({ children, uri, pageContext }) {
         <CodeBlock isLoading={!isCodeLoaded} code={code.css} language="css" />
         </div>
       </section>
+      </div>
     </SidebarLayout>
   )
 }
