@@ -18,7 +18,6 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
   }
 
   // TODO hamburger
-  // TODO dark mode
 
   return (
     <nav className="p-4 text-gray-200 flex items-center">
