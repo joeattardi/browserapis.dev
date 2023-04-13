@@ -14,7 +14,7 @@ export default function CompatibilityNote({ name, url }) {
         <p className="my-2">
           <a
             target="_blank"
-            className="is-flex is-align-items-center"
+            className="flex items-center underline"
             href={url}
           >
             Browser support for {name}

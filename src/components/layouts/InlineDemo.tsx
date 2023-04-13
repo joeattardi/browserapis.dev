@@ -29,7 +29,7 @@ const Demo = ({ js, css, html }: DemoProps) => {
   }, []);
 
   return (
-    <div className={`theme-${theme}`}>
+    <div className={theme}>
       <style>{css}</style>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>

@@ -41,9 +41,9 @@ export default function CodeBlock({ isLoading, language, code }) {
 
   return (
     <div className="shadow">
-      <div className="bg-gray-200 flex items-center justify-between p-2">
+      <div className="bg-gray-200 flex items-center justify-between p-2 dark:bg-gray-800">
         <div 
-          className={clsx('px-2 py-1 text-sm', languageClass[language])}
+          className={clsx('px-2 py-1 text-sm text-black', languageClass[language])}
         >
             {languageTags[language] || language.toUpperCase()}
         </div>

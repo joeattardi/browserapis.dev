@@ -52,7 +52,7 @@ export default function Layout({ className = '', children }: LayoutProps) {
       <Helmet>
         <html className={ThemeClasses[theme]} />
       </Helmet>
-      <div className={clsx(layout, ThemeClasses[theme], className)}>
+      <div className={clsx(layout, theme, className)}>
         <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
         {children}
       </div>

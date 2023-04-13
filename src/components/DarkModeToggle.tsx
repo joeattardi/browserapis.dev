@@ -25,10 +25,8 @@ export default function DarkModeToggle({ theme, setTheme, isDark }) {
   const Icon = icons[theme];
 
   return (
-    <div className="navbar-item">
       <button title={labels[theme]} className={clsx(toggle, 'button', isDark ? 'is-dark' : 'is-light')} onClick={toggleTheme}>
         <Icon size={24} />
       </button>
-    </div>
   );
 }

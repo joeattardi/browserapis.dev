@@ -5,7 +5,6 @@ import { MdSearch, MdBook } from 'react-icons/md';
 import { useFlexSearch } from 'react-use-flexsearch';
 
 import useSearchIndex from '../hooks/useSearchIndex';
-import { resultsList, resultItem, searchInput, icon } from './Search.module.scss';
 import { Link } from 'gatsby';
 import SearchResults from './SearchResults';
 
@@ -25,11 +24,8 @@ export default function Search() {
     setQuery(event.target.value);
   }
 
-  console.log(results);
-
-  // TODO: move results into separate component, show empty state
   return (
-    <div className="flex items-center">
+    <div className="flex items-center -ml-8">
       <MdSearch size={32} className="h-5 relative left-8" />
       <input
         type="search"

@@ -57,12 +57,12 @@ function renderMatchGroup(matcher, key) {
       <dt class="font-bold">${groupKey}</dt>
       <dd class="ml-4 font-mono">${matcher[key].groups[groupKey]}</dd>
     `;
-
-    const nestedList = document.createElement('dl');
-    nestedList.className = 'ml-4';
-    nestedList.innerHTML = matchGroups;
-    groupList.appendChild(nestedList);
   }
+
+  const nestedList = document.createElement('dl');
+  nestedList.className = 'ml-4';
+  nestedList.innerHTML = matchGroups;
+  groupList.appendChild(nestedList);
 
   return groupList;
 }

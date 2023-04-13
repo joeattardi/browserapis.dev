@@ -14,7 +14,7 @@ export default function SidebarLayout({ children }: LayoutProps) {
     <Layout>
       <Sidebar />
       <article className={content}>
-        <div className="p-4 bg-stone-100">{children}</div>
+        <div className="p-4 bg-stone-100 dark:bg-stone-900">{children}</div>
       </article>
     </Layout>
   );

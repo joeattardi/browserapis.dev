@@ -4,7 +4,7 @@ export default function Alert({ icon, title, children }) {
   const IconComponent = icon;
 
   return (
-    <div className="bg-amber-100 p-4 shadow rounded-md my-4">
+    <div className="bg-amber-100 dark:bg-amber-700 p-4 shadow rounded-md my-4">
       <div>{}</div>
       <div>
         <h2 className="flex items-center text-xl">

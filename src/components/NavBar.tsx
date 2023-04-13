@@ -18,7 +18,6 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
   }
 
   // TODO hamburger
-  // TODO search
   // TODO dark mode
 
   return (
@@ -34,7 +33,7 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
             {item.title}
           </NavBarLink>
         ))}
-
+        <div className="mx-4"><DarkModeToggle theme={theme} setTheme={setTheme} isDark /></div>
         <Search />
       </div>
     </nav>

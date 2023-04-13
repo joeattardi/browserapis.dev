@@ -1,4 +1,8 @@
+
 .recipeDemo {
+  
+  @apply dark:bg-black;
+
   input {
     @apply border border-gray-300 rounded px-3 py-1 mb-4;
 
@@ -8,14 +12,19 @@
   }
 
   label {
-    @apply mb-2;
+    @apply mb-2 font-bold dark:text-red-200;
   }
 
   button {
     @apply bg-indigo-700 text-white px-4 py-2 rounded hover:bg-indigo-500;
   }
 
-  :global(.field) {
-    @apply flex flex-col items-start;
+  .field {
+    @apply flex flex-col items-start mb-4;
   }
+}
+
+.field {
+  background: red;
+  @apply flex flex-col items-start mb-4;
 }
