@@ -4,6 +4,7 @@ const React = require('react');
 exports.onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents([
     <script
+      key="style"
       dangerouslySetInnerHTML={{
         __html: `
   (function() {

@@ -4,6 +4,7 @@ import { ThemeContext } from '../components/layouts/Layout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import useCodeImport from '../hooks/useCodeImport';
 import useSiteMetadata from '../hooks/useSiteMetadata';
+import { Helmet } from 'react-helmet';
 
 export default function FullScreenDemo(props) {
   const { title } = useSiteMetadata();
@@ -11,6 +12,9 @@ export default function FullScreenDemo(props) {
   const { code, isCodeLoaded } = useCodeImport(basePath);
   return (
     <ThemeContext.Provider value={{ theme: 'light' }}>
+      <Helmet>
+        <html className="light" />
+      </Helmet>
       <main className="p-4">
         <strong>{title}</strong>
         <h1 className="text-4xl">{props.pageContext.frontmatter.title}</h1>
