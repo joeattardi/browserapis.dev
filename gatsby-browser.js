@@ -11,7 +11,17 @@ function getInitialTheme() {
 
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
-const initialTheme = getInitialTheme();
 
-document.documentElement.className = initialTheme;
-// console.log(document.documentElement);
+function showTheme() {
+  document.documentElement.className = getInitialTheme();
+}
+
+function showContent() {
+  document.body.style.visibility = 'visible';
+  document.body.style.opacity = 1;
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  showTheme();
+  showContent();
+});

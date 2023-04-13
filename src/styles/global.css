@@ -8,9 +8,11 @@ html, body {
   margin: 0;
   height: 100%;
   overflow: hidden;
+}
 
-  @apply bg-white;
-  @apply dark:bg-black;
+body {
+  visibility: hidden;
+  opacity: 0;
 }
 
 #___gatsby, #gatsby-focus-wrapper {
