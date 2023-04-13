@@ -10,7 +10,7 @@
 
 @media (max-width: 768px) {
   .layout {
-    grid-template-rows: 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 0 1fr;
   }
 

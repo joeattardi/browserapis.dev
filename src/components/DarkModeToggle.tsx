@@ -23,7 +23,7 @@ export default function DarkModeToggle({ theme, setTheme, isDark }) {
   const Icon = icons[theme];
 
   return (
-      <button title={labels[theme]} className={clsx('button', isDark ? 'is-dark' : 'is-light')} onClick={toggleTheme}>
+      <button title={labels[theme]} onClick={toggleTheme}>
         <Icon size={24} />
       </button>
   );
