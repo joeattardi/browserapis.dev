@@ -13,21 +13,22 @@ type LayoutProps = {
 
 export const ThemeContext = createContext();
 
-export default function Layout({ className = '', children }: LayoutProps) {
-  const [theme, setTheme] = useState(getInitialTheme());
-  const [isNavOpen, setNavOpen] = useState(false);
-
-  function getInitialTheme() {
-    if (typeof window === 'undefined') {
-      return 'light';
-    }
-
-    if (window.sessionStorage?.getItem('theme')) {
-      return sessionStorage.getItem('theme');
-    }
-
-    return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+function getInitialTheme() {
+  if (typeof window === 'undefined') {
+    return 'light';
   }
+
+  if (window.sessionStorage?.getItem('theme')) {
+    return sessionStorage.getItem('theme');
+  }
+
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+const initialTheme = getInitialTheme();
+
+export default function Layout({ className = '', children }: LayoutProps) {
+  const [theme, setTheme] = useState(initialTheme);
+  const [isNavOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia('(prefers-color-scheme: dark)');
