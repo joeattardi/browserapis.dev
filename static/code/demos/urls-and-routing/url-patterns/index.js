@@ -17,8 +17,10 @@ form.addEventListener('submit', event => {
 
   const pattern = new window.URLPattern(patterns);
 
+  // Attempt to match our pattern against our URL.
   const matcher = pattern.exec(data.get('url'));
 
+  // `matcher` is null if the URL doesn't match.
   if (!matcher) {
     console.log('URL does not match pattern')
     const results = document.querySelector('#result-template-noMatch').content.cloneNode(true).firstElementChild;
@@ -33,6 +35,8 @@ form.addEventListener('submit', event => {
 
     const details = results.querySelector('.details');
 
+    // The matcher has multiple groups for each placeholder, we'll render
+    // each separately.
     details.appendChild(renderMatchGroup(matcher, 'hostname'));
     details.appendChild(renderMatchGroup(matcher, 'pathname'));
 

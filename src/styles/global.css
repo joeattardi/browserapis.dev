@@ -14,6 +14,10 @@ html, body {
   height: 100%;
 }
 
+.dark * {
+  color-scheme: dark;
+}
+
 .recipeDemo {
   @apply bg-white;
   @apply dark:bg-black;

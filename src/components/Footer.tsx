@@ -13,6 +13,7 @@ function FooterLink({ Icon, href, title }) {
 export default function Footer() {
   return (
     <footer className="bg-slate-200 p-4 flex flex-col flex-grow items-center">
+      <h3 className="text-xl">Web Browser API Cookbook</h3>
       <div className="pb-4">
         &copy; 2023 Joe Attardi
       </div>

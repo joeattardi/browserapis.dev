@@ -1,9 +1,13 @@
-const content = document.querySelector('#router-content');
+// The `app` element contains all of the UI for the demo.
 const app = document.querySelector('#app');
+
+// The `router-content` element is where the template associated with
+// the active route will be rendered.
+const content = document.querySelector('#router-content');
+
 
 function createRouter() {
   const router = {
-
     // Associates known URL patterns with templates.
     routes: [
       { template: document.querySelector('#template-home'), path: '/demos/urls-and-routing/basic-router/' },
@@ -17,8 +21,10 @@ function createRouter() {
      * @param pushState whether or not to fire a pushState call
      */
     navigate(path, pushState = true) {
+      // Look for a route object with a matching `path` property.
       const route = this.routes.find((route) => route.path === path);
       if (route) {
+        // We found a route, so render the associated template.
         content.replaceChildren(route.template.content.cloneNode(true));
       }
 
@@ -43,6 +49,7 @@ function createRouter() {
     renderCurrentUrlContent();
   });
 
+  // The URLs will be slightly different if we are running a fullscreen demo.
   if (window.location.href.endsWith('/full/')) {
     app.querySelectorAll('a').forEach(link => link.href = `${link.getAttribute('href')}full/`);
     router.routes.forEach(route => route.path += 'full/');
@@ -56,6 +63,10 @@ function createRouter() {
 
 const router = createRouter();
 
+// We need the links to behave a little differently.
+// The default behavior is to load the new route with a full page refresh,
+// which we don't want. So we'll intercept the click events and fire a client-side
+// routing action instead.
 const links = app.querySelectorAll('a');
 links.forEach(link => {
   link.addEventListener('click', event => {
