@@ -1,49 +1,33 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# Web Browser API Cookbook
 
-## 🚀 Quick start
+Hello! This repository has the source code for the companion website to the book
+"Web Browser API Cookbook" by Joe Attardi, expected in early 2025 from O'Reilly Media.
 
-1.  **Create a Gatsby site.**
+You can visit the website at https://BrowserAPIs.dev or, if you prefer, you can run the site locally.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+## Viewing the code
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+You can view the code associated with each demo on the website, or you can find the source files under [static/code/demos](static/code/demos). Demos are divided into folders by chapter.
 
-2.  **Start developing.**
+## Running locally
 
-    Navigate into your new site’s directory and start it up.
+### Clone the repository
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+```
+git clone git@github.com:joeattardi/web-browser-api-cookbook.git
+```
 
-3.  **Open the code and start customizing!**
+### Install dependencies
 
-    Your site is now running at http://localhost:8000!
+```
+npm install
+```
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+### Start the server
 
-4.  **Learn more**
+```
+npm start
+```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+You should be able to access the site now at http://localhost:8000.
 
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
