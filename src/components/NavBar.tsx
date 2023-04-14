@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdOutlineRestaurant, MdMenu, MdClose } from 'react-icons/md';
+import { BsGithub } from 'react-icons/bs';
 
 import useNavigation from '../hooks/useNavigation';
 import useSiteMetadata from '../hooks/useSiteMetadata';
@@ -34,7 +35,12 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
             {item.title}
           </NavBarLink>
         ))}
-        <div className="mx-4 flex items-center justify-center"><DarkModeToggle theme={theme} setTheme={setTheme} isDark /></div>
+        <div className="mx-4 flex items-center justify-center space-x-3">
+          <a href="https://github.com/joeattardi/web-browser-api-cookbook" target="_blank">
+            <BsGithub title="View code on GitHub" size={24} />
+          </a>
+          <DarkModeToggle theme={theme} setTheme={setTheme} isDark />
+        </div>
         <Search />
       </div>
     </nav>
