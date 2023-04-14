@@ -17,7 +17,7 @@ export default function Demo({ children, uri, pageContext }) {
 
   return (
     <SidebarLayout>
-      <div className="text-gray-700 dark:text-gray-200">
+      <div className="text-gray-700 dark:text-gray-200 p-4">
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
 
       {pageContext.frontmatter.compatibilityWarning && (
