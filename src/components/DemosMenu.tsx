@@ -11,7 +11,7 @@ export default function DemosMenu() {
     <aside>
       {data.map(item => (
         <React.Fragment key={item.key}>
-          <p className="text-xl my-2  md:text-base md:my-0 text-sky-600 dark:text-sky-200 font-bold">{item.title}</p>
+          <p className="text-xl my-2 md:text-xl md:my-0 text-sky-600 dark:text-sky-200 ">{item.title}</p>
           <ul className="mb-4">
             {item.children?.map(child => (
               <li key={child.key}>

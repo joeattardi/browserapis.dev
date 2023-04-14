@@ -23,7 +23,7 @@ export default function DarkModeToggle({ theme, setTheme, isDark }) {
   const Icon = icons[theme];
 
   return (
-      <button title={labels[theme]} onClick={toggleTheme}>
+      <button className="hover:text-cyan-100" title={labels[theme]} onClick={toggleTheme}>
         <Icon size={24} />
       </button>
   );

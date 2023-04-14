@@ -8,7 +8,7 @@ interface Props {
 
 export default function NavBarLink({ to, children }: Props) {
   return (
-    <Link className="flex items-center text-gray-200 hover:text-white" to={to}>
+    <Link className="flex items-center text-gray-50 hover:text-sky-100" to={to}>
       {children}
     </Link>
   )

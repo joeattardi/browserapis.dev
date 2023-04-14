@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { FaGithub, FaTwitter, FaCodepen } from 'react-icons/fa';
 
@@ -12,7 +13,14 @@ function FooterLink({ Icon, href, title }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-200 p-4 flex flex-col flex-grow items-center">
+    <footer
+      className={clsx(
+        'p-4 flex flex-col flex-grow items-center',
+        'bg-gray-200 dark:bg-gray-700',
+        'text-gray-700, dark:text-gray-200',
+        'border-t border-t-gray-300 dark:border-t-gray-600'
+      )}
+    >
       <h3 className="text-xl">Web Browser API Cookbook</h3>
       <div className="pb-4">
         &copy; 2023 Joe Attardi
@@ -23,7 +31,7 @@ export default function Footer() {
         <FooterLink Icon={FaCodepen} href="https://codepen.io/thinksincode" title="CodePen" />
       </div>
       <div className="py-4">
-        Want to support my work? <a className="text-blue-800 underline" href="https://www.buymeacoffee.com/jattardiM">Buy me a coffee!</a>
+        Want to support my work? <a className="text-blue-800 dark:text-blue-300 underline" href="https://www.buymeacoffee.com/jattardiM">Buy me a coffee!</a>
       </div>
     </footer>
   )
