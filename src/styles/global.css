@@ -19,7 +19,7 @@ html, body {
   @apply dark:bg-black;
 
   input {
-    @apply border border-gray-300 rounded px-3 py-1 mb-4;
+    @apply border border-gray-300 rounded px-3 py-1 mb-4 text-black;
 
     &:last-of-type {
       @apply mb-0;
