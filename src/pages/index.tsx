@@ -1,7 +1,8 @@
 import React from 'react';
-
+import ConvertKitForm from 'convertkit-react';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import SidebarLayout from '../components/layouts/SidebarLayout';
+import SignupForm from '../components/SignupForm';
 
 export default function HomePage() {
   const { title, subtitle } = useSiteMetadata();
@@ -49,6 +50,8 @@ export default function HomePage() {
           feedback, please contact me at{' '}
           <a href="mailto:jattardi@gmail.com">jattardi@gmail.com</a>.
         </p>
+
+        {/* <SignupForm /> */}
       </div>
     </SidebarLayout>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 
+import useScript from '../../hooks/useScript';
 import { ThemeContext } from './Layout';
 
 export type DemoProps = {
@@ -11,22 +12,7 @@ export type DemoProps = {
 const Demo = ({ js, css, html }: DemoProps) => {
   const { theme } = useContext(ThemeContext);
 
-  useEffect(() => {
-    const script = document.createElement('script');
-
-    // Wrap in an IIFE to prevent global variables
-    script.textContent = `
-      (function() {
-        ${js}
-      })();
-    `
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  useScript({ body: js });
 
   return (
     <div className={theme}>

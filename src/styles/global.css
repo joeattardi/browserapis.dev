@@ -18,6 +18,10 @@ html, body {
   color-scheme: dark;
 }
 
+.seva-modal.formkit-modal {
+  width: 600px;
+}
+
 .recipeDemo {
   @apply bg-white;
   @apply dark:bg-black;
