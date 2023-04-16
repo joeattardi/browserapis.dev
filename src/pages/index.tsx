@@ -9,7 +9,7 @@ export default function HomePage() {
 
   return (
     <SidebarLayout>
-      <section className="mb-4 text-center bg-sky-500 text-white p-8">
+      <section className="mb-4 text-center p-8">
         <div>
           <h1 className="font-serif text-3xl md:text-5xl mb-2">
             {title}
@@ -17,9 +17,7 @@ export default function HomePage() {
           <h2 className="font-serif text-xl md:text-3xl">
             {subtitle}
           </h2>
-          <div>
-            <img className="mx-auto w-1/2 md:w-1/3 mt-8" alt="Programmer writing code" src="/coder.svg" />
-          </div>
+          <img className="mx-auto w-full md:w-1/2 mt-8" alt="Web browser with code" src="/browser_icon_3.svg" />
         </div>
       </section>
 

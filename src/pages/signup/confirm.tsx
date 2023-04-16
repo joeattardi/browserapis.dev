@@ -6,7 +6,9 @@ export default function ConfirmPage() {
   return (
     <ContentOnlyLayout>
         <div className="p-8 leading-relaxed text-xl max-w-2xl mx-auto">
-        <img className="mx-auto w-1/2 md:w-1/3 mt-8" alt="Email inbox" src="/inbox.svg" />
+        <div className="bg-sky-200 p-12 rounded-full mx-auto w-64 h-64 flex items-center shadow">
+          <img className="" alt="Email sent" src="/confirm.svg" />
+        </div>
           <h1 className="text-center text-4xl py-8 mb-2 font-serif">Thanks for signing up!</h1>
           <p>
             Please check your inbox for a confirmation email. You won't receive any further
