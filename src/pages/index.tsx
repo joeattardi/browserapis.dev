@@ -1,5 +1,4 @@
 import React from 'react';
-import ConvertKitForm from 'convertkit-react';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import SidebarLayout from '../components/layouts/SidebarLayout';
 import SignupForm from '../components/SignupForm';
@@ -36,19 +35,6 @@ export default function HomePage() {
           your favorite browser and get ready to explore the world of web
           browser APIs!
         </p>
-
-        <p className="my-2">
-          Please note: The book, and this website, are both works in progress.
-          Functioning examples are being added as the book is written, but there
-          may be times where something is broken.
-        </p>
-
-        <p className="my-2">
-          If you are having problems with the site or have any questions or
-          feedback, please contact me at{' '}
-          <a href="mailto:jattardi@gmail.com">jattardi@gmail.com</a>.
-        </p>
-
         <SignupForm />
       </div>
     </SidebarLayout>

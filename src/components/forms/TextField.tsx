@@ -19,7 +19,7 @@ const TextField = forwardRef(({ placeholder, label, type, name, onChange, onBlur
       >
         {label}
       </label>
-      <input 
+      <input
         id={id} 
         onChange={onChange}
         onBlur={onBlur}

@@ -19,7 +19,6 @@
     "@loadable/component": "^5.15.3",
     "@mdx-js/react": "^2.3.0",
     "clsx": "^1.2.1",
-    "convertkit-react": "^1.5.5",
     "gatsby": "^5.8.1",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-google-gtag": "^5.8.0",

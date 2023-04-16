@@ -20,12 +20,15 @@ export default function SignupForm() {
   return (
     <div 
       className={clsx(
-        'bg-sky-200 shadow-slate-700',
-        'dark:bg-slate-950',
-        'w-2/3 mx-auto p-4 text-center flex flex-col space-y-4 items-center rounded-lg'
+        'bg-sky-700 shadow-slate-700 text-white',
+        'dark p-8 mt-8 text-center flex flex-col space-y-4 items-center rounded-lg'
       )}
     >
-      <h3 className="text-2xl">Sign up for book updates</h3>
+      <h3 className="text-2xl">Be the first to know</h3>
+      <p>
+        Sign up to receive email updates about the book's progress, and find out
+        when it is available for early access!
+      </p>
       <form
         action={`https://app.convertkit.com/forms/${CONVERTKIT_FORM_ID}/subscriptions`}
         method="post"
@@ -33,17 +36,26 @@ export default function SignupForm() {
         data-uid="25824d70c3"
         data-format="inline"
         data-version="5"
-        className="w-2/3 space-y-4" 
+        className="w-full space-y-4" 
       >
-        <TextField
-          {...register('email_address')}
-          placeholder="hello@example.com"
-          label="Email"
-          name="email_address"
-          type="email"
-        />
+        <div className="flex flex-col items-start w-full">
+          <label 
+            className="mb-1 text-base font-bold text-sky-900 dark:text-sky-100" 
+            htmlFor="email_address"
+          >
+            Email address
+          </label>
+          <input
+            required
+            type="email"
+            id="email_address"
+            {...register('email_address')}
+            placeholder="hello@example.com"
+            className="w-full px-4 py-2 rounded bg-slate-800"
+          />
+        </div>
         <div>
-          <CallToAction>Sign up</CallToAction>
+          <CallToAction>Sign me up</CallToAction>
         </div>
       </form>
       <p className="text-sm">Occasional updates, no spam. Unsubscribe at any time.</p>

@@ -25,8 +25,8 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
       </button>
 
       <NavBarLink to="/">
-        <div className="hidden md:block md:mr-2 md:text-2xl"><MdOutlineRestaurant /></div>
-        <div className="text-base md:text-xl">{title}</div>
+        <div className="hidden md:block md:mr-2 w-12"><img src="/logo2.svg" /></div>
+        <div className="text-base md:text-2xl">{title}</div>
       </NavBarLink>
 
       <div className="hidden md:flex flex-grow justify-end">
