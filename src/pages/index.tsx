@@ -51,7 +51,7 @@ export default function HomePage() {
           <a href="mailto:jattardi@gmail.com">jattardi@gmail.com</a>.
         </p>
 
-        {/* <SignupForm /> */}
+        <SignupForm />
       </div>
     </SidebarLayout>
   );
