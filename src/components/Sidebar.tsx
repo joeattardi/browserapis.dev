@@ -10,8 +10,8 @@ export default function Sidebar() {
   return (
     <div className={clsx(
       'p-4 hidden md:block',
-      'bg-sky-50 dark:bg-gray-700',
-      'border-r border-r-gray-300 dark:border-r-gray-600'
+      'bg-slate-200 dark:bg-gray-700',
+      'dark:border-r-gray-600'
     )}
     >
       <CategorySidebarMenu />

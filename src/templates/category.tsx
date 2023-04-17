@@ -18,7 +18,7 @@ export default function Category({ pageContext }) {
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map(demo => (
           <Card key={demo.key} title={demo.title} href={demo.path}>
-            {demo.excerpt}
+            {demo.summary}
           </Card>
         ))}
       </div>

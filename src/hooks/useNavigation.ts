@@ -24,6 +24,7 @@ export default function useNavigation(group: string): NavItem[] {
             slug
             nav {
               key
+              summary
               group
               order
               parent

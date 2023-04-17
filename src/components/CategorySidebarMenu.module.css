@@ -1,0 +1,13 @@
+.link {
+  border-left: 5px solid transparent;
+}
+
+.active {
+  @apply bg-sky-200;
+  @apply border-sky-700;
+}
+
+.active:hover {
+  @apply bg-sky-100;
+  @apply border-sky-700;
+}
