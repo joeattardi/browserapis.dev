@@ -8,7 +8,7 @@ import DarkModeToggle from './DarkModeToggle';
 import Search from './Search';
 import NavBarLink from './NavBarLink';
 
-export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
+export default function NavBar({ showTitle, theme, setTheme, isNavOpen, setNavOpen}) {
   const { title } = useSiteMetadata();
   const data = useNavigation('topnav');
 
@@ -25,8 +25,8 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
       </button>
 
       <NavBarLink to="/">
-        <div className="hidden md:block md:mr-2 w-12"><img src="/logo2.svg" /></div>
-        <div className="text-base md:text-2xl">{title}</div>
+        <div className="hidden md:block w-12"><img src="/logo2.svg" /></div>
+        {showTitle && <div className="text-base ml-2 md:text-2xl">{title}</div>}
       </NavBarLink>
 
       <div className="hidden md:flex flex-grow justify-end">

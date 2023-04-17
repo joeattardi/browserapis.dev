@@ -1,5 +1,6 @@
 import React from 'react';
 
+import SEO from '../../components/Seo';
 import ContentOnlyLayout from '../../components/layouts/ContentOnlyLayout';
 
 export default function ConfirmedPage() {
@@ -18,3 +19,5 @@ export default function ConfirmedPage() {
     </ContentOnlyLayout>
   )
 }
+
+export const Head = () => <SEO pageTitle="Subscribed" />;

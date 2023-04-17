@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
-export { default as Head } from '../components/Head';
+import SEO from '../components/Seo';
 
 export default function NotFoundPage() {
   return (
@@ -15,3 +15,5 @@ export default function NotFoundPage() {
     </ContentOnlyLayout>
   );
 }
+
+export const Head = () => <SEO pageTitle="Not Found" />;

@@ -1,22 +1,23 @@
 import React from 'react';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import SidebarLayout from '../components/layouts/SidebarLayout';
+import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import SignupForm from '../components/SignupForm';
+import SEO from '../components/Seo';
 
 export default function HomePage() {
   const { title, subtitle } = useSiteMetadata();
 
   return (
-    <SidebarLayout>
-      <section className="mb-4 text-center p-8">
+    <ContentOnlyLayout showTitle={false}>
+      <section className="text-gray-100 mb-4 text-center p-8 bg-gray-900">
         <div>
-          <h1 className="font-serif text-3xl md:text-5xl mb-2">
+          <h1 className="font-serif text-4xl md:text-6xl mb-2">
             {title}
           </h1>
+          <img className="mx-auto w-2/3 max-w-md my-8" alt="Web browser with code" src="/browser_icon_3.svg" />
           <h2 className="font-serif text-xl md:text-3xl">
             {subtitle}
           </h2>
-          <img className="mx-auto w-full md:w-1/2 mt-8" alt="Web browser with code" src="/browser_icon_3.svg" />
         </div>
       </section>
 
@@ -37,8 +38,8 @@ export default function HomePage() {
         </p>
         <SignupForm />
       </div>
-    </SidebarLayout>
+    </ContentOnlyLayout>
   );
 }
 
-export { default as Head } from '../components/Head';
+export const Head = () => <SEO />;

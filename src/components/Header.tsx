@@ -9,10 +9,10 @@ import { Link } from 'gatsby';
 import NavBar from './NavBar';
 import DarkModeToggle from './DarkModeToggle';
 
-const Header = ({ theme, setTheme, isNavOpen, setNavOpen }) => {
+const Header = ({ theme, setTheme, isNavOpen, setNavOpen, showTitle = true }) => {
   return (
     <header className={clsx('bg-gray-900', header)}>
-      <NavBar theme={theme} setTheme={setTheme} isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
+      <NavBar showTitle={showTitle} theme={theme} setTheme={setTheme} isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
     </header>
   )
 };

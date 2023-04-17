@@ -1,10 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import { MdOpenInNew, MdWarningAmber } from 'react-icons/md';
+import { MdOpenInNew } from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import { ThemeContext } from '../components/layouts/Layout';
+import SEO from '../components/Seo';
 import SidebarLayout from '../components/layouts/SidebarLayout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import CodeBlock from '../components/CodeBlock';
@@ -14,7 +14,7 @@ import PageTitle from '../components/PageTitle';
 
 export default function Demo({ children, uri, pageContext }) {
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
-
+  console.log(pageContext);
   return (
     <SidebarLayout>
       <div className="text-gray-700 dark:text-gray-200 p-4">
@@ -51,4 +51,4 @@ export default function Demo({ children, uri, pageContext }) {
   )
 }
 
-export { default as Head } from '../components/Head';
+export const Head = props => <SEO {...props} />;

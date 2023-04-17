@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Helmet } from 'react-helmet';
 import Header from '../Header';
 import { layout, footer } from './Layout.module.css';
-
+import useSiteMetadata from '../../hooks/useSiteMetadata';
 import ResponsiveMenu from '../ResponsiveMenu';
 
 type LayoutProps = {
@@ -26,10 +26,12 @@ function getInitialTheme() {
 }
 const initialTheme = getInitialTheme();
 
-export default function Layout({ className = '', children }: LayoutProps) {
+export default function Layout({ className = '', pageTitle, showTitle = true, children }: LayoutProps) {
   const [theme, setTheme] = useState(initialTheme);
   const [isNavOpen, setNavOpen] = useState(false);
 
+
+  // TODO export Head from layout
   useEffect(() => {
     const query = window.matchMedia('(prefers-color-scheme: dark)');
     query.addEventListener('change', () => {
@@ -45,7 +47,7 @@ export default function Layout({ className = '', children }: LayoutProps) {
         <html className={theme} />
       </Helmet>
       <div className={clsx(layout, theme, className)}>
-        <Header isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
+        <Header showTitle={showTitle} isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
         {children}
         <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} />
       </div>
