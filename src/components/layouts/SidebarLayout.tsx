@@ -16,7 +16,7 @@ export default function SidebarLayout({ children }: LayoutProps) {
       <Sidebar />
       <article className={content}>
         <div className="flex flex-col">
-          <div className="bg-slate-50 dark:bg-stone-900 text-stone-700 dark:text-stone-100">{children}</div>
+          <div className="bg-slate-50 dark:bg-stone-900 text-stone-700 dark:text-stone-100 flex-grow">{children}</div>
           <Footer />
         </div>
       </article>

@@ -3,13 +3,14 @@ import useSiteMetadata from '../hooks/useSiteMetadata';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import SignupForm from '../components/SignupForm';
 import SEO from '../components/Seo';
+import SidebarLayout from '../components/layouts/SidebarLayout';
 
 export default function HomePage() {
   const { title, subtitle } = useSiteMetadata();
 
   return (
-    <ContentOnlyLayout showTitle={false}>
-      <section className="text-gray-100 mb-4 text-center p-8 bg-gray-900">
+    <SidebarLayout showTitle={false}>
+      <section className="mb-4 text-center p-8">
         <div>
           <h1 className="font-serif text-4xl md:text-6xl mb-2">
             {title}
@@ -38,7 +39,7 @@ export default function HomePage() {
         </p>
         <SignupForm />
       </div>
-    </ContentOnlyLayout>
+    </SidebarLayout>
   );
 }
 
