@@ -4,15 +4,17 @@
 
 @charset "utf-8";
 
-html, body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
+:root {
+  --header-height: 5rem;
 }
 
-#___gatsby, #gatsby-focus-wrapper {
-  height: 100%;
+html, body {
+  margin: 0;
 }
+
+/* #___gatsby, #gatsby-focus-wrapper {
+  height: 100%;
+} */
 
 .dark * {
   color-scheme: dark;

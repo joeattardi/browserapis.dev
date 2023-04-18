@@ -9,7 +9,7 @@ export default function HomePage() {
 
   return (
     <ContentOnlyLayout showTitle={false}>
-      <section className="text-gray-100 mb-4 text-center p-8 bg-gray-900">
+      <section className="m -4 text-center p-8">
         <div>
           <h1 className="font-serif text-4xl md:text-6xl mb-2">
             {title}
@@ -21,7 +21,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="leading-relaxed text-lg p-4 max-w-7xl mx-auto">
+      <div className="leading-relaxed text-lg p-4 mx-auto">
         <p className="my-2">
           Welcome to the companion website for the upcoming book{' '}
           <em>{title}</em> by Joe Attardi (O'Reilly, 2025).
@@ -43,3 +43,5 @@ export default function HomePage() {
 }
 
 export const Head = () => <SEO />;
+
+// max-w-7xl 

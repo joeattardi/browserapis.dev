@@ -7,6 +7,7 @@ import useSiteMetadata from '../hooks/useSiteMetadata';
 import DarkModeToggle from './DarkModeToggle';
 import Search from './Search';
 import NavBarLink from './NavBarLink';
+import NavBarItem from './NavBarItem';
 
 export default function NavBar({ showTitle, theme, setTheme, isNavOpen, setNavOpen}) {
   const { title } = useSiteMetadata();
@@ -19,7 +20,7 @@ export default function NavBar({ showTitle, theme, setTheme, isNavOpen, setNavOp
   const MenuIcon = isNavOpen ? MdClose : MdMenu;
 
   return (
-    <nav className="p-4 text-gray-50 flex items-center">
+    <nav className="p-4 text-gray-50 flex items-center justify-between h-full">
       <button onClick={toggleMenu} className="mr-4 block md:hidden">
         <MenuIcon size={32} />
       </button>
@@ -29,18 +30,18 @@ export default function NavBar({ showTitle, theme, setTheme, isNavOpen, setNavOp
         {showTitle && <div className="text-base ml-2 md:text-2xl">{title}</div>}
       </NavBarLink>
 
-      <div className="hidden md:flex flex-grow justify-end">
+      <div className="mx-4 flex items-center justify-center space-x-1">
         {data.map(item => (
-          <NavBarLink to={item.path} key={item.key}>
+          <NavBarItem href={item.path} key={item.key}>
             {item.title}
-          </NavBarLink>
+          </NavBarItem>
         ))}
-        <div className="mx-4 flex items-center justify-center space-x-3">
-          <a className="hover:text-cyan-100" href="https://github.com/joeattardi/web-browser-api-cookbook" target="_blank">
-            <BsGithub title="View code on GitHub" size={24} />
-          </a>
+        
+          <NavBarItem href="https://github.com/joeattardi/web-browser-api-cookbook" title="View code on GitHub" isExternal>
+            <BsGithub size={24} />
+          </NavBarItem>
           <DarkModeToggle theme={theme} setTheme={setTheme} isDark />
-        </div>
+
         <Search />
       </div>
     </nav>

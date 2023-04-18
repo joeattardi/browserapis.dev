@@ -15,8 +15,8 @@ export default function Footer() {
   return (
     <footer
       className={clsx(
-        'p-4 flex flex-col flex-grow items-center',
-        'bg-slate-200 dark:bg-gray-700',
+        'p-4 flex flex-col items-center',
+        'bg-slate-200 dark:bg-neutral-700',
         'text-gray-700, dark:text-gray-200',
         'border-t border-t-gray-300 dark:border-t-gray-600'
       )}

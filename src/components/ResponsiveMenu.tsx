@@ -12,7 +12,7 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
   const data = useNavigation('topnav');
 
   return (
-    <div className="relative">
+    <div className="hidden relative">
       <div
         className={clsx(
           isNavOpen ? 'translate-x-0' : '-translate-x-full',

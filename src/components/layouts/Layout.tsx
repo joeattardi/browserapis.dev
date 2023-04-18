@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Helmet } from 'react-helmet';
 import Header from '../Header';
+import Footer from '../Footer';
 import { layout, footer } from './Layout.module.css';
 import useSiteMetadata from '../../hooks/useSiteMetadata';
 import ResponsiveMenu from '../ResponsiveMenu';
@@ -26,12 +27,10 @@ function getInitialTheme() {
 }
 const initialTheme = getInitialTheme();
 
-export default function Layout({ className = '', pageTitle, showTitle = true, children }: LayoutProps) {
+export default function Layout({ className = '', pageTitle, showTitle = true, children, sidebar = null }: LayoutProps) {
   const [theme, setTheme] = useState(initialTheme);
   const [isNavOpen, setNavOpen] = useState(false);
 
-
-  // TODO export Head from layout
   useEffect(() => {
     const query = window.matchMedia('(prefers-color-scheme: dark)');
     query.addEventListener('change', () => {
@@ -46,10 +45,14 @@ export default function Layout({ className = '', pageTitle, showTitle = true, ch
       <Helmet>
         <html className={theme} />
       </Helmet>
-      <div className={clsx(layout, theme, className)}>
+      <div className="flex flex-col min-h-screen">
         <Header showTitle={showTitle} isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
-        {children}
-        <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} />
+        <div className="flex flex-grow">
+          {sidebar}
+          <main className="p-8 max-w-7xl mx-auto">{children}</main>
+        </div>
+        {/* <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} /> */}
+        <Footer />
       </div>
     </ThemeContext.Provider>
   ); 

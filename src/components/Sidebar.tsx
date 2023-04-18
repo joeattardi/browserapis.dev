@@ -8,13 +8,13 @@ export default function Sidebar() {
   const data = useNavigation('sidebar');
 
   return (
-    <div className={clsx(
-      'p-4 hidden md:block',
-      'bg-slate-200 dark:bg-gray-700',
-      'dark:border-r-gray-600'
-    )}
-    >
-      <CategorySidebarMenu />
+    <div className="bg-sky-100">
+      <div className={clsx(
+        'p-4 hidden md:block min-w-[20rem] sticky top-[--header-height]',
+      )}
+      >
+        <CategorySidebarMenu />
+      </div>
     </div>
   );
 }
