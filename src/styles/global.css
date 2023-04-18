@@ -48,3 +48,16 @@ html, body {
     @apply flex flex-col items-start mb-4;
   }
 }
+
+.sidebarLink {
+  @apply dark:text-sky-200 text-sky-800;
+
+  &:hover {
+    @apply dark:bg-sky-900 bg-sky-200;
+  }
+}
+
+.sidebarLinkActive, .sidebarLinkActive:hover {
+  @apply dark:bg-sky-300 dark:text-sky-800;
+  @apply bg-sky-600 text-sky-100;
+}

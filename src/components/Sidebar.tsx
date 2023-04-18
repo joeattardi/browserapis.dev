@@ -8,7 +8,7 @@ export default function Sidebar() {
   const data = useNavigation('sidebar');
 
   return (
-    <div className="bg-sky-100">
+    <div className="bg-sky-100 dark:bg-sky-950">
       <div className={clsx(
         'p-4 hidden md:block min-w-[20rem] sticky top-[--header-height]',
       )}

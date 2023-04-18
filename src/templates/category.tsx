@@ -9,7 +9,6 @@ export default function Category({ pageContext }) {
   const nav = useNavigation('sidebar');
   const items = nav.find(group => group.key === pageContext.frontmatter.nav.key)?.children ?? [];
 
-  console.log(items);
   return (
     <SidebarLayout>
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>

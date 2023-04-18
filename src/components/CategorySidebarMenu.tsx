@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Link } from 'gatsby';
 
 import useNavigation from '../hooks/useNavigation';
-import { active, link } from './CategorySidebarMenu.module.css';
+import { link } from './CategorySidebarMenu.module.css';
 
 
 export default function CategorySidebarMenu() {
@@ -16,12 +16,11 @@ export default function CategorySidebarMenu() {
           <li className="flex">
             <Link 
               className={clsx(
-                link,
-                "bw-full w-full px-2 py-1 text-xl my-2 md:text-lg md:my-0 text-sky-600 dark:text-sky-200",
-                "hover:bg-sky-50"
+                'sidebarLink',
+                "bw-full w-full px-2 py-1 my-2 md:my-0 text-lg rounded"
               )}
               to={item.path}
-              activeClassName={active}
+              activeClassName="sidebarLinkActive"
             >
               {item.title}
             </Link>

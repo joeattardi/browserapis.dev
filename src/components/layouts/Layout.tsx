@@ -47,7 +47,7 @@ export default function Layout({ className = '', pageTitle, showTitle = true, ch
       </Helmet>
       <div className="flex flex-col min-h-screen">
         <Header showTitle={showTitle} isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
-        <div className="flex flex-grow">
+        <div className="flex flex-grow bg-zinc-50 text-zinc-800 dark:text-zinc-200 dark:bg-zinc-950">
           {sidebar}
           <main className="p-8 max-w-7xl mx-auto">{children}</main>
         </div>
