@@ -35,3 +35,8 @@
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
 }
+
+.noScroll {
+  height: calc(100vh - var(--header-height));
+  overflow: hidden;
+}

@@ -34,7 +34,8 @@ export default function Search() {
         placeholder="Search"
         className={clsx(
           'rounded-full pl-10 pr-2 py-1 md:py-1 text-lg',
-          'bg-slate-400 placeholder:text-slate-200'
+          'bg-slate-400 placeholder:text-slate-200',
+          'dark:bg-slate-700'
         )}
         // className="placeholder:text-slate-400 rounded-lg pl-8 pr-2 bg-gray-800 text-white py-2 md:py-1"
       />

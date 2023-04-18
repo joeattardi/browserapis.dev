@@ -10,13 +10,16 @@ import useNavigation from '../hooks/useNavigation';
 
 export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
   const data = useNavigation('topnav');
-
+  console.log({ isNavOpen})
   return (
-    <div className="hidden relative">
+      // <div className="fixed w-screen h-screen top-0">
       <div
+        style={{ height: 'calc(100vh - var(--header-height))' }}
         className={clsx(
+          "block fixed md:hidden top-[--header-height]",
           isNavOpen ? 'translate-x-0' : '-translate-x-full',
-          'motion-reduce:transition-none ease-in-out transition-transform w-screen h-full absolute top-0 p-4 text-stone-900 dark:text-stone-100 bg-stone-100 dark:bg-stone-900'
+          'bg-sky-100 dark:bg-sky-950',
+          'motion-reduce:transition-none ease-in-out transition-transform w-screen absolute top-0 p-4'
         )}
       >
         <div className="flex">
@@ -40,6 +43,6 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
         </div>
         <DemosMenu />
       </div>
-    </div>
+      // </div>
   );
 }
