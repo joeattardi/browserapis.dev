@@ -16,12 +16,13 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
       <div
         style={{ height: 'calc(100vh - var(--header-height))' }}
         className={clsx(
-          "block fixed md:hidden top-[--header-height]",
+          "block fixed md:hidden top-[--header-height] overflow-auto",
           isNavOpen ? 'translate-x-0' : '-translate-x-full',
           'bg-sky-100 dark:bg-sky-950',
-          'motion-reduce:transition-none ease-in-out transition-transform w-screen absolute top-0 p-4'
+          'motion-reduce:transition-none ease-in-out transition-transform w-screen absolute top-0'
         )}
       >
+        <div className="sticky top-0 bg-sky-100 dark:bg-sky-950">
         <div className="flex justify-end items-center mb-4">
         {data.map(item => (
           <Link
@@ -41,7 +42,8 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
           />
           <Search />
         </div>
-        <CategorySidebarMenu />
+        </div>
+        <div className="p-4"><CategorySidebarMenu /></div>
         {/* <DemosMenu /> */}
       </div>
   );

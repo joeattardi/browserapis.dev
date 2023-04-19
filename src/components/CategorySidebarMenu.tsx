@@ -15,7 +15,7 @@ export default function CategorySidebarMenu({ path }) {
             <Link 
               className={clsx(
                 'sidebarLink',
-                'font-bold bw-full w-full px-2 py-4 my-0 md:py-2 md:my-2 text-lg rounded'
+                'font-bold bw-full w-full px-2 py-4 my-0 md:py-2 text-lg rounded'
               )}
               to={item.path}
               activeClassName="sidebarLinkActive"
@@ -32,7 +32,7 @@ export default function CategorySidebarMenu({ path }) {
                         activeClassName="sidebarLinkActive" 
                         className={clsx(
                           'sidebarLink',
-                          'bw-full w-full pl-8 px-2 py-4 my-0 md:py-2 md:my-2 text-base rounded'
+                          'bw-full w-full pl-8 px-2 py-4 my-0 md:py-2 text-base rounded'
                         )} 
                         to={child.path}
                       >

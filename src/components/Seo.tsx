@@ -19,6 +19,9 @@ export default function SEO(props) {
       <meta name="twitter:creator" content={twitterUsername} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:url" content={`${siteUrl}${location.pathname}`} />
+      <meta name="og:image" content={`${siteUrl}${image}`} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:title" content={title} />
       <title>{title}</title>
     </>
   );
