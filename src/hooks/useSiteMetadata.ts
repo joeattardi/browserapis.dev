@@ -8,6 +8,9 @@ export default function useSiteMetadata() {
           title
           subtitle
           siteUrl
+          description
+          image
+          twitterUsername
         }
       }
     }

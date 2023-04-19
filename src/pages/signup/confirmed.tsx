@@ -20,4 +20,4 @@ export default function ConfirmedPage() {
   )
 }
 
-export const Head = () => <SEO pageTitle="Subscribed" />;
+export const Head = (props) => <SEO {...props} pageTitle="Subscribed" />;

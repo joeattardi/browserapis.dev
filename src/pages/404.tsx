@@ -16,4 +16,4 @@ export default function NotFoundPage() {
   );
 }
 
-export const Head = () => <SEO pageTitle="Not Found" />;
+export const Head = props => <SEO {...props} pageTitle="Not Found" />;

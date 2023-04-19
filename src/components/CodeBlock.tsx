@@ -48,7 +48,7 @@ export default function CodeBlock({ isLoading, language, code }) {
             {languageTags[language] || language.toUpperCase()}
         </div>
         <CopyToClipboard text={code} onCopy={onCopy}>
-          <button className="flex items-center">
+          <button className="flex items-center" title="Copy to clipboard">
             <Icon size={24} />
           </button>
         </CopyToClipboard>

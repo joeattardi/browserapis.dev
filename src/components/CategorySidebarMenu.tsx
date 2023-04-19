@@ -7,11 +7,6 @@ import useNavigation from '../hooks/useNavigation';
 export default function CategorySidebarMenu({ path }) {
   const data = useNavigation('sidebar');
 
-  function isActive(item) {
-    console.log(path, item.path);
-    return path && path.startsWith(item.path);
-  }
-
   return (
     <ul className="space-y-2 flex flex-col">
       {data.map(item => (

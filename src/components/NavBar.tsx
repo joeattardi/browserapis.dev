@@ -26,7 +26,7 @@ export default function NavBar({ showTitle, theme, setTheme, isNavOpen, setNavOp
       </button>
 
       <NavBarLink to="/">
-        <div className="hidden md:block w-12"><img src="/logo.svg" /></div>
+        <div className="hidden md:block w-12"><img src="/logo.svg" alt={title}/></div>
         {showTitle && <div className="text-xl ml-2 md:text-2xl">{title}</div>}
       </NavBarLink>
 

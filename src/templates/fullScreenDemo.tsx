@@ -4,6 +4,7 @@ import { ThemeContext } from '../components/layouts/Layout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import useCodeImport from '../hooks/useCodeImport';
 import useSiteMetadata from '../hooks/useSiteMetadata';
+import SEO from '../components/Seo';
 import { Helmet } from 'react-helmet';
 
 export default function FullScreenDemo(props) {
@@ -27,4 +28,4 @@ export default function FullScreenDemo(props) {
   );
 }
 
-export { default as Head } from '../components/Head';
+export const Head = props => <SEO {...props} />;

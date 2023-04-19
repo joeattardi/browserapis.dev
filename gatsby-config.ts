@@ -5,6 +5,9 @@ const config: GatsbyConfig = {
     title: 'Web Browser API Cookbook',
     subtitle: 'Level Up Your JavaScript Applications',
     siteUrl: 'https://browserapis.dev',
+    description: 'Learn how to harness the power of built-in browser APIs to take your JavaScript app to the next level.',
+    image: '/icon.png',
+    twitterUsername: '@JoeAttardi'
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

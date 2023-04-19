@@ -43,4 +43,4 @@ export default function HomePage() {
   );
 }
 
-export const Head = () => <SEO />;
+export const Head = SEO;

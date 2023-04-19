@@ -1,7 +1,7 @@
 import React from 'react';
 import SidebarLayout from '../components/layouts/SidebarLayout';
 import PageTitle from '../components/PageTitle';
-
+import SEO from '../components/Seo';
 import useNavigation from '../hooks/useNavigation';
 import Card from '../components/Card';
 
@@ -24,3 +24,5 @@ export default function Category({ uri, pageContext }) {
     </SidebarLayout>
   )
 }
+
+export const Head = props => <SEO {...props} />;

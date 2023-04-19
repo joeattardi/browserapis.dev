@@ -33,4 +33,4 @@ export default function DemosPage({ path }) {
   );
 }
 
-export const Head = () => <SEO pageTitle="Demos" />;
+export const Head = (props) => <SEO {...props} pageTitle="Demos" />;
