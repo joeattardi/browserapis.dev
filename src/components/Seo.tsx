@@ -14,7 +14,7 @@ export default function SEO(props) {
       <html lang="en" />
       <meta name="description" content={pageDescription} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={`${siteUrl}${image}`} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:creator" content={twitterUsername} />
       <meta name="twitter:title" content={title} />
