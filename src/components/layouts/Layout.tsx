@@ -1,8 +1,9 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
 import { Helmet } from 'react-helmet';
 import Header from '../Header';
-import { layout, footer } from './Layout.module.css';
+import Footer from '../Footer';
+import { noScroll } from './Layout.module.css';
 import useSiteMetadata from '../../hooks/useSiteMetadata';
 import ResponsiveMenu from '../ResponsiveMenu';
 
@@ -26,12 +27,11 @@ function getInitialTheme() {
 }
 const initialTheme = getInitialTheme();
 
-export default function Layout({ className = '', pageTitle, showTitle = true, children }: LayoutProps) {
+export default function Layout({ className = '', pageTitle, showTitle = true, children, sidebar = null }: LayoutProps) {
   const [theme, setTheme] = useState(initialTheme);
   const [isNavOpen, setNavOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-
-  // TODO export Head from layout
   useEffect(() => {
     const query = window.matchMedia('(prefers-color-scheme: dark)');
     query.addEventListener('change', () => {
@@ -45,11 +45,22 @@ export default function Layout({ className = '', pageTitle, showTitle = true, ch
     <ThemeContext.Provider value={{ theme }}>
       <Helmet>
         <html className={theme} />
+        <body style={`overflow: ${isNavOpen ? 'hidden': 'auto'}`} />
       </Helmet>
-      <div className={clsx(layout, theme, className)}>
+      
+      <div className="flex flex-col min-h-screen">
         <Header showTitle={showTitle} isNavOpen={isNavOpen} setNavOpen={setNavOpen} theme={theme} setTheme={setTheme} />
-        {children}
-        <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} />
+        <div
+          ref={ref}
+          className={clsx(
+            'flex flex-grow bg-zinc-50 text-zinc-800 dark:text-zinc-200 dark:bg-zinc-950'
+          )}
+        >
+          <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} />
+          {sidebar}
+          <main className="p-8 max-w-7xl mx-auto w-full">{children}</main>
+        </div>
+        {!isNavOpen && <Footer />}
       </div>
     </ThemeContext.Provider>
   ); 

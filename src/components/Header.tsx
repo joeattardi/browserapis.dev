@@ -11,7 +11,14 @@ import DarkModeToggle from './DarkModeToggle';
 
 const Header = ({ theme, setTheme, isNavOpen, setNavOpen, showTitle = true }) => {
   return (
-    <header className={clsx('bg-gray-900', header)}>
+    <header className={
+      clsx(
+        'sticky top-0 h-[--header-height]',
+        'bg-sky-100 text-neutral-700',
+        'dark:bg-sky-950 dark:text-sky-100',
+        header
+      )
+    }>
       <NavBar showTitle={showTitle} theme={theme} setTheme={setTheme} isNavOpen={isNavOpen} setNavOpen={setNavOpen} />
     </header>
   )

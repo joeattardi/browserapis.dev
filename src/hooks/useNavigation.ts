@@ -8,6 +8,7 @@ type NavItem = {
   group: string;
   order: number;
   parent?: string;
+  excerpt?: string;
   children?: NavItem[];
 }
 
@@ -16,12 +17,14 @@ export default function useNavigation(group: string): NavItem[] {
     query NavItems {
       allMdx {
         nodes {
+          excerpt
           frontmatter {
             title
             type
             slug
             nav {
               key
+              summary
               group
               order
               parent
@@ -68,6 +71,7 @@ export default function useNavigation(group: string): NavItem[] {
         if (node?.frontmatter) {
           return {
             ...node.frontmatter.nav,
+            excerpt: node.excerpt,
             title: node.frontmatter.title,
             path: node.frontmatter.slug
           }

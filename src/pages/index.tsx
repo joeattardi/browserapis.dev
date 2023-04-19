@@ -9,20 +9,20 @@ export default function HomePage() {
   const { title, subtitle } = useSiteMetadata();
 
   return (
-    <SidebarLayout showTitle={false}>
-      <section className="mb-4 text-center p-8">
+    <ContentOnlyLayout showTitle={false}>
+      <section className="text-center">
         <div>
           <h1 className="font-serif text-4xl md:text-6xl mb-2">
             {title}
           </h1>
           <img className="mx-auto w-2/3 max-w-md my-8" alt="Web browser with code" src="/browser_icon_3.svg" />
-          <h2 className="font-serif text-xl md:text-3xl">
+          <h2 className="font-serif text-2xl md:text-3xl">
             {subtitle}
           </h2>
         </div>
       </section>
 
-      <div className="leading-relaxed text-lg p-4 max-w-7xl mx-auto">
+      <div className="leading-relaxed text-lg p-4 mx-auto">
         <p className="my-2">
           Welcome to the companion website for the upcoming book{' '}
           <em>{title}</em> by Joe Attardi (O'Reilly, 2025).

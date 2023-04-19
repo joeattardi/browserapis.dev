@@ -24,11 +24,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   function createDemo(demo, path) {
     createPage({
       path,
+      context: {
+        excerpt: demo.excerpt,
+      },
       component: `${demoTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
     });
 
     createPage({
       path: `${path}/full`,
+      context: {
+        excerpt: demo.excerpt,
+      },
       component: `${fullTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
     });
   }
@@ -37,6 +43,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     query {
       allMdx {
         nodes {
+          excerpt
           frontmatter {
             alias
             slug
@@ -61,8 +68,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
   const categories = result.data.allMdx.nodes.filter(node => node.frontmatter.type === 'category');
+
   categories.forEach(category => {
     createPage({
+      context: {
+        excerpt: category.excerpt,
+      },
       path: category.frontmatter.slug,
       component: `${categoryTemplate}?__contentFilePath=${category.internal.contentFilePath}`
     });

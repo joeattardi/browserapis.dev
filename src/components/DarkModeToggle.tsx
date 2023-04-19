@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
+import NavBarItem from './NavBarItem';
 
 const icons = {
   light: MdOutlineDarkMode,
@@ -23,8 +24,11 @@ export default function DarkModeToggle({ theme, setTheme, isDark }) {
   const Icon = icons[theme];
 
   return (
-      <button className="hover:text-cyan-100" title={labels[theme]} onClick={toggleTheme}>
+      <NavBarItem title={labels[theme]} onClick={toggleTheme}>
         <Icon size={24} />
-      </button>
+      </NavBarItem>
+      // <button className="text-neutral-700" title={labels[theme]} onClick={toggleTheme}>
+        
+      // </button>
   );
 }

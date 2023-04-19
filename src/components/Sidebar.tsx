@@ -2,18 +2,19 @@ import React from 'react';
 import clsx from 'clsx';
 import useNavigation from '../hooks/useNavigation';
 import DemosMenu from './DemosMenu';
+import CategorySidebarMenu from './CategorySidebarMenu';
 
-export default function Sidebar() {
+export default function Sidebar({ path }) {
   const data = useNavigation('sidebar');
 
   return (
-    <div className={clsx(
-      'p-4 hidden md:block',
-      'bg-sky-50 dark:bg-gray-700',
-      'border-r border-r-gray-300 dark:border-r-gray-600'
-    )}
-    >
-      <DemosMenu />
+    <div className="bg-sky-100 dark:bg-sky-950">
+      <div className={clsx(
+        'p-4 hidden md:block min-w-[20rem] sticky top-[--header-height]',
+      )}
+      >
+        <CategorySidebarMenu path={path} />
+      </div>
     </div>
   );
 }

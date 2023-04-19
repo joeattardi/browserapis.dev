@@ -7,19 +7,14 @@ import { content } from './Layout.module.css';
 import Footer from '../Footer';
 
 type LayoutProps = {
+  path: string;
   children: React.ReactNode;
 };
 
-export default function SidebarLayout({ children }: LayoutProps) {
+export default function SidebarLayout({ path, children }: LayoutProps) {
   return (
-    <Layout>
-      <Sidebar />
-      <article className={content}>
-        <div className="flex flex-col">
-          <div className="bg-slate-50 dark:bg-stone-900 text-stone-700 dark:text-stone-100 flex-grow">{children}</div>
-          <Footer />
-        </div>
-      </article>
+    <Layout sidebar={<Sidebar path={path} />}>
+      {children}
     </Layout>
   );
 }
