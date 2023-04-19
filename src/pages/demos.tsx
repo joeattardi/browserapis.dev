@@ -16,14 +16,10 @@ export const frontmatter = {
   }
 };
 
-export default function DemosPage() {
+export default function DemosPage({ path }) {
   const data = useNavigation('sidebar');
-  data.forEach(category => {
-    console.log(category);
-    console.log(category.key, category.excerpt);
-  })
   return (
-    <SidebarLayout>
+    <SidebarLayout path={path}>
       <PageTitle>Code &amp; Demos</PageTitle>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

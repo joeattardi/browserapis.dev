@@ -14,9 +14,9 @@ import PageTitle from '../components/PageTitle';
 
 export default function Demo({ children, uri, pageContext }) {
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
-  console.log(pageContext);
+
   return (
-    <SidebarLayout>
+    <SidebarLayout path={uri}>
       <div className="text-gray-700 dark:text-gray-200">
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
 

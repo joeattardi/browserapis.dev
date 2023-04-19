@@ -32,13 +32,6 @@ export default function Layout({ className = '', pageTitle, showTitle = true, ch
   const [isNavOpen, setNavOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   if (isNavOpen) {
-  //     console.log(ref.current.scrollTop);
-  //     console.log(window.scrollY);
-  //   }
-  // }, [isNavOpen]);
-
   useEffect(() => {
     const query = window.matchMedia('(prefers-color-scheme: dark)');
     query.addEventListener('change', () => {
@@ -60,13 +53,12 @@ export default function Layout({ className = '', pageTitle, showTitle = true, ch
         <div
           ref={ref}
           className={clsx(
-            'flex flex-grow bg-zinc-50 text-zinc-800 dark:text-zinc-200 dark:bg-zinc-950',
-            // isNavOpen && 'fixed top-[--header-height]'
+            'flex flex-grow bg-zinc-50 text-zinc-800 dark:text-zinc-200 dark:bg-zinc-950'
           )}
         >
           <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} />
           {sidebar}
-          <main className="p-8 max-w-7xl mx-auto">{children}</main>
+          <main className="p-8 max-w-7xl mx-auto w-full">{children}</main>
         </div>
         {!isNavOpen && <Footer />}
       </div>

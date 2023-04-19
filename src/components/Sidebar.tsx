@@ -4,7 +4,7 @@ import useNavigation from '../hooks/useNavigation';
 import DemosMenu from './DemosMenu';
 import CategorySidebarMenu from './CategorySidebarMenu';
 
-export default function Sidebar() {
+export default function Sidebar({ path }) {
   const data = useNavigation('sidebar');
 
   return (
@@ -13,7 +13,7 @@ export default function Sidebar() {
         'p-4 hidden md:block min-w-[20rem] sticky top-[--header-height]',
       )}
       >
-        <CategorySidebarMenu />
+        <CategorySidebarMenu path={path} />
       </div>
     </div>
   );

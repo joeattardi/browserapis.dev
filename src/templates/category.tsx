@@ -5,12 +5,12 @@ import PageTitle from '../components/PageTitle';
 import useNavigation from '../hooks/useNavigation';
 import Card from '../components/Card';
 
-export default function Category({ pageContext }) {
+export default function Category({ uri, pageContext }) {
   const nav = useNavigation('sidebar');
   const items = nav.find(group => group.key === pageContext.frontmatter.nav.key)?.children ?? [];
 
   return (
-    <SidebarLayout>
+    <SidebarLayout path={uri}>
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
       <p>{pageContext.excerpt}</p>
 
