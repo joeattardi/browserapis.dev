@@ -39,7 +39,7 @@ export default function HomePage() {
         </p>
         <SignupForm />
       </div>
-    </SidebarLayout>
+    </ContentOnlyLayout>
   );
 }
 

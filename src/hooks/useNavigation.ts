@@ -64,7 +64,7 @@ export default function useNavigation(group: string): NavItem[] {
   }
 
   // Flat list of items
-  const groupItems = [...data.allMdx.nodes]
+  const groupItems = [...data.allMdx.nodes, ...data.allJavascriptFrontmatter.nodes]
     .filter(node => node.frontmatter?.nav?.group === group)
     .map<NavItem>(
       node => {
