@@ -19,29 +19,29 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
           "block fixed md:hidden top-[--header-height] overflow-auto",
           isNavOpen ? 'translate-x-0' : '-translate-x-full',
           'bg-sky-100 dark:bg-sky-950',
-          'motion-reduce:transition-none ease-in-out transition-transform w-screen absolute top-0'
+          'motion-reduce:transition-none ease-in-out transition-transform w-screen top-0'
         )}
       >
-        <div className="sticky top-0 bg-sky-100 dark:bg-sky-950">
-        <div className="flex justify-end items-center mb-4">
-        {data.map(item => (
-          <Link
-            className="bg-stone-300 hover:bg-slate-300 dark:bg-stone-700 dark:hover:bg-slate-700 px-4 py-2 rounded" 
-            to={item.path} 
-            key={item.key}
-          >
-            {item.title}
-          </Link>
-        ))}
-        </div>
-        <div className="mb-2 flex items-center justify-end">
-          <DarkModeToggle
-            theme={theme}
-            setTheme={setTheme}
-            isDark={theme === 'dark'}
-          />
-          <Search />
-        </div>
+        <div className="sticky flex items-center justify-between flex-wrap top-0 bg-sky-100 dark:bg-sky-950">
+          <div className="flex justify-end items-center px-2 mb-2">
+          {data.map(item => (
+            <Link
+              className="bg-stone-300 hover:bg-slate-300 dark:bg-stone-700 dark:hover:bg-slate-700 px-4 py-2 rounded" 
+              to={item.path} 
+              key={item.key}
+            >
+              {item.title}
+            </Link>
+          ))}
+          </div>
+          <div className="flex items-center justify-end mb-2">
+            <DarkModeToggle
+              theme={theme}
+              setTheme={setTheme}
+              isDark={theme === 'dark'}
+            />
+            <Search />
+          </div>
         </div>
         <div className="p-4"><CategorySidebarMenu /></div>
         {/* <DemosMenu /> */}
