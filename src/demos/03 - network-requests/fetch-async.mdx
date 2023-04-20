@@ -1,0 +1,19 @@
+---
+title: 'Fetch with async/await'
+type: 'demo'
+slug: '/demos/network-requests/fetch-async'
+nav:
+  key: 'fetch-async'
+  summary: 'Use the async/await keywords to simplify Promise code.'
+  parent: 'networkRequests'
+  group: 'sidebar'
+  order: 3
+---
+
+For a basic `GET` request, the newer Fetch API is much simpler than `XMLHttpRequest` to work with. Unlike `XMLHttpRequest`, Fetch works with `Promise`s. 
+
+The initial `fetch` call returns a `Promise` that resolves to the response object. To get the JSON response body, we call `response.json()` which returns another `Promise`. Finally, that gives us the JSON response.
+
+To simplify our asynchronous code, we can use `async`/`await` to work with these `Promise` objects.
+
+We'll use a `fetch` call to interact with the [Star Wars API](https://swapi.dev/).
