@@ -16,6 +16,7 @@ export default function HomePage() {
             {title}
           </h1>
           <img className="mx-auto w-2/3 max-w-md my-8" alt="Web browser with code" src="/browser_icon_3.svg" />
+          <div className="my-4"><SignupForm /></div>
           <h2 className="font-serif text-2xl md:text-3xl">
             {subtitle}
           </h2>
@@ -37,7 +38,6 @@ export default function HomePage() {
           your favorite browser and get ready to explore the world of web
           browser APIs!
         </p>
-        <SignupForm />
       </div>
     </ContentOnlyLayout>
   );
