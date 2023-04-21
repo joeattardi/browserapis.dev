@@ -10,6 +10,7 @@ exports.onRenderBody = ({ setPreBodyComponents }) => {
   (function() {
     const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const cachedTheme = sessionStorage.getItem('theme');
+
     if (cachedTheme != null) {
       document.documentElement.className = cachedTheme;
     } else {

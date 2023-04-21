@@ -8,9 +8,9 @@ export default function Sidebar({ path }) {
   const data = useNavigation('sidebar');
 
   return (
-    <div className="bg-sky-100 dark:bg-sky-950">
+    <div className="bg-sky-100 dark:bg-sky-950 min-w-[20rem] sticky flex overflow-auto top-[--header-height]" style={{ height: 'calc(100vh - var(--header-height))' }}>
       <div className={clsx(
-        'p-4 hidden md:block min-w-[20rem] sticky top-[--header-height]',
+        'p-4 hidden md:block w-full h-full  relative',
       )}
       >
         <CategorySidebarMenu path={path} />

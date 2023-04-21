@@ -25,10 +25,9 @@ function getInitialTheme() {
 
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
-const initialTheme = getInitialTheme();
 
 export default function Layout({ className = '', pageTitle, showTitle = true, children, sidebar = null }: LayoutProps) {
-  const [theme, setTheme] = useState(initialTheme);
+  const [theme, setTheme] = useState(getInitialTheme());
   const [isNavOpen, setNavOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
