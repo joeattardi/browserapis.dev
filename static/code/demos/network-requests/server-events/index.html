@@ -1,0 +1,18 @@
+<div class="my-4">
+  <div class="mb-2 uppercase text-sm">Connection Status</div>
+  <div class="p-2 dark:bg-gray-600 bg-gray-200" id="status">Not Connected</div>
+</div>
+
+<div class="field">
+  <label for="url">Events URL</label>
+  <div class="flex items-center w-full space-x-4">
+    <input class="flex-grow w-full" id="url" type="url" required autofocus name="url" placeholder="Enter a URL..."
+      value="/sse">
+    <button type="button" class="w-32" id="connectButton">Connect</button>
+  </div>
+</div>
+
+<div id="messages">
+  <div class="text-2xl">Log</div>
+  <ul class="pl-4"></ul>
+</div>

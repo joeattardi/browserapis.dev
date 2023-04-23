@@ -38,7 +38,7 @@ function openWebSocketConnection(url) {
 
   // The `message` event is fired whenever a message is received from the server.
   socket.addEventListener('message', event => {
-    messageList.appendChild(createLog(`↙️ Received: "${event.data}`));
+    messageList.appendChild(createLog(`↙️ Received: "${event.data}"`));
   });
 
   // Always make sure to handle errors!
@@ -60,7 +60,7 @@ function openWebSocketConnection(url) {
     messageSubmit.disabled = true;
   
     socket = null;
-  })
+  });
 }
 
 // Toggle the connection state when the connect button is clicked.
