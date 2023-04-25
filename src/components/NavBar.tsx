@@ -20,7 +20,7 @@ export default function NavBar({ showTitle, theme, setTheme, isNavOpen, setNavOp
   const MenuIcon = isNavOpen ? MdClose : MdMenu;
 
   return (
-    <nav className="p-4 text-gray-50 flex items-center justify-between h-full">
+    <nav className="p-4 text-gray-50 flex items-center md:justify-between h-full">
       <button onClick={toggleMenu} className="mr-4 block md:hidden text-neutral-700 dark:text-slate-200">
         <MenuIcon size={32} />
       </button>

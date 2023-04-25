@@ -11,6 +11,7 @@ import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
 import CompatibilityNote from '../components/CompatibilityNote';
 import PageTitle from '../components/PageTitle';
+import SocialShare from '../components/SocialShare';
 
 export default function Demo({ children, uri, pageContext }) {
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
@@ -19,7 +20,6 @@ export default function Demo({ children, uri, pageContext }) {
     <SidebarLayout path={uri}>
       <div className="text-gray-700 dark:text-gray-200">
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
-
       {pageContext.frontmatter.compatibilityWarning && (
         <CompatibilityNote {...pageContext.frontmatter.compatibilityWarning} />
       )}
@@ -47,6 +47,7 @@ export default function Demo({ children, uri, pageContext }) {
         </div>
       </section>
       </div>
+      <SocialShare />
     </SidebarLayout>
   )
 }

@@ -23,6 +23,7 @@ export default function SEO(props) {
       <meta property="og:description" content={pageDescription} />
       <meta property="og:title" content={title} />
       <title>{title}</title>
+      <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6447a5facbd2bb001b85f787&product=custom-share-buttons&source=platform" async></script>
     </>
   );
 }

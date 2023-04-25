@@ -10,6 +10,7 @@ export default function Head({ pageTitle }) {
     <>
       <html lang="en" />
       <title>{pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle}</title>
+
     </>
   )
 }
