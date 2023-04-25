@@ -12,33 +12,34 @@ export default function HomePage() {
     <ContentOnlyLayout showTitle={false}>
       <section className="text-center">
         <div>
-          <h1 className="font-serif text-4xl md:text-6xl mb-2">
-            {title}
-          </h1>
-          <img className="mx-auto w-2/3 max-w-md my-8" alt="Web browser with code" src="/browser_icon_3.svg" />
-          <div className="my-4"><SignupForm /></div>
-          <h2 className="font-serif text-2xl md:text-3xl">
-            {subtitle}
-          </h2>
+          <h1 className="text-4xl md:text-4xl mb-2">{subtitle}</h1>
+          <p className="text-2xl">Explore web browser APIs with live demos.</p>
+          <img
+            className="mx-auto w-2/3 max-w-md my-8"
+            alt="Web browser with code"
+            src="/browser_icon_3.svg"
+          />
+          <div className="leading-relaxed text-lg p-4 mx-auto">
+            <p className="my-2">
+              Welcome to the companion website for the upcoming book{' '}
+              <em>{title}</em> by Joe Attardi (O'Reilly, 2025).
+            </p>
+            <p className="my-2">
+              Whether you're an experienced developer or just starting out, this
+              site is the perfect complement to the book. With live demos of all
+              the code in the book, you can see firsthand how to use the latest
+              web browser APIs to build better web applications. From working
+              with network requests to manipulating the DOM, this site has
+              everything you need to take your web development skills to the
+              next level. So grab your favorite browser and get ready to explore
+              the world of web browser APIs!
+            </p>
+          </div>
+          <div className="my-4">
+            <SignupForm />
+          </div>
         </div>
       </section>
-
-      <div className="leading-relaxed text-lg p-4 mx-auto">
-        <p className="my-2">
-          Welcome to the companion website for the upcoming book{' '}
-          <em>{title}</em> by Joe Attardi (O'Reilly, 2025).
-        </p>
-        <p className="my-2">
-          Whether you're an experienced developer or just starting out, this
-          site is the perfect complement to the book. With live demos of all the
-          code in the book, you can see firsthand how to use the latest web
-          browser APIs to build better web applications. From working with
-          network requests to manipulating the DOM, this site has everything you
-          need to take your web development skills to the next level. So grab
-          your favorite browser and get ready to explore the world of web
-          browser APIs!
-        </p>
-      </div>
     </ContentOnlyLayout>
   );
 }

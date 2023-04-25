@@ -24,7 +24,7 @@ export default function SignupForm() {
         'dark p-8 mt-8 text-center flex flex-col space-y-4 items-center rounded-lg'
       )}
     >
-      <h3 className="text-2xl">Be the first to know</h3>
+      <h3 className="text-2xl">Read the Book</h3>
       <p>
         Sign up to receive email updates about the book's progress, and find out
         when it is available for early access!
@@ -55,7 +55,7 @@ export default function SignupForm() {
           />
         </div>
         <div>
-          <CallToAction>Sign me up</CallToAction>
+          <CallToAction>Sign me up!</CallToAction>
         </div>
       </form>
       <p className="text-sm">Occasional updates, no spam. Unsubscribe at any time.</p>
