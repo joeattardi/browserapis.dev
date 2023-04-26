@@ -45,6 +45,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         nodes {
           excerpt
           frontmatter {
+            key
             alias
             slug
             title
@@ -73,6 +74,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       context: {
         excerpt: category.excerpt,
+        key: category.frontmatter.key
       },
       path: category.frontmatter.slug,
       component: `${categoryTemplate}?__contentFilePath=${category.internal.contentFilePath}`

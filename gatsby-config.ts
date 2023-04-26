@@ -46,7 +46,7 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-plugin-mdx'
+      resolve: 'gatsby-plugin-mdx',
     },
     {
       resolve: 'gatsby-source-filesystem',
