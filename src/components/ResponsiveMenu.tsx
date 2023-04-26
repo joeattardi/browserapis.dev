@@ -23,27 +23,27 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
         )}
       >
         <div className="sticky flex items-center justify-between flex-wrap top-0 bg-sky-100 dark:bg-sky-950">
-          <div className="flex justify-end items-center px-2 mb-2">
-          {data.map(item => (
-            <Link
-              className="bg-stone-300 hover:bg-slate-300 dark:bg-stone-700 dark:hover:bg-slate-700 px-4 py-2 rounded" 
-              to={item.path} 
-              key={item.key}
-            >
-              {item.title}
-            </Link>
-          ))}
-          </div>
-          <div className="flex items-center justify-end mb-2">
+          <div className="flex items-center w-full justify-between mb-2 px-4">
             <DarkModeToggle
               theme={theme}
               setTheme={setTheme}
               isDark={theme === 'dark'}
             />
-            <Search />
           </div>
         </div>
-        <div className="p-4"><CategorySidebarMenu /></div>
+        <div className="p-4 flex flex-col text-2xl">
+          <div className="my-4"><Search /></div>
+          {data.map(item => (
+              <Link
+                className="hover:bg-slate-300 dark:bg-stone-700 dark:hover:bg-slate-700 px-4 py-2 rounded text-center text-2xl" 
+                to={item.path} 
+                key={item.key}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        {/* <div className="p-4"><CategorySidebarMenu /></div> */}
         {/* <DemosMenu /> */}
       </div>
   );

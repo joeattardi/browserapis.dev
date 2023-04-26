@@ -26,7 +26,7 @@ export default function Search() {
 
   return (
     <div className="flex items-center relative pl-2">
-      <MdSearch size={32} className="h-7 absolute left-3 text-slate-200" />
+      <MdSearch size={24} className="absolute left-4 text-slate-200" />
       <input
         type="search"
         value={query}
@@ -35,7 +35,7 @@ export default function Search() {
         className={clsx(
           'rounded-full pl-10 pr-2 py-1 md:py-1 text-lg',
           'bg-slate-400 placeholder:text-slate-200',
-          'dark:bg-slate-700'
+          'dark:bg-slate-700 mb-0 w-full'
         )}
         // className="placeholder:text-slate-400 rounded-lg pl-8 pr-2 bg-gray-800 text-white py-2 md:py-1"
       />

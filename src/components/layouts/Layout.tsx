@@ -55,9 +55,9 @@ export default function Layout({ className = '', pageTitle, showTitle = true, ch
             'flex flex-grow bg-zinc-50 text-zinc-800 dark:text-zinc-200 dark:bg-zinc-950'
           )}
         >
-          <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} />
           {sidebar}
           <main className="p-8 max-w-7xl min-w-0 mx-auto w-full">{children}</main>
+          <ResponsiveMenu isNavOpen={isNavOpen} theme={theme} setTheme={setTheme} />
         </div>
         {!isNavOpen && <Footer />}
       </div>
