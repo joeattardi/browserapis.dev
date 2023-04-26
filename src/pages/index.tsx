@@ -3,40 +3,47 @@ import useSiteMetadata from '../hooks/useSiteMetadata';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import SignupForm from '../components/SignupForm';
 import SEO from '../components/Seo';
+import useCategories from '../hooks/useCategories';
 import SidebarLayout from '../components/layouts/SidebarLayout';
+import Card from '../components/Card';
 
 export default function HomePage() {
   const { title, subtitle } = useSiteMetadata();
+  const data = useCategories();
 
   return (
     <ContentOnlyLayout showTitle={false}>
       <section className="text-center">
         <div>
-          <h1 className="text-4xl md:text-4xl mb-2">{subtitle}</h1>
-          <p className="text-2xl">Explore web browser APIs with live demos.</p>
+          <h1 className="text-6xl md-text-4xl mb-2">{title}</h1>
+          <h2 className="text-4xl md:text-4xl mb-2">{subtitle}</h2>
+          <h3 className="text-2xl">by <a className="underline" href="https://joeattardi.dev">Joe Attardi</a></h3>
           <img
             className="mx-auto w-2/3 max-w-md my-8"
             alt="Web browser with code"
             src="/browser_icon_3.svg"
           />
-          <div className="leading-relaxed text-lg p-4 mx-auto">
-            <p className="my-2">
-              Welcome to the companion website for the upcoming book{' '}
-              <em>{title}</em> by Joe Attardi (O'Reilly, 2025).
-            </p>
-            <p className="my-2">
-              Whether you're an experienced developer or just starting out, this
-              site is the perfect complement to the book. With live demos of all
-              the code in the book, you can see firsthand how to use the latest
-              web browser APIs to build better web applications. From working
-              with network requests to manipulating the DOM, this site has
-              everything you need to take your web development skills to the
-              next level. So grab your favorite browser and get ready to explore
-              the world of web browser APIs!
-            </p>
-          </div>
+          
+          <p className="text-3xl">Explore web browser APIs with live demos.</p>
           <div className="my-4">
-            <SignupForm />
+            <div className="my-8 auto-rows-fr grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Card
+                title="Sign Up!"
+                href="/signup"
+              >
+                Sign up to receive email updates about the book.
+              </Card>
+              {data.map((category) => (
+                <Card
+                  key={category.frontmatter?.key}
+                  title={category.frontmatter?.title}
+                  href={category.frontmatter?.slug}
+                >
+                  {category.excerpt}
+                </Card>
+              ))}
+            </div>
+            {/* <SignupForm /> */}
           </div>
         </div>
       </section>

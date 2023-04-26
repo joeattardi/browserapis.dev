@@ -6,14 +6,21 @@ export default function Card({ title, children, href }) {
     <a
       href={href}
       className={clsx(
-        'rounded -skew-x-12 py-4 px-8 border-4 border-transparent  transition-all duration-[500ms]',
-        'bg-indigo-200 hover:bg-indigo-400 hover:text-white hover:border-indigo-800',
-        'dark:bg-indigo-800 dark:hover:bg-indigo-700 hover:text-white dark:hover:border-indigo-300'
+        'rounded -skew-x-12 py-4 px-8 shadow transition-all text-left',
+        'bg-gradient-to-b from-sky-200 to-indigo-200',
+        'hover:from-sky-300 hover:to-indigo-300',
+        'hover:scale-105',
+        // 'bg-blue-100 hover:bg-blue-200',
+        'dark:bg-blue-900 dark:hover:bg-blue-800 dark:hover:text-white'
       )}
     >
-      <div className="skew-x-12">
-        <div className="font-bold text-2xl mb-2">{title}</div>
-        <p className="text-base">{children}</p>
+      <div className="skew-x-12 flex items-start space-x-4">
+        <div>
+          <div className="font-bold dark:text-slate-200 text-slate-700 text-2xl mb-2">
+            {title}
+          </div>
+          <p className="text-lg">{children}</p>
+        </div>
       </div>
     </a>
   );

@@ -20,15 +20,9 @@ export default function SignupForm() {
   return (
     <div 
       className={clsx(
-        'bg-sky-700 shadow-slate-700 text-white',
-        'dark p-8 mt-8 text-center flex flex-col space-y-4 items-center rounded-lg'
+        'mt-8 text-center flex flex-col space-y-4 items-center'
       )}
     >
-      <h3 className="text-2xl">Read the Book</h3>
-      <p>
-        Sign up to receive email updates about the book's progress, and find out
-        when it is available for early access!
-      </p>
       <form
         action={`https://app.convertkit.com/forms/${CONVERTKIT_FORM_ID}/subscriptions`}
         method="post"
@@ -40,7 +34,6 @@ export default function SignupForm() {
       >
         <div className="flex flex-col items-start w-full">
           <label 
-            className="mb-1 text-base font-bold text-sky-900 dark:text-sky-100" 
             htmlFor="email_address"
           >
             Email address
@@ -51,7 +44,7 @@ export default function SignupForm() {
             id="email_address"
             {...register('email_address')}
             placeholder="hello@example.com"
-            className="w-full px-4 py-2 rounded bg-slate-800"
+            className="w-full"
           />
         </div>
         <div>
