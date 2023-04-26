@@ -1,7 +1,7 @@
 import React from 'react';
 
 import useNavigation from '../hooks/useNavigation';
-import SidebarLayout from '../components/layouts/SidebarLayout';
+import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import SEO from '../components/Seo';
 import PageTitle from '../components/PageTitle';
 import Card from '../components/Card';
@@ -19,7 +19,7 @@ export const frontmatter = {
 export default function DemosPage({ path }) {
   const data = useNavigation('sidebar');
   return (
-    <SidebarLayout path={path}>
+    <ContentOnlyLayout>
       <PageTitle>Code &amp; Demos</PageTitle>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -29,7 +29,7 @@ export default function DemosPage({ path }) {
           </Card>
         ))}
       </div>
-    </SidebarLayout>
+    </ContentOnlyLayout>
   );
 }
 

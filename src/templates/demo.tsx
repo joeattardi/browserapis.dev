@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import SEO from '../components/Seo';
-import SidebarLayout from '../components/layouts/SidebarLayout';
+import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import InlineDemo from '../components/layouts/InlineDemo';
 import CodeBlock from '../components/CodeBlock';
 import useCodeImport from '../hooks/useCodeImport';
@@ -17,7 +17,7 @@ export default function Demo({ children, uri, pageContext }) {
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
 
   return (
-    <SidebarLayout path={uri}>
+    <ContentOnlyLayout path={uri}>
       <div className="text-gray-700 dark:text-gray-200">
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
       {pageContext.frontmatter.compatibilityWarning && (
@@ -48,7 +48,7 @@ export default function Demo({ children, uri, pageContext }) {
       </section>
       </div>
       <SocialShare />
-    </SidebarLayout>
+    </ContentOnlyLayout>
   )
 }
 

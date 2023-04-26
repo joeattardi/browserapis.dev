@@ -1,5 +1,5 @@
 import React from 'react';
-import SidebarLayout from '../components/layouts/SidebarLayout';
+import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import PageTitle from '../components/PageTitle';
 import SEO from '../components/Seo';
 import useNavigation from '../hooks/useNavigation';
@@ -10,7 +10,7 @@ export default function Category({ uri, pageContext }) {
   const items = nav.find(group => group.key === pageContext.frontmatter.nav.key)?.children ?? [];
 
   return (
-    <SidebarLayout path={uri}>
+    <ContentOnlyLayout>
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
       <p>{pageContext.excerpt}</p>
 
@@ -21,7 +21,7 @@ export default function Category({ uri, pageContext }) {
           </Card>
         ))}
       </div>
-    </SidebarLayout>
+    </ContentOnlyLayout>
   )
 }
 
