@@ -13,7 +13,13 @@ nav:
   order: 2
 ---
 
-A simplified to-do list that persists its data in local storage.
+While local storage can only contain string values, we can use `JSON.stringify` and `JSON.parse` to convert
+simple objects to and from JSON strings so that they can be persisted to local storage.
+
+[`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) takes an object 
+and converts it to a JSON string, and [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) does the opposite, converting a JSON string back to an object.
+
+Here's a to-do list that persists its data in local storage.
 
  - Enter some text and press Enter to add a to-do.
  - The list only contains incomplete to-dos. When a to-do is marked completed, it is immediately removed.

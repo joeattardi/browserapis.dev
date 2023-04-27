@@ -12,13 +12,19 @@ import useCodeImport from '../hooks/useCodeImport';
 import CompatibilityNote from '../components/CompatibilityNote';
 import PageTitle from '../components/PageTitle';
 import SocialShare from '../components/SocialShare';
+import useCategories from '../hooks/useCategories';
+import { Link } from 'gatsby';
 
 export default function Demo({ children, uri, pageContext }) {
   const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
 
+  const categories = useCategories();
+  const parent = categories.find(category => category.frontmatter.key === pageContext.frontmatter.category);
+
   return (
     <ContentOnlyLayout path={uri}>
       <div className="text-gray-700 dark:text-gray-200">
+      <Link className="mb-4 block text-xl underline text-blue-600" to={parent?.frontmatter.slug}>{parent?.frontmatter.title}</Link>
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
       {pageContext.frontmatter.compatibilityWarning && (
         <CompatibilityNote {...pageContext.frontmatter.compatibilityWarning} />
