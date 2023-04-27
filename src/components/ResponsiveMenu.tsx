@@ -4,10 +4,7 @@ import { Link } from 'gatsby';
 
 import DarkModeToggle from './DarkModeToggle';
 import Search from './Search';
-import DemosMenu from './DemosMenu';
-import NavBarLink from './NavBarLink';
 import useNavigation from '../hooks/useNavigation';
-import CategorySidebarMenu from './CategorySidebarMenu';
 
 export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
   const data = useNavigation('topnav');
