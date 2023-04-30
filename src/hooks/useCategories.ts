@@ -10,6 +10,7 @@ export default function useCategories() {
         nodes {
           excerpt
           frontmatter {
+            order
             slug
             title
             key

@@ -1,35 +1,58 @@
 import { useState, useEffect, useCallback } from 'react';
 
-type LoadedCode = {
-  js: string | null;
-  css: string | null;
-  html: string | null;
-};
+type CodeFile = {
+  name: string;
+  language: string;
+  title?: string;
+  description?: string;
+}
 
-export default function useCodeImport(basePath: string) {
-  const [code, setCode] = useState<LoadedCode>({
-    js: null,
-    css: null,
-    html: null
-  });
+export type LoadedCode = CodeFile & {
+  content: string;
+}
 
-  const loadCode = useCallback((filename: string) => {
-    return import(`!raw-loader!/static/code${basePath}/${filename}`)
-      .then(result => result.default)
-      .catch(error => '');
+const defaultCode: CodeFile[] = [
+  { name: 'index.js', language: 'javascript' },
+  { name: 'index.html', language: 'html' }
+]
+
+export default function useCodeImport(basePath: string, codeFiles: CodeFile[] = defaultCode) {
+  const [code, setCode] = useState<LoadedCode[]>([]);
+  const [isCodeLoaded, setIsCodeLoaded] = useState(false);
+
+  const loadCode = useCallback((name: string, language: string, title: string, description?: string) => {
+    return import(`!raw-loader!/static/code${basePath}/${name}`)
+      .then(content => ({ name, language, title, description, content: content.default }))
+      .catch(error => {
+        console.log(error);
+        return ''
+    })
   }, []);
 
   useEffect(() => {
-    Promise.all([
-      loadCode('index.js'),
-      loadCode('index.css'),
-      loadCode('index.html')
-    ]).then(([js, css, html]) => {
-      setCode({ js, css, html });
-    });
-  }, [loadCode]);
+    Promise.all(codeFiles.map(({ name, language, title, description }) => loadCode(name, language, title, description)))
+      .then(results => {
+        setCode(results);
+        setIsCodeLoaded(true);
+      });
 
-  const isCodeLoaded = Object.values(code).every(file => file != null);
+    // const promises = [
+    //   loadCode('index.css'),
+    //   loadCode('index.html')
+    // ];
+
+    // codeFiles.forEach(({ name, language, caption }) => {
+    //   promises.push(loadCode(name, language, caption));
+    // })
+
+    // Promise.all([
+    //   loadCode('index.js'),
+    //   loadCode('index.css'),
+    //   loadCode('index.html')
+    // ]).then(([js, css, html]) => {
+    //   setCode({ js, css, html });
+    // });
+  }, [loadCode]);
 
   return {
     code,

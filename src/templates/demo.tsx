@@ -16,10 +16,12 @@ import useCategories from '../hooks/useCategories';
 import { Link } from 'gatsby';
 
 export default function Demo({ children, uri, pageContext }) {
-  const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug);
+  const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug, pageContext.frontmatter.code);
 
   const categories = useCategories();
   const parent = categories.find(category => category.frontmatter.key === pageContext.frontmatter.category);
+
+  console.log(pageContext.codeFiles);
 
   return (
     <ContentOnlyLayout path={uri}>
@@ -38,7 +40,7 @@ export default function Demo({ children, uri, pageContext }) {
         </h2>
         <div className={clsx('bg-white p-4 rounded-md shadow-lg my-2 recipeDemo')}>
           {isCodeLoaded ?
-            <InlineDemo {...code } /> :
+            <InlineDemo code={code} /> :
             <Skeleton width="100%" height="5em" />
           }
         </div>
@@ -47,9 +49,19 @@ export default function Demo({ children, uri, pageContext }) {
       <section className="my-5">
         <h2 className="text-2xl my-2">Code</h2>
         <div className="flex flex-col space-y-8">
-        <CodeBlock isLoading={!isCodeLoaded} code={code.js} language="javascript" />
+        {pageContext.codeFiles.map(codeFile =>
+          <CodeBlock 
+            key={codeFile.name} 
+            description={codeFile.description}
+            isLoading={!isCodeLoaded} 
+            language={codeFile.language} 
+            code={codeFile.code} 
+            title={codeFile.title} 
+          />
+        )}
+        {/* <CodeBlock isLoading={!isCodeLoaded} code={code.js} language="javascript" />
         <CodeBlock isLoading={!isCodeLoaded} code={code.html} language="html" />
-        <CodeBlock isLoading={!isCodeLoaded} code={code.css} language="css" />
+        <CodeBlock isLoading={!isCodeLoaded} code={code.css} language="css" /> */}
         </div>
       </section>
       </div>

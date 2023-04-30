@@ -58,6 +58,14 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'demos',
+        path: './static/code/demos'
+      }
+    },
+    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'pages',
         path: './src/pages/'
       },

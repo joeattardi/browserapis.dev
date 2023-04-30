@@ -12,7 +12,7 @@ export default function HomePage() {
   const data = useCategories();
 
   return (
-    <ContentOnlyLayout showTitle={false}>
+    <ContentOnlyLayout>
       <section className="text-center">
         <div>
           <h1 className="text-6xl md-text-4xl mb-2">{title}</h1>

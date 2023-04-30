@@ -20,7 +20,7 @@ const languageTags = {
   javascript: 'JavaScript'
 };
 
-export default function CodeBlock({ isLoading, language, code }) {
+export default function CodeBlock({ isLoading, description, language, code, title }) {
   const [copied, setCopied] = useState(false);
   const { theme } = useContext(ThemeContext);
 
@@ -40,26 +40,30 @@ export default function CodeBlock({ isLoading, language, code }) {
   }
 
   return (
-    <div className="shadow">
-      <div className="bg-gray-200 flex items-center justify-between p-2 dark:bg-gray-800">
-        <div 
-          className={clsx('px-2 py-1 text-sm text-black', languageClass[language])}
-        >
-            {languageTags[language] || language.toUpperCase()}
+    <section>
+      <h3 className="text-xl">{title}</h3>
+      <p className="my-2 prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: description }} />
+      <div className="shadow">
+        <div className="bg-gray-200 flex items-center justify-between p-2 dark:bg-gray-800">
+          <div 
+            className={clsx('px-2 py-1 text-sm text-black', languageClass[language])}
+          >
+              {languageTags[language] || language.toUpperCase()}
+          </div>
+          <CopyToClipboard text={code} onCopy={onCopy}>
+            <button className="flex items-center" title="Copy to clipboard">
+              <Icon size={24} />
+            </button>
+          </CopyToClipboard>
         </div>
-        <CopyToClipboard text={code} onCopy={onCopy}>
-          <button className="flex items-center" title="Copy to clipboard">
-            <Icon size={24} />
-          </button>
-        </CopyToClipboard>
+        <SyntaxHighlighter
+          customStyle={{ fontSize: '1rem', marginTop: 0, borderRadius: 0, marginBottom: 0 }} 
+          language={language} 
+          style={theme === 'light' ? solarizedlight : dracula}
+        >
+          {code}
+        </SyntaxHighlighter>
       </div>
-      <SyntaxHighlighter
-        customStyle={{ fontSize: '1rem', marginTop: 0, borderRadius: 0, marginBottom: 0 }} 
-        language={language} 
-        style={theme === 'light' ? solarizedlight : dracula}
-      >
-        {code}
-      </SyntaxHighlighter>
-    </div>
+    </section>
   );
 }
