@@ -2,18 +2,18 @@ import React, { useEffect, useContext } from 'react';
 
 import useScript from '../../hooks/useScript';
 import { ThemeContext } from './Layout';
-import { LoadedCode } from '../../hooks/useCodeImport';
+import { CodeFile } from '../CodeBlock';
 
 export type DemoProps = {
-  code: LoadedCode[]
+  code: CodeFile[]
 }
 
 const Demo = ({ code }: DemoProps) => {
   const { theme } = useContext(ThemeContext);
 
-  const js = code.filter(file => file.language === 'javascript').map(file => file.content).join('');
-  const css = code.filter(file => file.language === 'css').map(file => file.content).join('');
-  const html = code.filter(file => file.language === 'html').map(file => file.content).join('');
+  const js = code.filter(file => file.language === 'javascript').map(file => file.code).join('');
+  const css = code.filter(file => file.language === 'css').map(file => file.code).join('');
+  const html = code.filter(file => file.language === 'html').map(file => file.code).join('');
 
 
   useScript({ body: js });

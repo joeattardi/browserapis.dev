@@ -10,6 +10,12 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import { ThemeContext } from './layouts/Layout';
 
+export type CodeFile = {
+  language: string;
+  code: string;
+  title: string;
+}
+
 const languageClass = {
   javascript: 'bg-yellow-400',
   html: 'bg-orange-400',
@@ -20,7 +26,7 @@ const languageTags = {
   javascript: 'JavaScript'
 };
 
-export default function CodeBlock({ isLoading, description, language, code, title }) {
+export default function CodeBlock({ language, code, title }: CodeFile) {
   const [copied, setCopied] = useState(false);
   const { theme } = useContext(ThemeContext);
 
@@ -31,10 +37,6 @@ export default function CodeBlock({ isLoading, description, language, code, titl
 
   const Icon = copied ? MdCheck : MdContentCopy;
 
-  if (isLoading) {
-    return <Skeleton width="100%" height="5em" style={{ margin: '1em auto' }} />;
-  }
-
   if (!code) {
     return null;
   }
@@ -42,7 +44,6 @@ export default function CodeBlock({ isLoading, description, language, code, titl
   return (
     <section>
       <h3 className="text-xl">{title}</h3>
-      <p className="my-2 prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: description }} />
       <div className="shadow">
         <div className="bg-gray-200 flex items-center justify-between p-2 dark:bg-gray-800">
           <div 

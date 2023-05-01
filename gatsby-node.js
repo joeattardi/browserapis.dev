@@ -19,32 +19,21 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   });
 };
 
-const defaultCode = [
-  {
-    name: 'index.js',
-    type: 'javascript',
-  },
-  {
-    name: 'index.html',
-    type: 'html'
-  }
-];
-
-
+function defaultCode() {
+  return [
+    {
+      name: 'index.js',
+      language: 'javascript',
+    },
+    {
+      name: 'index.html',
+      language: 'html'
+    }
+  ];
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-
-  const markdownContent = await graphql(`
-  {
-    allMarkdownRemark {
-      nodes {
-        html
-        fileAbsolutePath
-      }
-    }
-  }
-`);
 
   const result = await graphql(`
     query {
@@ -61,7 +50,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               name
               language
               title
-              description
             }
           }
           internal {
@@ -73,28 +61,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `);
 
   async function loadSourceFiles(demo) {
-    const codeFiles = demo.frontmatter.code || defaultCode;
+    const codeFiles = demo.frontmatter.code || defaultCode();
   
     const promises = [];
     codeFiles.forEach(codeFile => {
       const filePath = path.resolve('static/code', demo.frontmatter.slug.slice(1), codeFile.name);
       promises.push(fs.readFile(filePath, 'utf-8').then(content => codeFile.code = content));
-  
-      if (codeFile.description) {
-        codeFile.description = loadDescription(demo, codeFile);
-      }
     });
   
     await Promise.all(promises);
     return codeFiles;
-  }
-  
-  function loadDescription(demo, codeFile) {
-    const content = 
-      markdownContent.data.allMarkdownRemark.nodes
-        .find(node => node.fileAbsolutePath.endsWith(`${demo.frontmatter.slug}/${codeFile.description}`))
-        .html;
-    return content;
   }
 
   async function createDemo(demo, path) {
@@ -117,8 +93,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: `${fullTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
     });
   }
-
-  
 
   const demos = result.data.allMdx.nodes.filter(node => node.frontmatter.type === 'demo');
 

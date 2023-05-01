@@ -1,32 +1,46 @@
 import React from 'react';
 import clsx from 'clsx';
 import { MdOpenInNew } from 'react-icons/md';
-import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import SEO from '../components/Seo';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import InlineDemo from '../components/layouts/InlineDemo';
-import CodeBlock from '../components/CodeBlock';
-import useCodeImport from '../hooks/useCodeImport';
+import CodeBlock, { CodeFile } from '../components/CodeBlock';
 import CompatibilityNote from '../components/CompatibilityNote';
 import PageTitle from '../components/PageTitle';
 import SocialShare from '../components/SocialShare';
 import useCategories from '../hooks/useCategories';
 import { Link } from 'gatsby';
 
-export default function Demo({ children, uri, pageContext }) {
-  const { code, isCodeLoaded } = useCodeImport(pageContext.frontmatter.slug, pageContext.frontmatter.code);
+type Props = {
+  children: React.ReactNode;
+  uri: string;
+  pageContext: {
+    codeFiles: CodeFile[];
+    frontmatter: {
+      category: string;
+      key: string;
+      title: string;
+      compatibilityWarning: {
+        name: string;
+        url: string;
+      }
+    }
+  };
+}
 
+export default function Demo({ children, uri, pageContext }: Props) {
   const categories = useCategories();
-  const parent = categories.find(category => category.frontmatter.key === pageContext.frontmatter.category);
+  const parent = categories.find(category => category.frontmatter?.key === pageContext.frontmatter.category);
 
-  console.log(pageContext.codeFiles);
+  console.log(pageContext);
 
   return (
-    <ContentOnlyLayout path={uri}>
+    <ContentOnlyLayout>
       <div className="text-gray-700 dark:text-gray-200">
-      <Link className="mb-4 block text-xl underline text-blue-600" to={parent?.frontmatter.slug}>{parent?.frontmatter.title}</Link>
+      {parent?.frontmatter?.slug && parent?.frontmatter?.title && 
+        <Link className="mb-4 block text-xl underline text-blue-600" to={parent.frontmatter.slug}>{parent.frontmatter.title}</Link>}
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
       {pageContext.frontmatter.compatibilityWarning && (
         <CompatibilityNote {...pageContext.frontmatter.compatibilityWarning} />
@@ -39,10 +53,7 @@ export default function Demo({ children, uri, pageContext }) {
           <a className="space-x-1 flex items-center" title="Open demo in full screen" href="./full" target="_blank"><span>Demo</span> <MdOpenInNew size={18} /></a>
         </h2>
         <div className={clsx('bg-white p-4 rounded-md shadow-lg my-2 recipeDemo')}>
-          {isCodeLoaded ?
-            <InlineDemo code={code} /> :
-            <Skeleton width="100%" height="5em" />
-          }
+            <InlineDemo code={pageContext.codeFiles} />
         </div>
       </section>
 
@@ -52,16 +63,11 @@ export default function Demo({ children, uri, pageContext }) {
         {pageContext.codeFiles.map(codeFile =>
           <CodeBlock 
             key={codeFile.name} 
-            description={codeFile.description}
-            isLoading={!isCodeLoaded} 
             language={codeFile.language} 
             code={codeFile.code} 
             title={codeFile.title} 
           />
         )}
-        {/* <CodeBlock isLoading={!isCodeLoaded} code={code.js} language="javascript" />
-        <CodeBlock isLoading={!isCodeLoaded} code={code.html} language="html" />
-        <CodeBlock isLoading={!isCodeLoaded} code={code.css} language="css" /> */}
         </div>
       </section>
       </div>
