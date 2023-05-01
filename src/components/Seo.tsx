@@ -1,8 +1,18 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { HeadProps } from 'gatsby';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 
-export default function SEO(props) {
+export type SeoProps = HeadProps & {
+  pageTitle: string;
+  description: string;
+  pageContext: {
+    frontmatter: {
+      title: string;
+    }
+  }
+}
+
+export default function SEO(props: SeoProps) {
   const { pageTitle: localPageTitle, pageContext, description, location } = props;
   const { title: siteTitle, description: defaultDescription, siteUrl, image, twitterUsername } = useSiteMetadata();
   const pageTitle = pageContext?.frontmatter?.title || localPageTitle;

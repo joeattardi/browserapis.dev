@@ -5,7 +5,7 @@ import ContentOnlyLayout from '../../components/layouts/ContentOnlyLayout';
 
 export default function ConfirmPage() {
   return (
-    <ContentOnlyLayout pageTitle="Subscribe">
+    <ContentOnlyLayout>
         <div className="p-8 leading-relaxed text-xl max-w-2xl mx-auto">
         <div className="bg-sky-200 p-12 rounded-full mx-auto w-64 h-64 flex items-center shadow">
           <img className="" alt="Email sent" src="/confirm.svg" />
@@ -22,4 +22,4 @@ export default function ConfirmPage() {
   )
 }
 
-export const Head = (props) => <SEO {...props} pageTitle="Confirm Subscription" />;
+export const Head = (props: SeoProps) => <SEO {...props} pageTitle="Confirm Subscription" />;

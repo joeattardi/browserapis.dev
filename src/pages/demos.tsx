@@ -1,8 +1,6 @@
 import React from 'react';
-
-import useNavigation from '../hooks/useNavigation';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
-import SEO from '../components/Seo';
+import SEO, { SeoProps } from '../components/Seo';
 import PageTitle from '../components/PageTitle';
 import Card from '../components/Card';
 import useCategories from '../hooks/useCategories';
@@ -17,7 +15,7 @@ export const frontmatter = {
   }
 };
 
-export default function DemosPage({ path }) {
+export default function DemosPage() {
   const data = useCategories();
 
   return (
@@ -39,4 +37,4 @@ export default function DemosPage({ path }) {
   );
 }
 
-export const Head = (props) => <SEO {...props} pageTitle="Demos" />;
+export const Head = (props: SeoProps) => <SEO {...props} pageTitle="Demos" />;

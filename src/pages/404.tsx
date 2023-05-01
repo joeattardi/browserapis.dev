@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
-import SEO from '../components/Seo';
+import SEO, { SeoProps } from '../components/Seo';
 
 export default function NotFoundPage() {
   return (
@@ -16,4 +16,4 @@ export default function NotFoundPage() {
   );
 }
 
-export const Head = props => <SEO {...props} pageTitle="Not Found" />;
+export const Head = (props: SeoProps) => <SEO {...props} pageTitle="Not Found" />;

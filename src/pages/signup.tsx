@@ -3,6 +3,7 @@ import React from 'react';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import SignupForm from '../components/SignupForm';
 import PageTitle from '../components/PageTitle';
+import SEO, { SeoProps } from '../components/Seo';
 
 export default function SignupPage() {
   return (
@@ -16,3 +17,5 @@ export default function SignupPage() {
     </ContentOnlyLayout>
   )
 }
+
+export const Head = (props: SeoProps) => <SEO {...props} pageTitle="Sign Up" />;

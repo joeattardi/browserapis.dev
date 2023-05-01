@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../../components/Seo';
+import SEO, { SeoProps } from '../../components/Seo';
 import ContentOnlyLayout from '../../components/layouts/ContentOnlyLayout';
 
 export default function ConfirmedPage() {
@@ -20,4 +20,4 @@ export default function ConfirmedPage() {
   )
 }
 
-export const Head = (props) => <SEO {...props} pageTitle="Subscribed" />;
+export const Head = (props: SeoProps) => <SEO {...props} pageTitle="Subscribed" />;

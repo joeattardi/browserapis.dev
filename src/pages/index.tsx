@@ -1,10 +1,8 @@
 import React from 'react';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
-import SignupForm from '../components/SignupForm';
 import SEO from '../components/Seo';
 import useCategories from '../hooks/useCategories';
-import SidebarLayout from '../components/layouts/SidebarLayout';
 import Card from '../components/Card';
 
 export default function HomePage() {
