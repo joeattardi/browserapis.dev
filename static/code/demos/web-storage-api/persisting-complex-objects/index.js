@@ -31,7 +31,7 @@ function createTodo(name, due) {
       return {
         id: this.id,
         name: this.name,
-        due: this.due.getTime(),
+        due: this.due?.getTime(),
         completed: this.completed
       };
     }
@@ -48,7 +48,7 @@ function createTodo(name, due) {
 function reviver(key, value) {
   // Construct a new Date instance with the timestamp for the
   // `due` property
-  if (key === 'due') {
+  if (key === 'due' && value != null) {
     return new Date(value);
   }
 
@@ -112,9 +112,11 @@ function renderTodo(todo) {
     }
   });
 
-  const dueDate = element.querySelector('.dueDate');
-  const formatted = new Intl.DateTimeFormat().format(todo.due);
-  dueDate.textContent = `Due: ${formatted}`;
+  if (todo.due) {
+    const dueDate = element.querySelector('.dueDate');
+    const formatted = new Intl.DateTimeFormat().format(todo.due);
+    dueDate.textContent = `Due: ${formatted}`;
+  }
 
   todoElements.appendChild(element);
 }

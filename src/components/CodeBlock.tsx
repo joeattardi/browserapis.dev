@@ -11,6 +11,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { ThemeContext } from './layouts/Layout';
 
 export type CodeFile = {
+  name: string;
   language: string;
   code: string;
   title: string;
@@ -43,7 +44,7 @@ export default function CodeBlock({ language, code, title }: CodeFile) {
 
   return (
     <section>
-      <h3 className="text-xl">{title}</h3>
+      <h3 className="text-xl my-2">{title}</h3>
       <div className="shadow">
         <div className="bg-gray-200 flex items-center justify-between p-2 dark:bg-gray-800">
           <div 

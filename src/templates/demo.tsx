@@ -34,8 +34,6 @@ export default function Demo({ children, uri, pageContext }: Props) {
   const categories = useCategories();
   const parent = categories.find(category => category.frontmatter?.key === pageContext.frontmatter.category);
 
-  console.log(pageContext);
-
   return (
     <ContentOnlyLayout>
       <div className="text-gray-700 dark:text-gray-200">

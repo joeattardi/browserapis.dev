@@ -3,21 +3,13 @@ const todoTemplate = document.querySelector('#todoTemplate');
 const form = document.querySelector('form');
 const todoElements = document.querySelector('#todos');
 
-function initializeTodoList() {
-  const request = indexedDB.open('todos');
-
-  // Create the object store if the database didn't already exist.
-  request.addEventListener('upgradeneeded', event => {
-  const db = event.target.result;
-
-  // Each todo item will have an `id` property which will be the primary key.
-  db.createObjectStore('todos', {
-    keyPath: 'id'
+initializeTodoList()
+  .then(() => getTodos())
+  .then(todos => {
+    todos.forEach(todo => {
+      renderTodo(todo);
+    })
   });
-});
-}
-
-initializeTodoList();
 
 function createTodo(name, due) {
   return {
@@ -42,10 +34,8 @@ form.addEventListener('submit', event => {
     form.elements.due.valueAsDate
   );
 
-  // todoList.push(todo);
-
-  // saveTodoList();
-  renderTodo(todo);
+  addTodo(todo)
+    .then(() => renderTodo(todo));
 
   form.elements.todo.value = '';
 });
@@ -65,9 +55,11 @@ function renderTodo(todo) {
     }
   });
 
-  const dueDate = element.querySelector('.dueDate');
-  const formatted = new Intl.DateTimeFormat().format(todo.due);
-  dueDate.textContent = `Due: ${formatted}`;
+  if (todo.due) {
+    const dueDate = element.querySelector('.dueDate');
+    const formatted = new Intl.DateTimeFormat().format(todo.due);
+    dueDate.textContent = `Due: ${formatted}`;
+  }
 
   todoElements.appendChild(element);
 }
