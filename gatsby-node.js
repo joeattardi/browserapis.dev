@@ -46,11 +46,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
             title
             type
-            code {
-              name
-              language
-              title
-            }
+
           }
           internal {
             contentFilePath

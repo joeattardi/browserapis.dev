@@ -1,0 +1,22 @@
+---
+title: 'Checking Quota Usage'
+type: 'demo'
+slug: '/demos/indexeddb/quota'
+category: 'indexeddb'
+compatibilityWarning:
+  name: 'StorageManager API'
+  url: 'https://caniuse.com/mdn-api_storagemanager_estimate'
+summary: "Query the browser's StorageManager for information on quota and usage of locally persisted data."
+order: 2
+nav:
+  key: 'quota'
+  summary: "Query the browser's StorageManager for information on quota and usage of locally persisted data."
+  parent: 'indexeddb'
+  group: 'sidebar'
+  order: 2
+---
+
+The storage limit for IndexedDB is not strictly constrainted like with local storage. There is still a constraint,
+typically as a percentage of total available disk space.
+
+The `StorageManager` can give you an estimate on your current quota usage.
