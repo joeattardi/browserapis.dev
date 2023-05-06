@@ -1,22 +1,22 @@
 <form>
-  <div class="flex flex-wrap space-x-4">
-    <div class="field">
+  <div class="flex flex-wrap flex-col sm:flex-row">
+    <div class="field w-full sm:w-1/3 mr-4">
       <label for="firstName">First name</label>
-      <input id="firstName" name="firstName" />
+      <input class="w-full" id="firstName" name="firstName" />
     </div>
-    <div class="field">
+    <div class="field w-full sm:w-auto sm:flex-grow">
       <label for="lastName">Last name</label>
-      <input id="lastName" name="lastName" />
+      <input class="w-full" id="lastName" name="lastName" />
     </div>
   </div>
 
-  <div class="w-full flex flex-wrap space-x-4">
-    <div class="field w-1/3">
+  <div class="w-full flex flex-wrap">
+    <div class="field w-1/3 pr-4">
       <label for="address">Address</label>
       <input class="w-full" id="address" name="address" />
     </div>
-    <div class="field">
-      <label for="city">City</label>
+    <div class="field pr-4">
+      <label class="w-full" for="city">City</label>
       <input id="city" name="city" />
     </div>
     <div class="field">
