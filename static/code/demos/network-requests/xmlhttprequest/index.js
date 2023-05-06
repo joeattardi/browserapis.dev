@@ -20,7 +20,7 @@ function loadPerson(personId) {
     submitButton.disabled = false;
     console.log('Got person:', person);
 
-    results.innerHTML = `<pre>${JSON.stringify(person, null, 2)}</pre>`;
+    results.innerHTML = `<pre class="overflow-auto">${JSON.stringify(person, null, 2)}</pre>`;
   });
 
   // Handle any potential errors with the request.

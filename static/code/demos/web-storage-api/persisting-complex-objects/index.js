@@ -1,6 +1,6 @@
 // Constant indicating the key within local storage that the todo list
 // is saved under.
-const storageKey = 'todos';
+const storageKey = 'todos-objects';
 
 // Look up some elements and templates.
 const todoTemplate = document.querySelector('#todoTemplate');

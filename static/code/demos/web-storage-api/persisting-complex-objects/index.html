@@ -9,16 +9,16 @@
 
 <form class="todo-form">
   <fieldset class="p-4 bg-slate-100 dark:bg-slate-600">
-    <div class="flex space-x-4 items-end">
-      <div class="field flex-grow">
+    <div class="flex flex-col md:flex-row items-stretch md:items-center">
+      <div class="field flex-grow mr-4">
         <label htmlFor="description" htmlFor="due">Description</label>
         <input id="description" class="text-lg w-full" autofocus name="todo" placeholder="Take out the trash">
       </div>
-      <div class="field">
+      <div class="field mr-4">
         <label htmlFor="due">Due</label>
         <input id="due" type="date" placeholder="Due" name="due">
       </div>
-      <button class="mb-4">Add</button>
+      <div class="field self-start md:self-end"><button class="">Add</button></div>
     </div>
   </fieldset>
 </form>

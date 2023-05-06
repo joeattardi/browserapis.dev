@@ -14,7 +14,7 @@ function loadPerson(personId) {
   fetch(`https://swapi.dev/api/people/${personId}`)
     .then(response => response.json())
     .then(person => {
-      results.innerHTML = `<pre>${JSON.stringify(person, null, 2)}</pre>`;
+      results.innerHTML = `<pre class="overflow-auto">${JSON.stringify(person, null, 2)}</pre>`;
       submitButton.disabled = false;
     });
 }

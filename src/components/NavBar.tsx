@@ -27,7 +27,7 @@ export default function NavBar({ showTitle, theme, setTheme, isNavOpen, setNavOp
 
       <NavBarLink to="/">
         {/* <div className="hidden md:block w-12"><img src="/browser_icon_3.svg" alt={title}/></div> */}
-        <div className="text-2xl ml-2 md:text-3xl font-bold">{title}</div>
+        <div className="text-2xl md:text-base ml-2 lg:text-2xl font-bold">{title}</div>
       </NavBarLink>
 
       <div className="mx-4 items-center justify-center space-x-1 hidden md:flex">

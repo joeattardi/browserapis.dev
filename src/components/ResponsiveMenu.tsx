@@ -32,7 +32,7 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
           <div className="my-4"><Search /></div>
           {data.map(item => (
               <Link
-                className="hover:bg-slate-300 dark:bg-stone-700 dark:hover:bg-slate-700 px-4 py-2 rounded text-center text-2xl" 
+                className="hover:bg-slate-300 dark:bg-stone-700 dark:hover:bg-slate-700 px-4 py-2 my-2 rounded text-center text-2xl" 
                 to={item.path} 
                 key={item.key}
               >
@@ -40,8 +40,6 @@ export default function ResponsiveMenu({ isNavOpen, theme, setTheme }) {
               </Link>
             ))}
           </div>
-        {/* <div className="p-4"><CategorySidebarMenu /></div> */}
-        {/* <DemosMenu /> */}
       </div>
   );
 }

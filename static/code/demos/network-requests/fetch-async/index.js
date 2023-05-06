@@ -13,7 +13,7 @@ async function loadPerson(personId) {
 
   const response = await fetch(`https://swapi.dev/api/people/${personId}`);
   const person = await response.json();
-  results.innerHTML = `<pre>${JSON.stringify(person, null, 2)}</pre>`;
+  results.innerHTML = `<pre class="overflow-auto">${JSON.stringify(person, null, 2)}</pre>`;
   submitButton.disabled = false;
 }
 
