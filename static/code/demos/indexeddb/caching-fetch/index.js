@@ -32,7 +32,7 @@ function clearCache() {
   const request = store.clear();
 
   request.addEventListener('success', () => {
-    const statusText = document.querySelector('#clearResult');
+    const clearResult = document.querySelector('#clearResult');
     clearResult.textContent = '✅ Deleted cached data.';
     setTimeout(() => clearResult.textContent = '', 3000);
   });
@@ -81,15 +81,15 @@ async function loadPerson(personId) {
   let person = await getPerson(personId);
   if (person) {
     console.log(`Got person ${personId} from cache`);
-    status.textContent = '📀 Loaded from IndexeDB cache';
-    status.classList.add('bg-green-200');
+    status.textContent = '📀 Loaded from IndexedDB cache';
+    status.classList.add('bg-green-200', 'bg-green-800');
   } else {
     const response = await fetch(`https://swapi.dev/api/people/${personId}`);
     person = await response.json();
 
     if (response.status === 200) {
       status.textContent = '🌎 Loaded from Internet';
-      status.classList.add('bg-blue-200');
+      status.classList.add('bg-blue-200', 'dark:bg-blue-800');
       console.log(`Got person ${personId} from network`);
       await cachePerson(person);
     } else {
