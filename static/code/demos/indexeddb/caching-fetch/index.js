@@ -82,7 +82,7 @@ async function loadPerson(personId) {
   if (person) {
     console.log(`Got person ${personId} from cache`);
     status.textContent = '📀 Loaded from IndexedDB cache';
-    status.classList.add('bg-green-200', 'bg-green-800');
+    status.classList.add('bg-green-200', 'dark:bg-green-800');
   } else {
     const response = await fetch(`https://swapi.dev/api/people/${personId}`);
     person = await response.json();
