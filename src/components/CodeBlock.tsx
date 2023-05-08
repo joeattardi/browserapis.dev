@@ -61,7 +61,7 @@ export default function CodeBlock({ language, code, title }: CodeFile) {
         <SyntaxHighlighter
           customStyle={{ fontSize: '1rem', marginTop: 0, borderRadius: 0, marginBottom: 0 }} 
           language={language} 
-          style={theme === 'light' ? solarizedlight : dracula}
+          style={dracula}
         >
           {code}
         </SyntaxHighlighter>
