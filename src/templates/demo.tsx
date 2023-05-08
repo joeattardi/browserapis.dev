@@ -47,9 +47,7 @@ export default function Demo({ children, uri, pageContext }: Props) {
       <section className="prose prose-lg max-w-none dark:prose-invert">{children}</section>
 
       <section className="my-5">
-        <h2 className="text-2xl my-2">
-          <a className="space-x-1 flex items-center" title="Open demo in full screen" href="./full" target="_blank"><span>Demo</span> <MdOpenInNew size={18} /></a>
-        </h2>
+        <h2 className="text-2xl my-2">Demo</h2>
         <div className={clsx('bg-white p-4 rounded-md shadow-lg my-2 recipeDemo')}>
             <InlineDemo code={pageContext.codeFiles} />
         </div>

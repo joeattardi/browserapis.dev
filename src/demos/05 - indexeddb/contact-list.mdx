@@ -1,0 +1,22 @@
+---
+title: 'Contact List'
+type: 'demo'
+slug: '/demos/indexeddb/contact-list'
+category: 'indexeddb'
+summary: 'A basic searchable contact list stored in IndexedDB.'
+order: 4
+nav:
+  key: 'contact-list'
+  summary: 'A basic searchable contact list stored in IndexedDB.'
+  parent: 'indexeddb'
+  group: 'sidebar'
+  order: 4
+---
+
+This example demonstrates a simple contact list application. The supported operations are:
+
+ - **Get all contacts**: To get the contact list, we open a read-only transaction for the object store and use the `getAll` method
+to load all records.
+ - **Add a contact**: We open a read-write transaction and write the new contact object to the database.
+ - **Delete a contact**: Here we also use a read-write transaction, and delete the contact by its ID.
+ - **Search contacts**: We use an IndexedDB *cursor* to traverse the records and find the ones matching our query.

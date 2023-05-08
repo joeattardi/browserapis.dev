@@ -22,7 +22,7 @@ export default function DemosPage() {
     <ContentOnlyLayout>
       <PageTitle>Code &amp; Demos</PageTitle>
 
-      <div className="my-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="my-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
         {data.map(category => (
           <Card 
             key={category.frontmatter?.key} 

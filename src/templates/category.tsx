@@ -11,7 +11,7 @@ export default function Category({ data, uri, pageContext }) {
       <PageTitle>{pageContext.frontmatter.title}</PageTitle>
       <p>{pageContext.excerpt}</p>
 
-      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
         {data.allMdx.nodes.map(demo => (
           <Card key={demo.frontmatter.slug} title={demo.frontmatter.title} href={demo.frontmatter.slug}>
             {demo.frontmatter.summary}
