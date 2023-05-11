@@ -17,7 +17,7 @@ export default function HomePage() {
           <h2 className="text-4xl md:text-4xl mb-2">{subtitle}</h2>
           <h3 className="text-2xl">by <a className="underline" href="https://joeattardi.dev">Joe Attardi</a></h3>
           <img
-            className="mx-auto w-2/3 max-w-md my-8"
+            className="mx-auto h-72 w-2/3 max-w-md my-8"
             alt="Web browser with code"
             src="/browser_icon_3.svg"
           />
