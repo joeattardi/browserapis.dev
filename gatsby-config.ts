@@ -17,6 +17,66 @@ const config: GatsbyConfig = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-netlify',
     {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `
+          query {
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+            
+            allFile {
+              nodes {
+                relativePath
+                modifiedTime
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: () => 'https://browserapis.dev',
+        resolvePagePath: page => {
+          console.log(page);
+          return path.path;
+        },
+        resolvePages: ({
+          allSitePage,
+          allFile
+        }) => {
+          const res = allSitePage.nodes.map(page => {
+            if (page.path.startsWith('/demos')) {
+              const baseDemoName = page.path.split('/').slice(2, -1).join('/');
+              const matchingFile = allFile.nodes.find(file => file.relativePath.includes(baseDemoName));
+
+              if (matchingFile) {
+                return {
+                  path: page.path,
+                  lastmod: matchingFile.modifiedTime
+                };
+              }
+            }
+
+            const basePageName = page.path.slice(1, -1) + '.tsx';
+            const matchingPageFile = allFile.nodes.find(file => file.relativePath === basePageName);
+
+            if (matchingPageFile) {
+              return {
+                path: page.path,
+                lastmod: matchingPageFile.modifiedTime
+              };
+            }
+          }).filter(Boolean);
+
+          return res;
+        },
+        serialize: ({ path, lastmod }) => ({
+          url: path,
+          lastmod
+        })
+      }
+    },
+    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: [

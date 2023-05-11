@@ -80,14 +80,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
       component: `${demoTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
     });
-
-    createPage({
-      path: `${path}/full`,
-      context: {
-        excerpt: demo.excerpt,
-      },
-      component: `${fullTemplate}?__contentFilePath=${demo.internal.contentFilePath}`
-    });
   }
 
   const demos = result.data.allMdx.nodes.filter(node => node.frontmatter.type === 'demo');

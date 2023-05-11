@@ -27,6 +27,7 @@
     "gatsby-plugin-manifest": "^5.8.0",
     "gatsby-plugin-mdx": "^5.8.0",
     "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-sitemap": "^6.9.0",
     "gatsby-source-filesystem": "^5.8.0",
     "gatsby-transformer-javascript-frontmatter": "^5.8.0",
     "netlify": "^13.1.4",
