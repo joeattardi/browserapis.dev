@@ -1,9 +1,8 @@
 const path = require('path');
 const fs = require('fs/promises');
 
-const demoTemplate = path.resolve('./src/templates/demo.tsx');
-const categoryTemplate = path.resolve('./src/templates/category.tsx');
-const fullTemplate = path.resolve('./src/templates/fullScreenDemo.tsx');
+const demoTemplate = path.resolve('./src/templates/demo.jsx');
+const categoryTemplate = path.resolve('./src/templates/category.jsx');
 
 exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   actions.setWebpackConfig({
@@ -71,7 +70,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   async function createDemo(demo, path) {
     const codeFiles = await loadSourceFiles(demo);
-
     createPage({
       path,
       context: {
