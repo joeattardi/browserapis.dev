@@ -23,6 +23,7 @@ function initializeDatabase() {
     });
 
     request.addEventListener('success', (event) => {
+      console.log('success!');
       db = event.target.result;
       resolve(db);
     });
