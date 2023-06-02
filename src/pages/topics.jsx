@@ -4,7 +4,7 @@ import PageTitle from '../components/PageTitle';
 import SEO, { SeoProps } from '../components/Seo';
 import { Link, graphql } from 'gatsby';
 
-exports.frontmatter = {
+export const frontmatter = {
   title: 'Topics',
   slug: '/topics',
   nav: {
