@@ -1,20 +1,4 @@
-<form id="userForm">
-  <div class="field">
-    <label for="personIdField">Person ID</label>
-    <input
-      value="1"
-      type="number"
-      class="w-full" 
-      id="personIdField" 
-      type="personIdField" 
-      required 
-      name="personIdField" 
-      placeholder="Enter a person ID to search..."
-    >
-  </div>
-  <div>
-    <button id="searchButton">Search People</button>
-  </div>
-</form>
+<h3 class="text-xl mb-4">User List</h3>
 
-<div id="results"></div>
+<div id="loader" class="animate-pulse">Loading Users...</div>
+<ul id="users" class="ml-4 list-disc"></ul>

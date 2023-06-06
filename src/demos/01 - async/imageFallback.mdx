@@ -1,0 +1,25 @@
+---
+title: 'Loading an Image With a Fallback'
+type: 'demo'
+slug: '/demos/async/imageFallback/'
+category: 'async'
+order: 2
+summary: 'Load an image and show it once loaded. In case of error, show a fallback image.'
+code:
+  - name: 'index.js'
+    language: 'javascript'
+  - name: 'index.html'
+    language: 'html'
+nav:
+  key: 'imageFallback'
+  summary: 'Load an image and show it once loaded. In case of error, show a fallback image.'
+  parent: 'async'
+  group: 'sidebar'
+  order: 2
+---
+
+The `loadImage` function takes an image URL and a fallback. It returns a `Promise` and tries to load the image from the given URL.
+
+If the image failed to load, and a fallback URL was given, it will attempt to load the fallback image instead. If that fails, or no fallback URL was given, the `Promise` is rejected.
+
+If either the image or the fallback successfully loaded, the `Promise` is resolved with the `Image` object, ready to add to the document.

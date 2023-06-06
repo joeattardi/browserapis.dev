@@ -1,5 +1,5 @@
 ---
-title: 'Promise Basics'
+title: 'Working With Promises'
 type: 'demo'
 slug: '/demos/async/promises/'
 category: 'async'
@@ -11,16 +11,12 @@ code:
   - name: 'index.html'
     language: 'html'
 nav:
-  key: 'async'
+  key: 'promises'
   summary: 'Working with a simple Promise based API.'
   parent: 'async'
   group: 'sidebar'
   order: 1
 ---
 
-This demo shows the basics of interacting with `Promise` objects. When you enter a 
-user ID and click the Search Users button, it calls a function that makes a request
-to the [Star Wars API](https://swapi.dev/).
-
-Behind the scenes, this is done with the Fetch API. Fetch is covered in more detail in 
-[Chapter 4, Network Requests](/demos/network-requests).
+This demo shows the basics of interacting with `Promise` objects. It calls a `getUsers` function
+which siumulates a network request, then returns a `Promise` that resolves to the list of users.

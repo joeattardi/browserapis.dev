@@ -1,0 +1,28 @@
+---
+title: 'Chaining Promises'
+type: 'demo'
+slug: '/demos/async/promiseChains/'
+category: 'async'
+order: 3
+summary: 'Running a sequence of promises, where each depends on the result of the previous.'
+code:
+  - name: 'index.js'
+    language: 'javascript'
+  - name: 'index.html'
+    language: 'html'
+nav:
+  key: 'promiseChains'
+  summary: 'Running a sequence of promises, where each depends on the result of the previous.'
+  parent: 'async'
+  group: 'sidebar'
+  order: 3
+---
+
+This demo makes multiple asynchronous calls and builds a `Promise` chain. Each `Promise` success handler
+returns a new `Promise`, which forms the chain. It uses the Star Wars API to load the name of a person's homeworld.
+
+When you enter a person ID and click the Get Homeworld button, it calls the Star Wars API to load the person object.
+When the person data is received, it contains the URL for the homeworld. Upon success, it calls this next API to
+load the homeworld details.
+
+Finally, the name and homeworld are shown.
