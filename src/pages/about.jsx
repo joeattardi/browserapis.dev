@@ -4,7 +4,7 @@ import Layout from '../components/layouts/Layout';
 import { Link } from 'gatsby';
 import SEO from '../components/Seo';
 
-exports.frontmatter = {
+export const frontmatter = {
   title: 'About',
   slug: '/about',
   nav: {

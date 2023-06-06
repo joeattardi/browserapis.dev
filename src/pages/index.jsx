@@ -13,16 +13,16 @@ export default function HomePage() {
     <ContentOnlyLayout>
       <section className="text-center">
         <div>
-          <h1 className="text-6xl md-text-4xl mb-2">{title}</h1>
-          <h2 className="text-4xl md:text-4xl mb-2">{subtitle}</h2>
-          <h3 className="text-2xl">by <a className="underline" href="https://joeattardi.dev">Joe Attardi</a></h3>
           <img
-            className="mx-auto h-72 w-2/3 max-w-md my-8"
+            className="mx-auto hidden md:block w-1/4 my-8"
             alt="Web browser with code"
-            src="/browser_icon_3.svg"
+            src="/logo.svg"
           />
+          <h1 className="text-2xl md:text-6xl mb-2">{title}</h1>
+          <h2 className="text-lg md:text-4xl mb-2">{subtitle}</h2>
+          <h3 className="text-lg md:text-2xl">by <a className="underline" href="https://joeattardi.dev">Joe Attardi</a></h3>
           
-          <p className="text-3xl">Explore web browser APIs with live demos.</p>
+          <p className="mt-8 text-xl md:text-3xl">Explore web browser APIs with live demos.</p>
           <div className="my-4">
             <div className="my-8 auto-rows-fr grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <Card
@@ -41,7 +41,6 @@ export default function HomePage() {
                 </Card>
               ))}
             </div>
-            {/* <SignupForm /> */}
           </div>
         </div>
       </section>

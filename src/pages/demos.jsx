@@ -5,7 +5,7 @@ import PageTitle from '../components/PageTitle';
 import Card from '../components/Card';
 import useCategories from '../hooks/useCategories';
 
-exports.frontmatter = {
+export const frontmatter = {
   title: 'Demos',
   slug: '/demos',
   nav: {
