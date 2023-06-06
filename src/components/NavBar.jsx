@@ -26,7 +26,7 @@ export default function NavBar({ theme, setTheme, isNavOpen, setNavOpen}) {
       </button>
 
       <NavBarLink to="/">
-        <div className="text-2xl md:text-base ml-2 lg:text-2xl font-bold">{title}</div>
+        <div className="text-xl  ml-2 lg:text-2xl font-bold">{title}</div>
       </NavBarLink>
 
       <div className="mx-4 items-center justify-center space-x-1 hidden md:flex">
