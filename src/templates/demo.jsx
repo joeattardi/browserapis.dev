@@ -20,8 +20,10 @@ export default function Demo({ children, uri, pageContext }) {
     <ContentOnlyLayout>
       <div className="text-gray-700 dark:text-gray-200">
       {parent?.frontmatter?.slug && parent?.frontmatter?.title && 
-        <Link className="mb-4 block text-xl underline text-blue-600" to={parent.frontmatter.slug}>{parent.frontmatter.title}</Link>}
-      <PageTitle>{pageContext.frontmatter.title}</PageTitle>
+        <Link className="mb-4 block text-xl underline text-blue-600" to={parent.frontmatter.slug}>
+          Chapter {parent.frontmatter.order}: {parent.frontmatter.title}
+        </Link>}
+      <PageTitle>{pageContext.frontmatter.section} {pageContext.frontmatter.title}</PageTitle>
       {pageContext.frontmatter.compatibilityWarning && (
         <CompatibilityNote {...pageContext.frontmatter.compatibilityWarning} />
       )}

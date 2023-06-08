@@ -1,17 +1,17 @@
 import React from 'react';
 import ContentOnlyLayout from '../components/layouts/ContentOnlyLayout';
 import PageTitle from '../components/PageTitle';
-import SEO, { SeoProps } from '../components/Seo';
+import SEO from '../components/Seo';
 import { Link, graphql } from 'gatsby';
 
 export const frontmatter = {
-  title: 'Topics',
+  title: 'Full Contents',
   slug: '/topics',
   nav: {
     key: 'topics',
     group: 'topnav',
-    order: 2,
-  },
+    order: 2
+  }
 };
 
 export default function TopicsPage({ data }) {
@@ -20,10 +20,10 @@ export default function TopicsPage({ data }) {
       <PageTitle>Demos by Topic</PageTitle>
 
       {data.categories.nodes.map((category) => (
-        <div className="my-4" key={category.frontmatter.nav.key}>
+        <div className="my-4" key={category.frontmatter.slug}>
           <h2 className="text-2xl font-bold my-2">
             <Link className="underline" to={category.frontmatter.slug}>
-              {category.frontmatter.title}
+              Chapter {category.frontmatter.order}: {category.frontmatter.title}
             </Link>
           </h2>
           <ul className="list-disc ml-8">
@@ -32,12 +32,12 @@ export default function TopicsPage({ data }) {
                 (demo) => demo.frontmatter.category === category.frontmatter.key
               )
               .map((demo) => (
-                <li key={demo.frontmatter.nav.key}>
+                <li key={demo.frontmatter.slug}>
                   <Link
                     className="underline text-sky-700 dark:text-sky-400 text-xl"
                     to={demo.frontmatter.slug}
                   >
-                    {demo.frontmatter.title}
+                    {demo.frontmatter.section} {demo.frontmatter.title}
                   </Link>
                 </li>
               ))}
@@ -52,40 +52,29 @@ export const query = graphql`
   {
     categories: allMdx(
       filter: { frontmatter: { type: { eq: "category" } } }
-      sort: { frontmatter: { nav: { order: ASC } } }
+      sort: { frontmatter: { order: ASC } }
     ) {
       nodes {
         frontmatter {
           title
           key
           slug
-          nav {
-            key
-            summary
-            parent
-            group
-            order
-          }
+          order
         }
       }
     }
 
     demos: allMdx(
       filter: { frontmatter: { type: { eq: "demo" } } }
-      sort: { frontmatter: { nav: { order: ASC } } }
+      sort: { frontmatter: { order: ASC } }
     ) {
       nodes {
         frontmatter {
           title
           category
           slug
-          nav {
-            key
-            summary
-            parent
-            group
-            order
-          }
+          order
+          section
         }
       }
     }

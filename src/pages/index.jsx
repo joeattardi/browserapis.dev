@@ -33,6 +33,7 @@ export default function HomePage() {
               </Card>
               {data.map((category) => (
                 <Card
+                  chapter={category.frontmatter?.order}
                   key={category.frontmatter?.key}
                   title={category.frontmatter?.title}
                   href={category.frontmatter?.slug}

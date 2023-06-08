@@ -98,7 +98,7 @@ const config = {
         preconnect: ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'],
         web: [
           {
-            file: 'https://fonts.googleapis.com/css2?family=Domine&family=Rubik:wght@400;700&family=Open+Sans:wght@400;700&display=swap',
+            file: 'https://fonts.googleapis.com/css2?family=Domine&family=Rubik:wght@300;400;700&family=Open+Sans:wght@400;700&display=swap',
           }
         ],
       },

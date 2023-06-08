@@ -8,15 +8,17 @@ import Card from '../components/Card';
 export default function Category({ data, uri, pageContext }) {
   return (
     <ContentOnlyLayout>
-      <PageTitle>{pageContext.frontmatter.title}</PageTitle>
+      <PageTitle>Chapter {pageContext.frontmatter.order}: {pageContext.frontmatter.title}</PageTitle>
       <p>{pageContext.excerpt}</p>
 
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
         {data.allMdx.nodes.map(demo => (
-          <Card key={demo.frontmatter.slug} title={demo.frontmatter.title} href={demo.frontmatter.slug}>
+          <Card 
+            key={demo.frontmatter.slug} 
+            title={`${demo.frontmatter.section} ${demo.frontmatter.title}`} 
+            href={demo.frontmatter.slug}
+          >
             {demo.frontmatter.summary}
-
-            {/* <em className="block mt-4">{demo.excerpt}</em> */}
           </Card>
         ))}
       </div>
@@ -35,6 +37,8 @@ query ($key: String) {
         summary
         slug
         title
+        order
+        section
       }
     }
   }

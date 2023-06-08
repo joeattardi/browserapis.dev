@@ -6,7 +6,7 @@ import Card from '../components/Card';
 import useCategories from '../hooks/useCategories';
 
 export const frontmatter = {
-  title: 'Demos',
+  title: 'Chapters',
   slug: '/demos',
   nav: {
     key: 'demos',
@@ -17,14 +17,15 @@ export const frontmatter = {
 
 export default function DemosPage() {
   const data = useCategories();
-
+  console.log(data);
   return (
     <ContentOnlyLayout>
-      <PageTitle>Code &amp; Demos</PageTitle>
+      <PageTitle>Chapters</PageTitle>
 
       <div className="my-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
         {data.map(category => (
           <Card 
+            chapter={category.frontmatter.order}
             key={category.frontmatter?.key} 
             title={category.frontmatter?.title} 
             href={category.frontmatter?.slug}

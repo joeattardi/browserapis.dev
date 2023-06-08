@@ -1,14 +1,17 @@
-getUsers()
-  // This function is called when the user list has been loaded.
-  .then(userList => {
+// A function must be declared with the `async` keyword in order to use `await` in its body.
+async function renderUserNames() {
+  try {
+    // Equivalent to getUsers().then(...)
+    const userList = await getUsers();
     userList.forEach(user => {
       renderUser(user);
-    })
-  }).catch(error => { // Called if there is an error
+    });
+  } catch (error) { // Equivalent to .catch(...)
     console.error('Failed to load user list:', error);
-  });
+  }
+}
 
-
+renderUserNames();
   
 const list = document.querySelector('#users');
 

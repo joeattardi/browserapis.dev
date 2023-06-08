@@ -14,6 +14,7 @@ export default function useCategories() {
             slug
             title
             key
+            section
           }
         }
       }

@@ -26,7 +26,7 @@ export default function useNavigation(group) {
           frontmatter {
             title
             slug
-            nav{
+            nav {
               key
               group
               order

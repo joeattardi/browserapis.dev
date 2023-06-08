@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
-export default function Card({ title, children, href }) {
+export default function Card({ title, chapter, children, href }) {
   return (
     <a
       href={href}
@@ -15,6 +15,7 @@ export default function Card({ title, children, href }) {
       )}
     >
       <div className="skew-x-12 flex items-start space-x-4">
+        <div className="text-8xl mr-4 font-light italic text-slate-500 dark:text-slate-400">{chapter}</div>
         <div>
           <div className="font-bold dark:text-slate-200 text-slate-700 text-2xl mb-2">
             {title}
