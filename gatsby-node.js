@@ -39,6 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMdx {
         nodes {
           excerpt
+          body
           frontmatter {
             key
             alias
@@ -99,6 +100,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       context: {
         excerpt: category.excerpt,
+        body: category.body,
         key: category.frontmatter.key
       },
       path: category.frontmatter.slug,

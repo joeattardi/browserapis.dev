@@ -33,6 +33,7 @@ query ($key: String) {
   allMdx(filter: {frontmatter: {category: { eq: $key}} }, sort: { frontmatter:{order: ASC}}) {
     nodes {
       excerpt
+      body
       frontmatter {
         summary
         slug

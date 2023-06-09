@@ -17,7 +17,7 @@ export const frontmatter = {
 export default function TopicsPage({ data }) {
   return (
     <ContentOnlyLayout>
-      <PageTitle>Demos by Topic</PageTitle>
+      <PageTitle>Examples by Chapter</PageTitle>
 
       {data.categories.nodes.map((category) => (
         <div className="my-4" key={category.frontmatter.slug}>
