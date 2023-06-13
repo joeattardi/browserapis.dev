@@ -15,6 +15,7 @@ export default function useCategories() {
             title
             key
             section
+            summary
           }
         }
       }

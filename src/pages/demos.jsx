@@ -17,7 +17,7 @@ export const frontmatter = {
 
 export default function DemosPage() {
   const data = useCategories();
-  console.log(data);
+  
   return (
     <ContentOnlyLayout>
       <PageTitle>Chapters</PageTitle>
@@ -30,7 +30,7 @@ export default function DemosPage() {
             title={category.frontmatter?.title} 
             href={category.frontmatter?.slug}
           >
-            {category.excerpt}
+            {category.frontmatter?.summary}
           </Card>
         ))}
       </div>
@@ -38,4 +38,4 @@ export default function DemosPage() {
   );
 }
 
-export const Head = (props) => <SEO {...props} pageTitle="Demos" />;
+export const Head = (props) => <SEO {...props} pageTitle="Chapters" />;

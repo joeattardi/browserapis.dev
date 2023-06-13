@@ -38,7 +38,7 @@ export default function HomePage() {
                   title={category.frontmatter?.title}
                   href={category.frontmatter?.slug}
                 >
-                  {category.excerpt}
+                  {category.frontmatter?.summary}
                 </Card>
               ))}
             </div>

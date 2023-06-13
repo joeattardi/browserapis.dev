@@ -5,7 +5,7 @@ import SEO from '../components/Seo';
 import { Link, graphql } from 'gatsby';
 
 export const frontmatter = {
-  title: 'Full Contents',
+  title: 'Examples',
   slug: '/topics',
   nav: {
     key: 'topics',
@@ -81,4 +81,4 @@ export const query = graphql`
   }
 `;
 
-export const Head = (props) => <SEO {...props} pageTitle="Topics" />;
+export const Head = (props) => <SEO {...props} pageTitle="Examples" />;

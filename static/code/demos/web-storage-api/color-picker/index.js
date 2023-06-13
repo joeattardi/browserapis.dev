@@ -1,14 +1,13 @@
-// Save a reference to the color picker
+// A reference to the color picker input element.
 const colorPicker = document.querySelector('#colorPicker');
 
-// Look for a previously saved color and set it, if found.
-const savedColor = localStorage.getItem('savedColor');
-if (savedColor) {
-  // We found a saved color - set it in the color picker
-  colorPicker.value = savedColor;
+// Load the saved color, if any, and set it on the color picker.
+const storedValue = localStorage.getItem('savedColor'); 
+if (storedValue) {
+  colorPicker.value = storedValue;
 }
 
-// When the color is changed, save it to local storage.
-colorPicker.addEventListener('change', () => {
-  localStorage.setItem('savedColor', colorPicker.value);
+// Update the saved color whenever the value changes.
+colorPicker.addEventListener('change', event => {
+  localStorage.setItem('savedColor', event.target.value);
 });

@@ -1,14 +1,6 @@
-// Look up some elements and templates.
-const todoTemplate = document.querySelector('#todoTemplate');
-const form = document.querySelector('form');
-const todoElements = document.querySelector('#todos');
-
 // Constant indicating the key within local storage that the todo list
 // is saved under.
 const storageKey = 'todos';
-
-// Stores the todo items.
-let todoList = loadTodoList();
 
 /**
  * Takes the curent todo list and saves it to local storage.
@@ -22,12 +14,17 @@ function saveTodoList() {
  * @returns the previously saved list, or an empty array if there was no saved list.
  */
 function loadTodoList() {
-  const list = JSON.parse(localStorage.getItem(storageKey)) || [];
-
-  list.forEach(todo => renderTodo(todo));
-
-  return list;
+  return JSON.parse(localStorage.getItem(storageKey)) || [];
 }
+
+// Look up some elements and templates.
+const todoTemplate = document.querySelector('#todoTemplate');
+const form = document.querySelector('form');
+const todoElements = document.querySelector('#todos');
+
+// Array containing the todo items.
+let todoList = loadTodoList();
+todoList.forEach(todo => renderTodo(todo));
 
 // Adds a new todo when the  form is submitted.
 form.addEventListener('submit', event => {
