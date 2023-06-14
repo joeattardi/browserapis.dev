@@ -1,0 +1,16 @@
+<form id="urlForm">
+  <div class="field">
+    <label for="url">URL</label>
+    <input id="url" name="url" type="url" class="w-full" value="https://example.com/api/users?role=admin&status=active">
+  </div>
+  <div class="flex flex-row items-center mb-4 space-x-4">
+    <input id="param" name="param" value="status">
+    <button type="button" id="removeSingle">Remove Single Parameter</button>
+  </div>
+  <button type="button" id="removeAll">Remove All Parameters</button>
+
+  <div id="results" class="bg-blue-200 dark:bg-blue-800 p-4 mt-4 hidden">
+    <h3 class="text-xl font-bold">New URL</h3>
+    <p></p>
+  </div>
+</form>
