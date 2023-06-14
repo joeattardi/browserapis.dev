@@ -15,7 +15,7 @@ export default function Category({ data, uri, pageContext }) {
         {data.allMdx.nodes.map(demo => (
           <Card 
             key={demo.frontmatter.slug} 
-            title={`${demo.frontmatter.section} ${demo.frontmatter.title}`} 
+            title={`${demo.frontmatter.section ?? 'Demo:'} ${demo.frontmatter.title}`} 
             href={demo.frontmatter.slug}
           >
             {demo.frontmatter.summary}
@@ -35,6 +35,7 @@ query ($key: String) {
       excerpt
       body
       frontmatter {
+        type
         summary
         slug
         title

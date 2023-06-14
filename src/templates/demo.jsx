@@ -15,7 +15,7 @@ import { Link } from 'gatsby';
 export default function Demo({ children, uri, pageContext }) {
   const categories = useCategories();
   const parent = categories.find(category => category.frontmatter?.key === pageContext.frontmatter.category);
-
+  console.log(pageContext.frontmatter.type);
   return (
     <ContentOnlyLayout>
       <div className="text-gray-700 dark:text-gray-200">
@@ -30,12 +30,14 @@ export default function Demo({ children, uri, pageContext }) {
 
       <section className="prose prose-lg max-w-none dark:prose-invert">{children}</section>
 
-      <section className="my-5">
-        <h2 className="text-2xl my-2">Demo</h2>
-        <div className={clsx('bg-white p-4 rounded-md shadow-lg my-2 recipeDemo')}>
-            <InlineDemo code={pageContext.codeFiles} />
-        </div>
-      </section>
+      {pageContext.frontmatter.type === 'demo' &&
+        <section className="my-5">
+          <h2 className="text-2xl my-2">Demo</h2>
+          <div className={clsx('bg-white p-4 rounded-md shadow-lg my-2 recipeDemo')}>
+              <InlineDemo code={pageContext.codeFiles} />
+          </div>
+        </section>
+      }
 
       <section className="my-5">
         <h2 className="text-2xl my-2">Code</h2>

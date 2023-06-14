@@ -46,7 +46,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
             title
             type
-
+            code {
+              name
+              language
+            }
           }
           internal {
             contentFilePath
@@ -81,7 +84,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   }
 
-  const demos = result.data.allMdx.nodes.filter(node => node.frontmatter.type === 'demo');
+  const demos = result.data.allMdx.nodes.filter(node => node.frontmatter.type === 'demo' || node.frontmatter.type === 'listing');
 
   const promises = [];
   demos.forEach(demo => {
