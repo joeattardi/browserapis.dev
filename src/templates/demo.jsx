@@ -32,25 +32,30 @@ export default function Demo({ children, uri, pageContext }) {
 
       {pageContext.frontmatter.type === 'demo' &&
         <section className="my-5">
-          <h2 className="text-2xl my-2">Demo</h2>
-          <div className={clsx('bg-white p-4 rounded-md shadow-lg my-2 recipeDemo')}>
-              <InlineDemo code={pageContext.codeFiles} />
-          </div>
+          
+          <details open>
+            <summary className="text-2xl">Demo</summary>
+            <div className={clsx('bg-white p-4 rounded-md shadow-lg my-2 recipeDemo')}>
+                <InlineDemo code={pageContext.codeFiles} />
+            </div>
+          </details>
         </section>
       }
 
       <section className="my-5">
-        <h2 className="text-2xl my-2">Code</h2>
-        <div className="flex flex-col space-y-8">
-        {pageContext.codeFiles.map(codeFile =>
-          <CodeBlock 
-            key={codeFile.name} 
-            language={codeFile.language} 
-            code={codeFile.code} 
-            title={codeFile.title} 
-          />
-        )}
-        </div>
+        <details open>
+          <summary className="text-2xl my-2">Code</summary>
+          <div className="flex flex-col space-y-8">
+          {pageContext.codeFiles.map(codeFile =>
+            <CodeBlock 
+              key={codeFile.name} 
+              language={codeFile.language} 
+              code={codeFile.code} 
+              title={codeFile.title} 
+            />
+          )}
+          </div>
+        </details>
       </section>
       </div>
       <SocialShare />
