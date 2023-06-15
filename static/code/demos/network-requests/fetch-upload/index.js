@@ -1,3 +1,14 @@
+function uploadFile(form) {
+  // Assume the form has a file input with the name `file`
+  const formData = new FormData(form);
+  const fileData = formData.get('file');
+  return fetch('https://httpbin.org/post', {
+    method: 'POST',
+    body: fileData
+  })
+    .then(response => response.json());
+}
+
 const form = document.querySelector('#fileForm');
 const submitButton = document.querySelector('#submitButton');
 const fileInput = document.querySelector('#fileInput');
@@ -11,33 +22,24 @@ form.addEventListener('submit', async event => {
   // Disable the submit button, just while the request is in progress
   submitButton.disabled = true;
 
-  // The FormData object will contain the file content to be sent
-  const formData = new FormData(event.target);
+  uploadFile(event.target)
+    .then(response => {
+      const contentType = response.headers['Content-Type'];
+      setResultContent(`✅ File uploaded: ${contentType}`);
 
-  try {
-    // Send the POST request with the file's form data
-    const response = await fetch('https://httpbin.org/post', {
-      method: 'POST',
-      body: formData.get('file')
+      // If we got an image, use the data URL that httpbin echoes back
+      // in the response to show the image on our page.
+      if (contentType.startsWith('image')) {
+        const img = document.createElement('img');
+        img.src = response.data;
+        results.appendChild(img);
+      }
+    })
+    .catch(error => {
+      setResultContent(`⚠️ Upload failed: ${error.message}`);
+    }).finally(() => {
+      submitButton.disabled = false;
     });
-
-    const body = await response.json();
-    const contentType = body.headers['Content-Type'];
-
-    setResultContent(`✅ File uploaded: ${contentType}`);
-
-    // If we got an image, use the data URL that httpbin echoes back
-    // in the response to show the image on our page.
-    if (contentType.startsWith('image')) {
-      const img = document.createElement('img');
-      img.src = body.data;
-      results.appendChild(img);
-    }
-  } catch (error) {
-    setResultContent(`⚠️ Upload failed: ${error.message}`);
-  } finally {
-    submitButton.disabled = false;
-  }
 });
 
 /**

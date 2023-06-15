@@ -15,7 +15,6 @@ import { Link } from 'gatsby';
 export default function Demo({ children, uri, pageContext }) {
   const categories = useCategories();
   const parent = categories.find(category => category.frontmatter?.key === pageContext.frontmatter.category);
-  console.log(pageContext.frontmatter.type);
   return (
     <ContentOnlyLayout>
       <div className="text-gray-700 dark:text-gray-200">
