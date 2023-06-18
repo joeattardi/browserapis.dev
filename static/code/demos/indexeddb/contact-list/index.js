@@ -12,6 +12,7 @@ function initializeDatabase() {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open('contact-list');
     request.addEventListener('upgradeneeded', (event) => {
+      console.log(event);
       db = event.target.result;
 
       // New contact objects will be given an auto-generated 
@@ -23,7 +24,6 @@ function initializeDatabase() {
     });
 
     request.addEventListener('success', (event) => {
-      console.log('success!');
       db = event.target.result;
       resolve(db);
     });
@@ -85,7 +85,7 @@ function deleteContact(contact) {
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(['contacts'], 'readwrite');
     const store = transaction.objectStore('contacts');
-    const request = store.delete(contact.id);
+    const request = store.delete('poop');
     request.addEventListener('success', resolve);
     request.addEventListener('error', reject);
   });
@@ -143,7 +143,7 @@ async function renderContacts(contacts) {
     element.querySelector('.name').textContent = contact.name;
     element.querySelector('.email').textContent = contact.email;
     element.querySelector('.delete').addEventListener('click', (event) => {
-      deleteContact(contact).then(renderContacts());
+      deleteContact(contact).then((e) => { console.log('derp', e); renderContacts(); });
     });
     contactList.appendChild(element);
   });

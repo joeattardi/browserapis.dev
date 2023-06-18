@@ -1,0 +1,16 @@
+---
+title: 'Persisting a New Object'
+type: 'listing'
+slug: '/demos/indexeddb/add/'
+category: 'indexeddb'
+summary: "Add a new object to a database's object store."
+order: 3
+section: '5.3'
+code:
+  - name: 'index.js'
+    language: 'javascript'
+---
+
+The `add` method inserts a new record into an object store. If the given object already exists (determined by comparing keys), an error event is triggered on the request.
+
+Assume you have a database called `users`, with an object store also called `users`. This function takes a database and a new todo object, and adds the new todo to the database.
