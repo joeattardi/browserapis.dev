@@ -26,7 +26,7 @@ const todoElements = document.querySelector('#todos');
 let todoList = loadTodoList();
 todoList.forEach(todo => renderTodo(todo));
 
-// Adds a new todo when the  form is submitted.
+// Adds a new todo when the form is submitted.
 form.addEventListener('submit', event => {
   event.preventDefault();
 

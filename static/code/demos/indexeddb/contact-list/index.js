@@ -12,7 +12,6 @@ function initializeDatabase() {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open('contact-list');
     request.addEventListener('upgradeneeded', (event) => {
-      console.log(event);
       db = event.target.result;
 
       // New contact objects will be given an auto-generated 

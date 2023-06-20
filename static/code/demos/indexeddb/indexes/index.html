@@ -1,0 +1,16 @@
+<!-- This template is used to render each todo item. -->
+<template id="todoTemplate">
+  <li class="todo flex items-center bg-gray-100 dark:bg-gray-500 dark:text-white p-2 shadow-inner rounded my-2">
+    <input class="mr-2" type="checkbox">
+    <label class="cursor-pointer name flex-grow mb-0 font-normal"></div>
+  </li>
+</template>
+
+<input type="checkbox" id="showCompleted">
+<label for="showCompleted">Show completed todos</label>
+
+<form class="todo-form">
+  <input class="text-lg w-full" name="todo" placeholder="Add a todo and press Enter...">
+</form>
+
+<ul id="todos"></ul>
