@@ -1,7 +1,38 @@
-const addForm = document.querySelector('#addForm');
-const contactTemplate = document.querySelector('#contactTemplate');
-const search = document.querySelector('#search');
-const emptyMessage = document.querySelector('#emptyMessage');
+/**
+ * Queries the database and gets a list of contacts whose name or email
+ * matches a search query.
+ * @param db the IndexedDB database
+ * @param query the search query
+ * @returns a Promise that resolves to the matching contacts
+ */
+function searchContacts(db, query) {
+  return new Promise((resolve, reject) => {
+    const results = [];
+
+    // Only querying, so use a readonly transaction.
+    const transaction = db.transaction(['contacts'], 'readonly');
+    const store = transaction.objectStore('contacts');
+
+    const request = store.openCursor();
+    // The cursor request will emit a `success` event for each object it finds
+    request.addEventListener('success', event => {
+      const cursor = event.target.result;
+      if (cursor) {
+        // Add the contact to the result array if it matches the query.
+        if (cursor.value.name.toLowerCase().includes(query.toLowerCase()) || 
+            cursor.value.email.toLowerCase().includes(query.toLowerCase())) {
+          results.push(cursor.value);
+        }
+
+        // Continue to the next record.
+        cursor.continue();
+      } else {
+        // All done, resolve the promise with the matching contacts.
+        resolve(results);
+      }
+    });
+  });
+}
 
 let db;
 
@@ -91,40 +122,6 @@ function deleteContact(contact) {
 }
 
 /**
- * Queries the database and gets a list of contacts whose name or email
- * matches a search query.
- * @param query the search query
- * @returns a Promise that resolves to the matching contacts
- */
-function searchContacts(query) {
-  return new Promise((resolve, reject) => {
-    const results = [];
-
-    const transaction = db.transaction(['contacts'], 'readonly');
-    const store = transaction.objectStore('contacts');
-
-    // We use a cursor here. When the cursor is ready the request
-    // will emit a `success` event.
-    const request = store.openCursor();
-    request.addEventListener('success', event => {
-      const cursor = event.target.result;
-      if (cursor) {
-        // Add the contact to the result array if it matches the query.
-        if (cursor.value.name.toLowerCase().includes(query.toLowerCase()) || 
-            cursor.value.email.toLowerCase().includes(query.toLowerCase())) {
-          results.push(cursor.value);
-        }
-
-        // Continue to the next record.
-        cursor.continue();
-      } else {
-        // We're done, resolve the promise with the matching contacts.
-        resolve(results);
-      }
-    });
-  });
-}
-/**
  * Renders a list of contacts to the UI.
  * @param contacts the contacts to render, or null to load the contacts from the database first.
  */
@@ -152,10 +149,15 @@ async function renderContacts(contacts) {
   emptyMessage.classList.toggle('hidden', contacts.length > 0);
 }
 
+const addForm = document.querySelector('#addForm');
+const contactTemplate = document.querySelector('#contactTemplate');
+const search = document.querySelector('#search');
+const emptyMessage = document.querySelector('#emptyMessage');
+
 initializeDatabase().then(() => renderContacts());
 
 search.querySelector('input').addEventListener('input', event => {
-  searchContacts(event.target.value)
+  searchContacts(db, event.target.value)
     .then(searchResults => {
       renderContacts(searchResults);
     });
