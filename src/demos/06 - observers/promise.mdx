@@ -1,0 +1,15 @@
+---
+title: 'Wrapping an IntersectionObserver with a Promise'
+type: 'listing'
+slug: '/demos/observers/promise/'
+category: 'observers'
+summary: "Create a Promise that is resolved once a given element becomes visible."
+order: 2
+section: '6.2'
+code:
+  - name: 'index.js'
+    language: 'javascript'
+---
+
+You can promisify an `IntersectionObserver` by wrapping it in a `Promise` constructor, and resolving
+the `Promise` once the `isIntersecting` property becomes `true`.
