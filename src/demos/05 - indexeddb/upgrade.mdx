@@ -1,0 +1,15 @@
+---
+title: 'Upgrading an Existing Database'
+type: 'listing'
+slug: '/demos/indexeddb/upgrade/'
+category: 'indexeddb'
+summary: 'Add a new object store to a database.'
+order: 2
+section: '5.2'
+code:
+  - name: 'index.js'
+    language: 'javascript'
+---
+
+If you add a new object store to your database, you need to increment the database version. This will trigger an
+`upgradeneeded` event where you can check the old version and determine which object store(s) need to be created.
