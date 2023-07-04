@@ -2,18 +2,21 @@
  * Queries the database and gets a list of contacts whose name or email
  * matches a search query.
  * @param db the IndexedDB database
- * @param query the search query
+ * @param query the search query string
  * @returns a Promise that resolves to the matching contacts
  */
 function searchContacts(db, query) {
   return new Promise((resolve, reject) => {
+    // An array to hold all contacts with a name containing the query text.
     const results = [];
 
     // Only querying, so use a readonly transaction.
     const transaction = db.transaction(['contacts'], 'readonly');
     const store = transaction.objectStore('contacts');
 
+    // Cursors are created by the object store
     const request = store.openCursor();
+
     // The cursor request will emit a `success` event for each object it finds
     request.addEventListener('success', event => {
       const cursor = event.target.result;
@@ -115,7 +118,7 @@ function deleteContact(contact) {
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(['contacts'], 'readwrite');
     const store = transaction.objectStore('contacts');
-    const request = store.delete('poop');
+    const request = store.delete(contact.id);
     request.addEventListener('success', resolve);
     request.addEventListener('error', reject);
   });

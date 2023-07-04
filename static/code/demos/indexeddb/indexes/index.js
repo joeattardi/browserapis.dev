@@ -1,6 +1,29 @@
 let db;
 let showCompleted = false;
 
+function getTodos(db, showCompleted) {
+  return new Promise((resolve, reject) => {
+    // Only querying, so a readonly transaction will suffice.
+    const transaction = db.transaction(['todos'], 'readonly');
+    const store = transaction.objectStore('todos');
+
+    // Access the store's `completed` index.
+    const index = store.index('completed');
+
+    // If `showCompleted` is `true, use a key range to include both
+    // incomplete (0) and completed (1). Otherwise, just use incomplete (0).
+    const keyRange = showCompleted ?
+      IDBKeyRange.bound(0, 1) :
+      IDBKeyRange.only(0);
+
+    // Get all objects indexed within the given key range.
+    const request = index.getAll(keyRange);
+
+    request.addEventListener('success', event => resolve(event.target.result));
+    request.addEventListener('error', reject);
+  });
+}
+
 function initializeDatabase() {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open('todos-index');
@@ -33,23 +56,6 @@ function addTodo(db, todo) {
     const request = store.add(todo);
 
     request.addEventListener('success', resolve);
-    request.addEventListener('error', reject);
-  });
-}
-
-function getTodos(db, showCompleted) {
-  return new Promise((resolve, reject) => {
-    const transaction = db.transaction(['todos'], 'readonly');
-    const store = transaction.objectStore('todos');
-    const index = store.index('completed');
-
-    const keyRange = showCompleted ?
-      IDBKeyRange.bound(0, 1) :
-      IDBKeyRange.only(0);
-
-    const request = index.getAll(keyRange);
-
-    request.addEventListener('success', event => resolve(event.target.result));
     request.addEventListener('error', reject);
   });
 }
