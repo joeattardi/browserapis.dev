@@ -1,0 +1,16 @@
+---
+title: 'Getting Sorted Objects From a Store'
+type: 'listing'
+slug: '/demos/indexeddb/sort/'
+category: 'indexeddb'
+summary: 'Use an index to get a collection of objects sorted by a particular property.'
+order: 9
+section: '5.9'
+code:
+  - name: 'index.js'
+    language: 'javascript'
+---
+
+You can get a collection of objects from an object store, in sorted order, by using indexes. You can create
+an index on the desired property of the object store. Requests to `getAll` or opening a cursor will yield the 
+records sorted by that property.
