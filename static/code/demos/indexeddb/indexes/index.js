@@ -44,8 +44,8 @@ function getTodos(db, showCompleted) {
     const index = store.index('completed');
 
     const keyRange = showCompleted ?
-      IDBKeyRange.bound('false', 'true') :
-      IDBKeyRange.only('false');
+      IDBKeyRange.bound(0, 1) :
+      IDBKeyRange.only(0);
 
     const request = index.getAll(keyRange);
 
@@ -86,7 +86,7 @@ form.addEventListener('submit', async event => {
 
   const todo = {
     name: form.elements.todo.value,
-    completed: 'false'
+    completed: 0
   };
 
   await addTodo(db, todo);
@@ -110,7 +110,7 @@ function renderTodo(todo) {
   const label = element.querySelector('.todo label');
   label.textContent = todo.name;
   label.setAttribute('for', id);
-  if (todo.completed === 'true') {
+  if (todo.completed) {
     label.classList.add('line-through');
   }
 
@@ -118,15 +118,15 @@ function renderTodo(todo) {
   checkbox.id = id;
   checkbox.addEventListener('click', async event => {
     if (event.target.checked) {
-      todo.completed = 'true'
+      todo.completed = 1;
     } else {
-      todo.completed = 'false';
+      todo.completed = 0;
     }
 
     await updateTodo(db, todo);
     renderTodoList();
   });
-  if (todo.completed === 'true') {
+  if (todo.completed) {
     checkbox.checked = true;
   }
 
