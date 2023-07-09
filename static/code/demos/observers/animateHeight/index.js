@@ -13,8 +13,8 @@ function animateHeightChanges(element) {
   element.style.overflow = 'hidden';
 
   /**
-   * This observer will fire when the element's `open` attribute
-   * changes. It measures the new height, then uses `requestAnimationFrame`
+   * This observer will fire when the element's child elements
+   * change. It measures the new height, then uses `requestAnimationFrame`
    * to update the height. The height change will be animated.
    */
   const observer = new MutationObserver(entries => {
