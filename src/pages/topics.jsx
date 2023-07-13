@@ -65,7 +65,7 @@ export const query = graphql`
     }
 
     demos: allMdx(
-      filter: { frontmatter: { type: { eq: "demo" } } }
+      filter: { frontmatter: { type: { in: ["demo", "listing"] } } }
       sort: { frontmatter: { order: ASC } }
     ) {
       nodes {
